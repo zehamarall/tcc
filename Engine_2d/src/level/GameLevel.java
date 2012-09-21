@@ -108,7 +108,7 @@ public class GameLevel extends GameCanvas {
 		Constantes.LoadScript("scripts/scriptNomes.csv");
 
 		// Imagem do personagem
-		BufferedImage image = Constantes.LoadImage("Chara1.png");
+		BufferedImage image = Constantes.LoadImage("per_princ.png");
 		meuGerenciador.criaPersonagem(image);
 
 		// criando os alimentos saudaveis
