@@ -2,8 +2,6 @@ package engine.Gerenciadores;
 
 import java.applet.AudioClip;
 
-import engine.util.Constantes;
-
 public class GerenciadorDeSom extends GerenciadorBase {
 
 	static AudioClip[] playlist;

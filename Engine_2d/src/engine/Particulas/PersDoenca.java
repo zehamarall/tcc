@@ -3,16 +3,12 @@ package engine.Particulas;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.util.Map;
 import java.util.Random;
-
-import simulacao.Mapa;
 
 import engine.GamePanel;
 import engine.MoveableSprite;
 
 public class PersDoenca extends MoveableSprite {
-	private static final String resourceSource = null;
 	Random rnd = new Random();
 
 	public PersDoenca(BufferedImage _image, int _x, int _y, int _velx,
@@ -71,8 +67,8 @@ public class PersDoenca extends MoveableSprite {
 
 		int coeficienteX = (int) (this.x + (this.largura / 2)) / 16;
 		int coeficientey = (int) (this.y + (this.altura / 2)) / 16;
-		int coeficienteX2 = (int) (this.x + this.altura) / 16;
-		int coeficientey2 = (int) (this.y + this.largura) / 16;
+		//int coeficienteX2 = (int) (this.x + this.altura) / 16;
+		//int coeficientey2 = (int) (this.y + this.largura) / 16;
 		// System.out.println("DEBUG X " + coeficienteX + " Y " + coeficientey);
 		System.out.println("TILE X " + coeficienteX + "TILE Y " + coeficientey);
 

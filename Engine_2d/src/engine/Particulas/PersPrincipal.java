@@ -39,8 +39,8 @@ public class PersPrincipal extends MoveableSprite {
 
 		int coeficienteX = (int) (this.x + (this.largura / 2)) / 16;
 		int coeficientey = (int) (this.y + (this.altura / 2)) / 16;
-		int coeficienteX2 = (int) (this.x + this.altura) / 16;
-		int coeficientey2 = (int) (this.y + this.largura) / 16;
+		//int coeficienteX2 = (int) (this.x + this.altura) / 16;
+		//int coeficientey2 = (int) (this.y + this.largura) / 16;
 		// System.out.println("DEBUG X " + coeficienteX + " Y " + coeficientey);
 
 		System.out.println("TILE X " + coeficienteX + "TILE Y " + coeficientey);

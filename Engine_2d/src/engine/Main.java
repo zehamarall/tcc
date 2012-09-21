@@ -1,16 +1,11 @@
 package engine;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
 import java.awt.Container;
-import java.awt.Font;
-import java.awt.Label;
 
 import javax.swing.JApplet;
 
 import level.GameLevel;
-
-import pong.PongGame;
 
 public class Main extends JApplet {
 
