@@ -9,9 +9,6 @@ import level.GameLevel;
 
 public class Main extends JApplet {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	public static Main instance;
 
