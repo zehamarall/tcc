@@ -13,7 +13,7 @@ public class Main extends JApplet {
 	public static Main instance;
 
 	private GamePanel meuGamePanel;
-
+	
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
@@ -26,15 +26,14 @@ public class Main extends JApplet {
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
 
-		// meuGamePanel = new GamePanel(new Simulacao());
-		// meuGamePanel = new GamePanel(new PongGame());
-		meuGamePanel = new GamePanel(new GameLevel());
-
-		c.add(meuGamePanel, "Center");
+		//meuGamePanel = new GamePanel(new Simulacao());
+		//meuGamePanel1 = new GamePanel(new PongGame());
+		cria_jogo(3);
+		//meuGamePanel = new GamePanel(new GameLevel());
 
 		resize(GamePanel.GAME_WIDTH, GamePanel.GAME_HEIGHT);
 
-		meuGamePanel.startGame();
+		//meuGamePanel.startGame();
 
 	}
 
@@ -57,5 +56,12 @@ public class Main extends JApplet {
 		super.destroy();
 		meuGamePanel.stopGame();
 	}
-
+	
+	/*Define o nive do jogo*/
+	public void cria_jogo(int nivel) {
+		Container c = getContentPane();
+		c.setLayout(new BorderLayout());
+		meuGamePanel = new GamePanel(new GameLevel(nivel));
+		c.add(meuGamePanel, "Center");
+	}
 }

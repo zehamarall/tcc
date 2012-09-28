@@ -95,7 +95,7 @@ public class GameLevel extends GameCanvas {
 
 	}
 
-	public GameLevel() {
+	public GameLevel(int nivel) {
 
 		String[] musica = { "som/som.wav" };
 		meuSom = new GerenciadorDeSom(musica, false);
@@ -118,7 +118,7 @@ public class GameLevel extends GameCanvas {
 		}
 
 		// criando os personagens fantasma
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < nivel * 2; i++) {
 			BufferedImage image2 = Constantes.LoadImage("mack_4.png");
 			meuGerenciador.criaPersonagemDoenca(image2);
 		}
