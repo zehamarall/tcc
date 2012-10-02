@@ -11,12 +11,12 @@ import pong.PongPand;
 import engine.GameCanvas;
 import engine.Gerenciadores.GerenciadorDeParticulas;
 import engine.Gerenciadores.GerenciadorDeSom;
-import engine.mapa.Mapa2;
+import engine.mapa.Fase1;
 import engine.util.Constantes;
 
 public class GameLevel extends GameCanvas {
 
-	Mapa2 meuMapa;
+	Fase1 meuMapa;
 	GerenciadorDeParticulas meuGerenciador = new GerenciadorDeParticulas(false);
 	GerenciadorDeSom meuSom;
 	PongPand pad;
@@ -103,7 +103,7 @@ public class GameLevel extends GameCanvas {
 		// Imagem do mapa
 		BufferedImage tileset = Constantes.LoadImage("tileset.png");
 		// meuMapa = new Mapa(tileset, 0, 0, 0, 0, Color.black, 16, 16);
-		meuMapa = new Mapa2(tileset, 0, 0, 0, 0, Color.black, 16, 16);
+		meuMapa = new Fase1(tileset, 0, 0, 0, 0, Color.black, 16, 16);
 
 		Constantes.LoadScript("scripts/scriptNomes.csv");
 

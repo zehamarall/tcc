@@ -48,7 +48,7 @@ public class PersPrincipal extends MoveableSprite {
 		if (coeficienteX >= 0 && coeficientey >= 0) {
 			int valor = coeficienteX + (((coeficientey*60)/60)*60);
 			System.out.println(" Coeficiente X "+ coeficienteX + " MOD " +((coeficientey*60)/60));
-			int[][] matrizDoMapa = engine.mapa.Mapa2.matrizDoMapa;
+			int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
 			System.out.println("Valor " + valor + "MAPA "+matrizDoMapa[1][valor]);
 			if (matrizDoMapa[1][valor] != 0){
 				System.out.println("COLIDIU personagem principal ");

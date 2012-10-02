@@ -109,7 +109,7 @@ public class PersonagemPrincipal extends Personagem {
 
 		if (coeficienteX >= 0 && coeficientey >= 0) {
 			int valor = coeficienteX + (((coeficientey * 60) / 60) * 60);
-			int[][] matrizDoMapa = engine.mapa.Mapa2.matrizDoMapa;
+			int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
 			if (matrizDoMapa[1][valor] != 0) {
 				this.colidiu();
 				return;

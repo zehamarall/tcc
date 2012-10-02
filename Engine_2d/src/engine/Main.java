@@ -12,6 +12,7 @@ public class Main extends JApplet {
 	private static final long serialVersionUID = 1L;
 	public static Main instance;
 
+
 	private GamePanel meuGamePanel;
 	
 	@Override
@@ -25,14 +26,20 @@ public class Main extends JApplet {
 
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
+		
+		
+
 
 		//meuGamePanel = new GamePanel(new Simulacao());
 		//meuGamePanel1 = new GamePanel(new PongGame());
+		
+		
 		cria_jogo(3);
-		//meuGamePanel = new GamePanel(new GameLevel());
-
+		//meuGamePanel = new GamePanel(new GameMenu(instance));
+		///cria_jogo(3);
+		//c.add(meuGamePanel, "Center");
 		resize(GamePanel.GAME_WIDTH, GamePanel.GAME_HEIGHT);
-
+		
 		//meuGamePanel.startGame();
 
 	}
@@ -60,8 +67,11 @@ public class Main extends JApplet {
 	/*Define o nive do jogo*/
 	public void cria_jogo(int nivel) {
 		Container c = getContentPane();
-		c.setLayout(new BorderLayout());
+		//c.setLayout(new BorderLayout());
 		meuGamePanel = new GamePanel(new GameLevel(nivel));
 		c.add(meuGamePanel, "Center");
+	
+		
+		
 	}
 }
