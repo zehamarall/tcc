@@ -27,7 +27,7 @@ public class GameLevel extends GameCanvas {
 	private boolean RIGHT = false;
 	private static int animacao = 0;
 	private int x = 0;
-
+	
 	@Override
 	public void gameUpdate(long diffTime) {
 

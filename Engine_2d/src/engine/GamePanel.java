@@ -13,6 +13,8 @@ import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 import java.util.Random;
 
+import level.GameLevel;
+
 public class GamePanel extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
@@ -28,6 +30,8 @@ public class GamePanel extends Canvas implements Runnable {
 	public static GamePanel isntance = null;
 	public static Random rnd = new Random();
 
+	public static final short GAME_MENU =0;
+	public static final short GAME_LEVEL =1;
 	public static long diffTime;
 
 	// Variaveis da Engine
@@ -37,8 +41,11 @@ public class GamePanel extends Canvas implements Runnable {
 
 	public GamePanel(GameCanvas primeiroGameCanvas) {
 
+		
+		isntance = this;
 		listaDeGameCanvas = new ArrayList<GameCanvas>();
 		listaDeGameCanvas.add(primeiroGameCanvas);
+		listaDeGameCanvas.add(new GameLevel(1));
 		gameCanvasAtual = primeiroGameCanvas;
 		indiceGameCanvas = 0;
 
@@ -188,6 +195,22 @@ public class GamePanel extends Canvas implements Runnable {
 
 		System.exit(0);
 
+	}
+
+	
+	public static void trocaFase(int INDEX){
+		
+		GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas.get(INDEX);
+		
+		
+	}
+	
+	public static void trocaFase(int INDEX,int nivelDeDificuldade){
+		GameLevel tmp = (GameLevel)GamePanel.isntance.listaDeGameCanvas.get(INDEX);
+		tmp = new GameLevel(nivelDeDificuldade);
+		GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas.get(INDEX);
+	
+		
 	}
 
 }

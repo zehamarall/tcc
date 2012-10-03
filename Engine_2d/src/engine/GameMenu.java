@@ -4,74 +4,104 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-
-import sun.security.jca.GetInstance.Instance;
+import java.util.ArrayList;
 
 import engine.util.Constantes;
 
-public class GameMenu extends GameCanvas  {
+public class GameMenu extends GameCanvas {
 
 	BufferedImage tileset;
+	BufferedImage mBackground;
 	Main main;
-	public GameMenu(Main test){
+
+	ArrayList<Botao> mListaDeBotoes = new ArrayList<Botao>();
+
+	public GameMenu(Main test) {
 		// Imagem do mapa
-		 main = test;
+		main = test;
 		tileset = Constantes.LoadImage("tileset.png");
+		BufferedImage over = Constantes.LoadImage("smurf_sprite.png");
+		BufferedImage notOver = Constantes.LoadImage("per.png");
+		mBackground =  Constantes.LoadImage("menu.jpg");
+		
+		Botao mPlayButton = new Botao(0,0,over,notOver) {
+			
+			@Override
+			public void buttonAction() {
+				GamePanel.trocaFase(GamePanel.GAME_LEVEL);
+				
+			}
+		};
+		
+		mListaDeBotoes.add(mPlayButton);
 	}
+
 	@Override
 	public void gameUpdate(long diffTime) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void draw(Graphics2D dbg) {
 		// TODO Auto-generated method stub
-		dbg.drawImage(tileset, null, null);
-		
+		//dbg.drawImage(tileset, null, null);
+		dbg.drawImage(mBackground, null, null);
+		for (int i = 0; i < mListaDeBotoes.size(); i++) {
+			mListaDeBotoes.get(i).draw(dbg);
+		}
+
 	}
 
 	@Override
 	public void keyPressed(KeyEvent tecla) {
 		// TODO Auto-generated method stub
+
 		
 	}
 
 	@Override
 	public void keyreleassed(KeyEvent tecla) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent mouse) {
-		// TODO Auto-generated method stub
-		
+
+		for (int i = 0; i < mListaDeBotoes.size(); i++) {
+			Botao tmp = mListaDeBotoes.get(i);
+			tmp.buttonPressed(mouse);
+
+		}
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		main.cria_jogo(2);
+		for (int i = 0; i < mListaDeBotoes.size(); i++) {
+			Botao tmp = mListaDeBotoes.get(i);
+			tmp.buttonReleased(e);
+
+		}
+
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent mouse) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent mouse) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent mouse) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	
 }

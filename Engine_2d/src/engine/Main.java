@@ -27,20 +27,13 @@ public class Main extends JApplet {
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
 		
-		
-
-
-		//meuGamePanel = new GamePanel(new Simulacao());
-		//meuGamePanel1 = new GamePanel(new PongGame());
-		
-		
-		cria_jogo(3);
-		//meuGamePanel = new GamePanel(new GameMenu(instance));
+		//cria_jogo(1);
+		meuGamePanel = new GamePanel(new GameMenu(instance));
 		///cria_jogo(3);
-		//c.add(meuGamePanel, "Center");
+		c.add(meuGamePanel, "Center");
 		resize(GamePanel.GAME_WIDTH, GamePanel.GAME_HEIGHT);
 		
-		//meuGamePanel.startGame();
+		meuGamePanel.startGame();
 
 	}
 
