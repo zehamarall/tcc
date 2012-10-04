@@ -65,8 +65,8 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 		while (true) {
 			int x = rnd.nextInt(GamePanel.GAME_WIDTH - 40);
 			int y = rnd.nextInt(GamePanel.GAME_HEIGHT - 40);
-			int tmpx = ((x + 16) / 16);
-			int tmpy = ((y + 16) / 16);
+			int tmpx = ((x + 18) / 16);
+			int tmpy = ((y + 18) / 16);
 
 			if (tmpx >= 0 && tmpy >= 0) {
 				int valor = tmpx + (((tmpy * 60) / 60) * 60);
