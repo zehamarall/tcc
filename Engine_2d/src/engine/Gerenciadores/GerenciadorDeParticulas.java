@@ -30,10 +30,28 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 	}
 
 	public void criaObjeto(BufferedImage image) {
-		LISTA_DE_ALIMENTOS.add(new Sprite(image, rnd
-				.nextInt(GamePanel.GAME_WIDTH), rnd
-				.nextInt(GamePanel.GAME_HEIGHT), Color.black) {
-		});
+		
+		while (true) {
+			int x = rnd.nextInt(GamePanel.GAME_WIDTH - 40);
+			int y = rnd.nextInt(GamePanel.GAME_HEIGHT - 40);
+			int tmpx = ((x + 12) / 16);
+			int tmpy = ((y + 12) / 16);
+
+			if (tmpx >= 0 && tmpy >= 0) {
+				int valor = tmpx + (((tmpy * 60) / 60) * 60);
+				System.out.println(" Coeficiente X " + tmpx + " MOD "
+						+ ((tmpy * 60) / 60));
+				int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+				System.out.println("Valor " + valor + "MAPA "
+						+ matrizDoMapa[1][valor]);
+				if (matrizDoMapa[1][valor] == 0) {
+
+					LISTA_DE_ALIMENTOS.add(new PersonagemDoenca(image, x, y,
+							Color.black));
+					return;
+				}
+			}
+		}
 	}
 
 	public void criaPersonagem(BufferedImage image) {
@@ -43,13 +61,28 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 	}
 
 	public void criaPersonagemDoenca(BufferedImage image) {
+		
+		while (true) {
+			int x = rnd.nextInt(GamePanel.GAME_WIDTH - 40);
+			int y = rnd.nextInt(GamePanel.GAME_HEIGHT - 40);
+			int tmpx = ((x + 16) / 16);
+			int tmpy = ((y + 16) / 16);
 
-		System.out.println("Criando o personagem");
+			if (tmpx >= 0 && tmpy >= 0) {
+				int valor = tmpx + (((tmpy * 60) / 60) * 60);
+				System.out.println(" Coeficiente X " + tmpx + " MOD "
+						+ ((tmpy * 60) / 60));
+				int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+				System.out.println("Valor " + valor + "MAPA "
+						+ matrizDoMapa[1][valor]);
+				if (matrizDoMapa[1][valor] == 0) {
 
-		LISTA_DE_PARTICULAS.add(new PersonagemDoenca(image, rnd
-				.nextInt(GamePanel.GAME_WIDTH - 40), rnd
-				.nextInt(GamePanel.GAME_HEIGHT - 40), Color.black));
-
+					LISTA_DE_PARTICULAS.add(new PersonagemDoenca(image, x, y,
+							Color.black));
+					return;
+				}
+			}
+		}
 	}
 
 	@Override
@@ -81,7 +114,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 			}
 			// lista de personagens doença
 			for (int i = 0; i < LISTA_DE_PARTICULAS.size(); i++) {
-				System.out.println("VIDA"+vidas);
+				System.out.println("VIDA" + vidas);
 				if (Constantes.colideRetangulo(persoangem,
 						LISTA_DE_PARTICULAS.get(i))) {
 					persoangem.colidiu();
@@ -104,7 +137,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 	}
 
 	public void draw(Graphics2D dbg) {
-		
+
 		int i;
 		if (gameOver == false) {
 			persoangem.draw(dbg);
@@ -119,22 +152,23 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 			dbg.setColor(Color.black);
 			dbg.drawString("VIDAS: " + vidas, GamePanel.GAME_WIDTH - 100, 15);
 			dbg.drawString("PONTOS: " + pontos, GamePanel.GAME_WIDTH - 100, 30);
-		} //else {
-			//dbg.drawString("Game Over", 100 ,
-			//		100);
-			//dbg.drawString("Game Over", GamePanel.GAME_HEIGHT / 2 ,
-			//		GamePanel.GAME_WIDTH / 2);
-		//}
-		if(gameOver == true){
-			
+		} // else {
+			// dbg.drawString("Game Over", 100 ,
+			// 100);
+			// dbg.drawString("Game Over", GamePanel.GAME_HEIGHT / 2 ,
+			// GamePanel.GAME_WIDTH / 2);
+		// }
+		if (gameOver == true) {
+
 			dbg.setFont(font);
-			dbg.drawString("Game Over", (GamePanel.GAME_WIDTH / 2) -20 ,
-							GamePanel.GAME_HEIGHT / 2);
-			dbg.drawString("Jogar Novamente ?", (GamePanel.GAME_WIDTH / 2) -20 ,
+			dbg.drawString("Game Over", (GamePanel.GAME_WIDTH / 2) - 20,
+					GamePanel.GAME_HEIGHT / 2);
+			dbg.drawString("Jogar Novamente ?",
+					(GamePanel.GAME_WIDTH / 2) - 20,
 					(GamePanel.GAME_HEIGHT / 2) + 70);
-			
+
 		}
-		if (LISTA_DE_ALIMENTOS.size() == 0){
+		if (LISTA_DE_ALIMENTOS.size() == 0) {
 			dbg.setFont(font);
 			dbg.drawString("Você Venceu", (GamePanel.GAME_WIDTH / 2) - 20,
 					GamePanel.GAME_HEIGHT / 2);
