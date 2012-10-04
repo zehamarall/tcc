@@ -20,11 +20,11 @@ public class GameMenu extends GameCanvas {
 		// Imagem do mapa
 		main = test;
 		tileset = Constantes.LoadImage("tileset.png");
-		BufferedImage over = Constantes.LoadImage("smurf_sprite.png");
-		BufferedImage notOver = Constantes.LoadImage("per.png");
+		BufferedImage over = Constantes.LoadImage("play2.png");
+		BufferedImage notOver = Constantes.LoadImage("play1.png");
 		mBackground =  Constantes.LoadImage("menu.jpg");
 		
-		Botao mPlayButton = new Botao(0,0,over,notOver) {
+		Botao mPlayButton = new Botao(230,230,over,notOver) {
 			
 			@Override
 			public void buttonAction() {
