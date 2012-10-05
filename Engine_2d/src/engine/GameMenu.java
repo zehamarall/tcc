@@ -32,8 +32,17 @@ public class GameMenu extends GameCanvas {
 
 			}
 		};
+		Botao mExitButton = new Botao(230, 430, over, notOver) {
+
+			@Override
+			public void buttonAction() {
+				GamePanel.isntance.stopGame();
+
+			}
+		};
 
 		mListaDeBotoes.add(mPlayButton);
+		mListaDeBotoes.add(mExitButton);
 	}
 
 	@Override
@@ -66,27 +75,30 @@ public class GameMenu extends GameCanvas {
 
 	@Override
 	public void mousePressed(MouseEvent mouse) {
-		
+
 		int x = mouse.getX();
 		int y = mouse.getY();
-		
+
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			Botao tmp = mListaDeBotoes.get(i);
-			tmp.buttonPressed(mouse);
+			if (mouseButonPressed(tmp, x, y)) {
+				tmp.buttonPressed(mouse);
+			}
 
 		}
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent mouse) {
-		
+
 		int x = mouse.getX();
 		int y = mouse.getY();
-		
+
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			Botao tmp = mListaDeBotoes.get(i);
-			tmp.buttonReleased(mouse);
-
+			if (mouseButonPressed(tmp, x, y)) {
+				tmp.buttonReleased(mouse);
+			}
 		}
 
 	}
@@ -106,6 +118,16 @@ public class GameMenu extends GameCanvas {
 	public void mouseDragged(MouseEvent mouse) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public boolean mouseButonPressed(Botao bt, int x, int y) {
+
+		if (Constantes.colidePorRetangulo(x, y, 1, 1, (int) bt.x, (int) bt.y,
+				bt.width, bt.heigth)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }
