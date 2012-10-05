@@ -30,7 +30,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 	}
 
 	public void criaObjeto(BufferedImage image) {
-		
+
 		while (true) {
 			int x = rnd.nextInt(GamePanel.GAME_WIDTH - 40);
 			int y = rnd.nextInt(GamePanel.GAME_HEIGHT - 40);
@@ -46,8 +46,9 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 						+ matrizDoMapa[1][valor]);
 				if (matrizDoMapa[1][valor] == 0) {
 
-					LISTA_DE_ALIMENTOS.add(new PersonagemDoenca(image, x, y,
-							Color.black));
+					LISTA_DE_ALIMENTOS
+							.add(new Sprite(image, x, y, Color.black) {
+							});
 					return;
 				}
 			}
@@ -61,7 +62,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 	}
 
 	public void criaPersonagemDoenca(BufferedImage image) {
-		
+
 		while (true) {
 			int x = rnd.nextInt(GamePanel.GAME_WIDTH - 40);
 			int y = rnd.nextInt(GamePanel.GAME_HEIGHT - 40);

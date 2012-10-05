@@ -22,17 +22,17 @@ public class GameMenu extends GameCanvas {
 		tileset = Constantes.LoadImage("tileset.png");
 		BufferedImage over = Constantes.LoadImage("play2.png");
 		BufferedImage notOver = Constantes.LoadImage("play1.png");
-		mBackground =  Constantes.LoadImage("menu.jpg");
-		
-		Botao mPlayButton = new Botao(230,230,over,notOver) {
-			
+		mBackground = Constantes.LoadImage("menu.jpg");
+
+		Botao mPlayButton = new Botao(230, 230, over, notOver) {
+
 			@Override
 			public void buttonAction() {
 				GamePanel.trocaFase(GamePanel.GAME_LEVEL);
-				
+
 			}
 		};
-		
+
 		mListaDeBotoes.add(mPlayButton);
 	}
 
@@ -44,8 +44,7 @@ public class GameMenu extends GameCanvas {
 
 	@Override
 	public void draw(Graphics2D dbg) {
-		// TODO Auto-generated method stub
-		//dbg.drawImage(tileset, null, null);
+
 		dbg.drawImage(mBackground, null, null);
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			mListaDeBotoes.get(i).draw(dbg);
@@ -57,7 +56,6 @@ public class GameMenu extends GameCanvas {
 	public void keyPressed(KeyEvent tecla) {
 		// TODO Auto-generated method stub
 
-		
 	}
 
 	@Override
@@ -68,7 +66,10 @@ public class GameMenu extends GameCanvas {
 
 	@Override
 	public void mousePressed(MouseEvent mouse) {
-
+		
+		int x = mouse.getX();
+		int y = mouse.getY();
+		
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			Botao tmp = mListaDeBotoes.get(i);
 			tmp.buttonPressed(mouse);
@@ -77,11 +78,14 @@ public class GameMenu extends GameCanvas {
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
+	public void mouseReleased(MouseEvent mouse) {
+		
+		int x = mouse.getX();
+		int y = mouse.getY();
+		
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			Botao tmp = mListaDeBotoes.get(i);
-			tmp.buttonReleased(e);
+			tmp.buttonReleased(mouse);
 
 		}
 
