@@ -23,15 +23,21 @@ public class GamePanel extends Canvas implements Runnable {
 	long Fps, Sfps;
 
 	// Variaveis de Sistema
-	public static final int GAME_WIDTH =  960;
-	public static final int GAME_HEIGHT = 672;
+	public static final int GAME_WIDTH =  1024;
+	public static final int GAME_HEIGHT = 665;
 	private Thread animator;
 	private boolean running = false;
 	public static GamePanel isntance = null;
 	public static Random rnd = new Random();
 
-	public static final short GAME_MENU =0;
-	public static final short GAME_LEVEL =1;
+	public static final short GAME_MENU		= 0;
+	public static final short GAME_OPCOES	= 1;
+	public static final short GAME_LEVEL_1	= 2;
+	public static final short GAME_LEVEL_2	= 3;
+	public static final short GAME_LEVEL_3	= 4;
+	public static final short GAME_OVER		= 5;
+	public static final short GAME_VENCEDOR	= 6;
+	
 	public static long diffTime;
 
 	// Variaveis da Engine
@@ -45,6 +51,7 @@ public class GamePanel extends Canvas implements Runnable {
 		isntance = this;
 		listaDeGameCanvas = new ArrayList<GameCanvas>();
 		listaDeGameCanvas.add(primeiroGameCanvas);
+		listaDeGameCanvas.add(new GameOpcoes());
 		listaDeGameCanvas.add(new GameLevel(1));
 		gameCanvasAtual = primeiroGameCanvas;
 		indiceGameCanvas = 0;

@@ -24,15 +24,25 @@ public class GameMenu extends GameCanvas {
 		BufferedImage notOver = Constantes.LoadImage("play1.png");
 		mBackground = Constantes.LoadImage("menu.jpg");
 
-		Botao mPlayButton = new Botao(230, 230, over, notOver) {
+		Botao mPlayButton = new Botao(430, 130, over, notOver) {
 
 			@Override
 			public void buttonAction() {
-				GamePanel.trocaFase(GamePanel.GAME_LEVEL);
+				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1);
 
 			}
 		};
-		Botao mExitButton = new Botao(230, 430, over, notOver) {
+		
+		Botao mOpcoes = new Botao(430, 330, over, notOver) {
+
+			@Override
+			public void buttonAction() {
+				GamePanel.trocaFase(GamePanel.GAME_OPCOES);
+
+			}
+		};
+		
+		Botao mExitButton = new Botao(430, 530, over, notOver) {
 
 			@Override
 			public void buttonAction() {
@@ -42,6 +52,7 @@ public class GameMenu extends GameCanvas {
 		};
 
 		mListaDeBotoes.add(mPlayButton);
+		mListaDeBotoes.add(mOpcoes);
 		mListaDeBotoes.add(mExitButton);
 	}
 
@@ -54,7 +65,7 @@ public class GameMenu extends GameCanvas {
 	@Override
 	public void draw(Graphics2D dbg) {
 
-		dbg.drawImage(mBackground, null, null);
+		dbg.drawImage(mBackground, 150, 0, null, null);
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			mListaDeBotoes.get(i).draw(dbg);
 		}
