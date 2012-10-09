@@ -7,6 +7,8 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Random;
 
+import level.GameLevel;
+
 import engine.GamePanel;
 import engine.Sprite;
 import engine.Particulas.PersonagemDoenca;
@@ -122,6 +124,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 					vidas -= 1;
 					System.out.println("Colidiu Com a doença Vidas " + vidas);
 					if (vidas <= 0) {
+						
 						System.out.println("GAME OVER");
 						gameOver = true;
 					}
@@ -160,14 +163,15 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 			// GamePanel.GAME_WIDTH / 2);
 		// }
 		if (gameOver == true) {
-
-			dbg.setFont(font);
+			GamePanel.trocaFase(GamePanel.GAME_OVER);
+			gameOver = false;
+			/*dbg.setFont(font);
 			dbg.drawString("Game Over", (GamePanel.GAME_WIDTH / 2) - 20,
 					GamePanel.GAME_HEIGHT / 2);
 			dbg.drawString("Jogar Novamente ?",
 					(GamePanel.GAME_WIDTH / 2) - 20,
 					(GamePanel.GAME_HEIGHT / 2) + 70);
-
+			 */
 		}
 		if (LISTA_DE_ALIMENTOS.size() == 0) {
 			dbg.setFont(font);

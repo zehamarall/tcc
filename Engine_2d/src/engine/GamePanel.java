@@ -35,8 +35,9 @@ public class GamePanel extends Canvas implements Runnable {
 	public static final short GAME_LEVEL_1	= 2;
 	public static final short GAME_LEVEL_2	= 3;
 	public static final short GAME_LEVEL_3	= 4;
-	public static final short GAME_OVER		= 5;
-	public static final short GAME_VENCEDOR	= 6;
+	public static final short GAME_VENCEDOR	= 5;
+	public static final short GAME_OVER		= 6;
+	
 	
 	public static long diffTime;
 
@@ -53,6 +54,11 @@ public class GamePanel extends Canvas implements Runnable {
 		listaDeGameCanvas.add(primeiroGameCanvas);
 		listaDeGameCanvas.add(new GameOpcoes());
 		listaDeGameCanvas.add(new GameLevel(1));
+		listaDeGameCanvas.add(new GameLevel(2));
+		listaDeGameCanvas.add(new GameLevel(3));
+		listaDeGameCanvas.add(new GameWin());
+		listaDeGameCanvas.add(new GameOver());
+		
 		gameCanvasAtual = primeiroGameCanvas;
 		indiceGameCanvas = 0;
 
@@ -206,6 +212,7 @@ public class GamePanel extends Canvas implements Runnable {
 
 	
 	public static void trocaFase(int INDEX){
+		System.out.println("INDEX "+ INDEX + "LISTA LEN " + GamePanel.isntance.listaDeGameCanvas.size());
 		
 		GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas.get(INDEX);
 		
