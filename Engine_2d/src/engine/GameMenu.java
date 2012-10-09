@@ -20,8 +20,10 @@ public class GameMenu extends GameCanvas {
 		// Imagem do mapa
 		main = test;
 		tileset = Constantes.LoadImage("tileset.png");
-		BufferedImage over = Constantes.LoadImage("play2.png");
-		BufferedImage notOver = Constantes.LoadImage("play1.png");
+		BufferedImage over = Constantes.LoadImage("jogar2.png");
+		BufferedImage notOver = Constantes.LoadImage("jogar.png");
+		BufferedImage opcoes = Constantes.LoadImage("opcoes2.png");
+		BufferedImage notOpcoes = Constantes.LoadImage("opcoes.png");
 		mBackground = Constantes.LoadImage("menu.jpg");
 
 		Botao mPlayButton = new Botao(430, 130, over, notOver) {
@@ -33,7 +35,7 @@ public class GameMenu extends GameCanvas {
 			}
 		};
 		
-		Botao mOpcoes = new Botao(430, 330, over, notOver) {
+		Botao mOpcoes = new Botao(430, 230, opcoes, notOpcoes) {
 
 			@Override
 			public void buttonAction() {

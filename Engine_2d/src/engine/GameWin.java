@@ -26,10 +26,13 @@ public class GameWin extends GameCanvas {
 
 			@Override
 			public void buttonAction() {
-				int fase = GamePanel.indiceGameCanvas;
-				if (fase < 4)
-					GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, fase+1);
-				
+				System.out.println("FASE " + GamePanel.fase);
+				if (GamePanel.fase < 3){
+					GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, GamePanel.fase+1);
+					GamePanel.fase +=1; 
+				}else{
+					System.out.println("Acabou o Jogo");
+				}
 			}
 		};
 

@@ -18,16 +18,15 @@ public class GameOver extends GameCanvas {
 
 	public GameOver() {
 
-		BufferedImage over = Constantes.LoadImage("play2.png");
-		BufferedImage notOver = Constantes.LoadImage("play1.png");
+		BufferedImage over = Constantes.LoadImage("jogar2.png");
+		BufferedImage notOver = Constantes.LoadImage("jogar.png");
 		mBackground = Constantes.LoadImage("game_over.png");
 
 		Botao mPlayButton = new Botao(700, 500, over, notOver) {
 
 			@Override
 			public void buttonAction() {
-				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, 1);
-
+				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, GamePanel.fase);
 			}
 		};
 

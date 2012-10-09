@@ -117,7 +117,6 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 			}
 			// lista de personagens doença
 			for (int i = 0; i < LISTA_DE_PARTICULAS.size(); i++) {
-				System.out.println("VIDA" + vidas);
 				if (Constantes.colideRetangulo(persoangem,
 						LISTA_DE_PARTICULAS.get(i))) {
 					persoangem.colidiu();

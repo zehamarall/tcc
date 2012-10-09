@@ -29,6 +29,7 @@ public class GamePanel extends Canvas implements Runnable {
 	private boolean running = false;
 	public static GamePanel isntance = null;
 	public static Random rnd = new Random();
+	public static int fase = 1;
 
 	public static final short GAME_MENU		= 0;
 	public static final short GAME_OPCOES	= 1;
@@ -215,7 +216,14 @@ public class GamePanel extends Canvas implements Runnable {
 		System.out.println("INDEX "+ INDEX + "LISTA LEN " + GamePanel.isntance.listaDeGameCanvas.size());
 		
 		GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas.get(INDEX);
-		indiceGameCanvas = INDEX;
+		//indiceGameCanvas = INDEX;
+		if(INDEX == GAME_LEVEL_1){
+			fase = 1;
+		}else if(INDEX == GAME_LEVEL_2){
+			fase = 2;
+		}else if(INDEX == GAME_LEVEL_3){
+			fase = 3;
+		}
 		
 	}
 	
@@ -226,7 +234,14 @@ public class GamePanel extends Canvas implements Runnable {
 		GamePanel.isntance.listaDeGameCanvas.add(INDEX, tmp);
 		GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas.get(INDEX);
 	
-		indiceGameCanvas = INDEX;
+		//indiceGameCanvas = INDEX;
+		if(INDEX == GAME_LEVEL_1){
+			fase = 1;
+		}else if(INDEX == GAME_LEVEL_2){
+			fase = 2;
+		}else if(INDEX == GAME_LEVEL_3){
+			fase = 3;
+		}
 		
 	}
 
