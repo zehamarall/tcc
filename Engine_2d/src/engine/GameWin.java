@@ -26,8 +26,10 @@ public class GameWin extends GameCanvas {
 
 			@Override
 			public void buttonAction() {
-				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1);
-
+				int fase = GamePanel.indiceGameCanvas;
+				if (fase < 4)
+					GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, fase+1);
+				
 			}
 		};
 

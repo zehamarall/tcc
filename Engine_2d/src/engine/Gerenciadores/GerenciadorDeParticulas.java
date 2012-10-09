@@ -17,9 +17,9 @@ import engine.util.Constantes;
 
 public class GerenciadorDeParticulas extends GerenciadorBase {
 
-	public static final ArrayList<PersonagemDoenca> LISTA_DE_PARTICULAS = new ArrayList<PersonagemDoenca>();
+	public ArrayList<PersonagemDoenca> LISTA_DE_PARTICULAS = new ArrayList<PersonagemDoenca>();
 	public PersonagemPrincipal persoangem;
-	public static final ArrayList<Sprite> LISTA_DE_ALIMENTOS = new ArrayList<Sprite>();
+	public ArrayList<Sprite> LISTA_DE_ALIMENTOS = new ArrayList<Sprite>();
 	public boolean gameOver = false;
 	int contador;
 	int pontos = 0;
@@ -165,6 +165,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 		if (gameOver == true) {
 			GamePanel.trocaFase(GamePanel.GAME_OVER);
 			gameOver = false;
+			vidas = 3;
 			/*dbg.setFont(font);
 			dbg.drawString("Game Over", (GamePanel.GAME_WIDTH / 2) - 20,
 					GamePanel.GAME_HEIGHT / 2);
@@ -177,6 +178,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 			dbg.setFont(font);
 			dbg.drawString("Você Venceu", (GamePanel.GAME_WIDTH / 2) - 20,
 					GamePanel.GAME_HEIGHT / 2);
+			GamePanel.trocaFase(GamePanel.GAME_VENCEDOR);
 		}
 	}
 }

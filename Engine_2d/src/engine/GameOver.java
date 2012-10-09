@@ -26,7 +26,7 @@ public class GameOver extends GameCanvas {
 
 			@Override
 			public void buttonAction() {
-				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1);
+				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, 1);
 
 			}
 		};

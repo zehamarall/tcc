@@ -44,7 +44,7 @@ public class GamePanel extends Canvas implements Runnable {
 	// Variaveis da Engine
 	ArrayList<GameCanvas> listaDeGameCanvas;
 	GameCanvas gameCanvasAtual;
-	int indiceGameCanvas;
+	static int indiceGameCanvas;
 
 	public GamePanel(GameCanvas primeiroGameCanvas) {
 
@@ -215,15 +215,18 @@ public class GamePanel extends Canvas implements Runnable {
 		System.out.println("INDEX "+ INDEX + "LISTA LEN " + GamePanel.isntance.listaDeGameCanvas.size());
 		
 		GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas.get(INDEX);
-		
+		indiceGameCanvas = INDEX;
 		
 	}
 	
 	public static void trocaFase(int INDEX,int nivelDeDificuldade){
-		GameLevel tmp = (GameLevel)GamePanel.isntance.listaDeGameCanvas.get(INDEX);
-		tmp = new GameLevel(nivelDeDificuldade);
+		//GameLevel tmp = (GameLevel)
+		GamePanel.isntance.listaDeGameCanvas.remove(INDEX);
+		GameLevel tmp = new GameLevel(nivelDeDificuldade);
+		GamePanel.isntance.listaDeGameCanvas.add(INDEX, tmp);
 		GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas.get(INDEX);
 	
+		indiceGameCanvas = INDEX;
 		
 	}
 
