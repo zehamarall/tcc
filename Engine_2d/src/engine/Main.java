@@ -5,7 +5,7 @@ import java.awt.Container;
 
 import javax.swing.JApplet;
 
-import level.GameLevel;
+import level.GameLevel1;
 
 public class Main extends JApplet {
 
@@ -61,7 +61,7 @@ public class Main extends JApplet {
 	public void cria_jogo(int nivel) {
 		Container c = getContentPane();
 		//c.setLayout(new BorderLayout());
-		meuGamePanel = new GamePanel(new GameLevel(nivel));
+		meuGamePanel = new GamePanel(new GameLevel1(nivel));
 		c.add(meuGamePanel, "Center");
 	
 		

@@ -14,7 +14,7 @@ import engine.Gerenciadores.GerenciadorDeSom;
 import engine.mapa.Fase1;
 import engine.util.Constantes;
 
-public class GameLevel extends GameCanvas {
+public class GameLevel1 extends GameCanvas {
 
 	Fase1 meuMapa;
 	GerenciadorDeParticulas meuGerenciador = new GerenciadorDeParticulas(false);
@@ -95,7 +95,7 @@ public class GameLevel extends GameCanvas {
 
 	}
 
-	public GameLevel(int nivel) {
+	public GameLevel1(int nivel) {
 
 		String[] musica = { "som/som.wav" };
 		meuSom = new GerenciadorDeSom(musica, false);

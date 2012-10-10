@@ -490,8 +490,8 @@ public class Fase1 extends Mapa {
 				// valorTile*alturaDoTile, larguraDoTile, alturaDoTile,
 				// i*larguraDoTile, j*alturaDoTile,larguraDoTile, alturaDoTile,
 				// null);
-				System.out.println("pos x " + fx + " pos y " + fy + " TILE "
-						+ valorTile);
+				//System.out.println("pos x " + fx + " pos y " + fy + " TILE "
+				//		+ valorTile);
 				int sx = valorTile % (image.getWidth() / larguraDoTile);
 				int sy = valorTile / (image.getWidth() / larguraDoTile);
 

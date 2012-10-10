@@ -28,7 +28,8 @@ public class GameOpcoes extends GameCanvas {
 
 			@Override
 			public void buttonAction() {
-				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1);
+				GamePanel.fase = 1;
+				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, GamePanel.fase);
 
 			}
 		};
