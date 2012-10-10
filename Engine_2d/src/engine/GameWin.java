@@ -12,8 +12,6 @@ public class GameWin extends GameCanvas {
 
 	BufferedImage tileset;
 	BufferedImage mBackground;
-	// Main main;
-
 	ArrayList<Botao> mListaDeBotoes = new ArrayList<Botao>();
 
 	public GameWin() {
@@ -27,11 +25,10 @@ public class GameWin extends GameCanvas {
 			@Override
 			public void buttonAction() {
 				System.out.println("FASE " + GamePanel.fase);
-				if (GamePanel.fase < 3){
+				if (GamePanel.fase < 3) {
 					GamePanel.fase += 1;
 					GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, GamePanel.fase);
-					//GamePanel.fase +=1; 
-				}else{
+				} else {
 					System.out.println("Acabou o Jogo");
 				}
 			}
@@ -43,7 +40,6 @@ public class GameWin extends GameCanvas {
 
 	@Override
 	public void gameUpdate(long diffTime) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -58,13 +54,11 @@ public class GameWin extends GameCanvas {
 
 	@Override
 	public void keyPressed(KeyEvent tecla) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void keyreleassed(KeyEvent tecla) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -101,19 +95,16 @@ public class GameWin extends GameCanvas {
 
 	@Override
 	public void mouseClicked(MouseEvent mouse) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent mouse) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent mouse) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -125,6 +116,6 @@ public class GameWin extends GameCanvas {
 		} else {
 			return false;
 		}
-	} 
+	}
 
 }

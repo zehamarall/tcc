@@ -12,8 +12,6 @@ public class GameOver extends GameCanvas {
 
 	BufferedImage tileset;
 	BufferedImage mBackground;
-	// Main main;
-
 	ArrayList<Botao> mListaDeBotoes = new ArrayList<Botao>();
 
 	public GameOver() {
@@ -36,7 +34,6 @@ public class GameOver extends GameCanvas {
 
 	@Override
 	public void gameUpdate(long diffTime) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -51,13 +48,11 @@ public class GameOver extends GameCanvas {
 
 	@Override
 	public void keyPressed(KeyEvent tecla) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void keyreleassed(KeyEvent tecla) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -94,19 +89,16 @@ public class GameOver extends GameCanvas {
 
 	@Override
 	public void mouseClicked(MouseEvent mouse) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent mouse) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent mouse) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -118,5 +110,5 @@ public class GameOver extends GameCanvas {
 		} else {
 			return false;
 		}
-	} 
+	}
 }

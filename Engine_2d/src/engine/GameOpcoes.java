@@ -12,13 +12,10 @@ public class GameOpcoes extends GameCanvas {
 	
 	BufferedImage tileset;
 	BufferedImage mBackground;
-	//Main main;
 
 	ArrayList<Botao> mListaDeBotoes = new ArrayList<Botao>();
 
 	public GameOpcoes() {
-		// Imagem do mapa
-		//main = test;
 		
 		BufferedImage over = Constantes.LoadImage("play2.png");
 		BufferedImage notOver = Constantes.LoadImage("play1.png");
@@ -40,7 +37,6 @@ public class GameOpcoes extends GameCanvas {
 
 	@Override
 	public void gameUpdate(long diffTime) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -54,13 +50,11 @@ public class GameOpcoes extends GameCanvas {
 
 	@Override
 	public void keyPressed(KeyEvent tecla) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void keyreleassed(KeyEvent tecla) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -94,19 +88,16 @@ public class GameOpcoes extends GameCanvas {
 
 	@Override
 	public void mouseClicked(MouseEvent mouse) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent mouse) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent mouse) {
-		// TODO Auto-generated method stub
 		
 	}
 	

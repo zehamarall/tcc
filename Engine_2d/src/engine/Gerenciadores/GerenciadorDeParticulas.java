@@ -7,8 +7,6 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Random;
 
-import level.GameLevel1;
-
 import engine.GamePanel;
 import engine.Sprite;
 import engine.Particulas.PersonagemDoenca;

@@ -212,21 +212,16 @@ public class GamePanel extends Canvas implements Runnable {
 		System.exit(0);
 
 	}
-
 	
 	public static void trocaFase(int INDEX){
-		System.out.println("INDEX "+ INDEX + "LISTA LEN " + GamePanel.isntance.listaDeGameCanvas.size());
 		
+		System.out.println("INDEX "+ INDEX + "LISTA LEN " + GamePanel.isntance.listaDeGameCanvas.size());		
 		GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas.get(INDEX);
 		
 	}
 	
 	public static void trocaFase(int INDEX, int fase){
-		//GameLevel tmp = (GameLevel)
-		//GamePanel.isntance.listaDeGameCanvas.remove(INDEX);
-		
-	
-		//indiceGameCanvas = INDEX;
+
 		if(fase == 1){
 			GamePanel.isntance.listaDeGameCanvas.remove(GamePanel.GAME_LEVEL_1);
 			GameLevel1 tmp = new GameLevel1(1);

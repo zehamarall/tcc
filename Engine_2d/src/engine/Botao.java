@@ -25,7 +25,6 @@ public abstract class Botao extends GameObject {
 
 	@Override
 	public void simula(long diffTime) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -45,7 +44,7 @@ public abstract class Botao extends GameObject {
 	public void buttonPressed(MouseEvent mouse) {
 
 		isOver = true;
-
+		
 	}
 
 	public void buttonReleased(MouseEvent mouse) {

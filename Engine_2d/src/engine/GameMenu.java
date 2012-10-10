@@ -61,8 +61,7 @@ public class GameMenu extends GameCanvas {
 
 	@Override
 	public void gameUpdate(long diffTime) {
-		// TODO Auto-generated method stub
-
+	
 	}
 
 	@Override
@@ -77,13 +76,11 @@ public class GameMenu extends GameCanvas {
 
 	@Override
 	public void keyPressed(KeyEvent tecla) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void keyreleassed(KeyEvent tecla) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -124,13 +121,11 @@ public class GameMenu extends GameCanvas {
 
 	@Override
 	public void mouseMoved(MouseEvent mouse) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent mouse) {
-		// TODO Auto-generated method stub
 
 	}
 
