@@ -7,7 +7,6 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
-import pong.PongPand;
 import engine.GameCanvas;
 import engine.Gerenciadores.GerenciadorDeParticulas;
 import engine.Gerenciadores.GerenciadorDeSom;
@@ -19,7 +18,7 @@ public class GameLevel1 extends GameCanvas {
 	Fase1 meuMapa;
 	GerenciadorDeParticulas meuGerenciador = new GerenciadorDeParticulas(false);
 	GerenciadorDeSom meuSom;
-	PongPand pad;
+
 
 	private boolean UP = false;
 	private boolean DOWN = false;
