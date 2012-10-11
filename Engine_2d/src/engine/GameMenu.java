@@ -24,6 +24,8 @@ public class GameMenu extends GameCanvas {
 		BufferedImage notOver = Constantes.LoadImage("jogar.png");
 		BufferedImage opcoes = Constantes.LoadImage("opcoes2.png");
 		BufferedImage notOpcoes = Constantes.LoadImage("opcoes.png");
+		BufferedImage sair = Constantes.LoadImage("sair2.png");
+		BufferedImage notSair = Constantes.LoadImage("sair1.png");
 		mBackground = Constantes.LoadImage("menu.jpg");
 
 		Botao mPlayButton = new Botao(430, 130, over, notOver) {
@@ -45,7 +47,7 @@ public class GameMenu extends GameCanvas {
 			}
 		};
 		
-		Botao mExitButton = new Botao(430, 530, over, notOver) {
+		Botao mExitButton = new Botao(430, 530, sair, notSair) {
 
 			@Override
 			public void buttonAction() {

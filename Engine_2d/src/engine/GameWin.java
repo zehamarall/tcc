@@ -51,7 +51,8 @@ public class GameWin extends GameCanvas {
 	public void draw(Graphics2D dbg) {
 
 		dbg.drawImage(mBackground, 0, 0, null, null);
-		font = new Font("Book Antiqua", Font.BOLD, 32);
+		//font = new Font("Book Antiqua", Font.BOLD, 32);
+		font = new Font("Jokerman", Font.BOLD, 32);
 		dbg.setFont(font);
 		dbg.setColor(Color.black);
 		dbg.drawString("Parabéns", 470, 100);
