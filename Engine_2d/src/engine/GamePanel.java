@@ -40,7 +40,7 @@ public class GamePanel extends Canvas implements Runnable {
 	public static final short GAME_LEVEL_1	= 4;
 	public static final short GAME_LEVEL_2	= 5;
 	public static final short GAME_LEVEL_3	= 6;
-	
+	public static final short GAME_FINISH	= 7;
 	
 	public static long diffTime;
 
@@ -61,6 +61,8 @@ public class GamePanel extends Canvas implements Runnable {
 		listaDeGameCanvas.add(new GameLevel1(1));
 		listaDeGameCanvas.add(new GameLevel2(1));
 		listaDeGameCanvas.add(new GameLevel3(1));
+		listaDeGameCanvas.add(new GameFinish());
+		
 		
 		gameCanvasAtual = primeiroGameCanvas;
 		indiceGameCanvas = 0;
@@ -161,8 +163,8 @@ public class GamePanel extends Canvas implements Runnable {
 		
 		gameCanvasAtual.draw(dbg);
 
-		dbg.setColor(Color.black);
-		dbg.drawString("FPS: " + Fps, 20, 20);
+		//dbg.setColor(Color.black);
+		//dbg.drawString("FPS: " + Fps, 20, 20);
 	}
 
 	@Override

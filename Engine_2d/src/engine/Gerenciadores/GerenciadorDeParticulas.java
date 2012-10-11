@@ -175,7 +175,11 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 			dbg.setFont(font);
 			dbg.drawString("Você Venceu", (GamePanel.GAME_WIDTH / 2) - 20,
 					GamePanel.GAME_HEIGHT / 2);
-			GamePanel.trocaFase(GamePanel.GAME_VENCEDOR);
+			if (GamePanel.fase < 3){
+				GamePanel.trocaFase(GamePanel.GAME_VENCEDOR);
+			} else {
+				GamePanel.trocaFase(GamePanel.GAME_FINISH);
+			}
 		}
 	}
 }

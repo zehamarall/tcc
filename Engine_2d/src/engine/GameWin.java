@@ -1,5 +1,7 @@
 package engine;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -13,12 +15,13 @@ public class GameWin extends GameCanvas {
 	BufferedImage tileset;
 	BufferedImage mBackground;
 	ArrayList<Botao> mListaDeBotoes = new ArrayList<Botao>();
+	Font font;
 
 	public GameWin() {
 
 		BufferedImage over = Constantes.LoadImage("play2.png");
 		BufferedImage notOver = Constantes.LoadImage("play1.png");
-		mBackground = Constantes.LoadImage("game_over.png");
+		mBackground = Constantes.LoadImage("frutas.png");
 
 		Botao mPlayButton = new Botao(700, 500, over, notOver) {
 
@@ -30,6 +33,7 @@ public class GameWin extends GameCanvas {
 					GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, GamePanel.fase);
 				} else {
 					System.out.println("Acabou o Jogo");
+					//GamePanel.trocaFase(GamePanel.GAME_FINISH);
 				}
 			}
 		};
@@ -47,6 +51,11 @@ public class GameWin extends GameCanvas {
 	public void draw(Graphics2D dbg) {
 
 		dbg.drawImage(mBackground, 0, 0, null, null);
+		font = new Font("Book Antiqua", Font.BOLD, 32);
+		dbg.setFont(font);
+		dbg.setColor(Color.black);
+		dbg.drawString("Parabéns", 470, 100);
+		dbg.drawString("Você venceu", 450, 150);
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			mListaDeBotoes.get(i).draw(dbg);
 		}
