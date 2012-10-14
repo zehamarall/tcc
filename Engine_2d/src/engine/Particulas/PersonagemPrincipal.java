@@ -15,8 +15,8 @@ public class PersonagemPrincipal extends Personagem {
 
 	public PersonagemPrincipal(BufferedImage _imagem, int _x, int _y, Color _Cor) {
 		super(_imagem, _x, _y, _Cor);
-		sizeX = 32;
-		sizeY = 48;
+		sizeX = 51;
+		sizeY = 80;
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class PersonagemPrincipal extends Personagem {
 		}
 
 		timeranimacao += diffTime;
-		frame = (timeranimacao / tempoentreframes) % 3;
+		frame = (timeranimacao / tempoentreframes) % 6;
 
 		//System.out.println("FRAME "+ frame);
 		x += velx * diffTime / 1000.0f;
@@ -57,14 +57,14 @@ public class PersonagemPrincipal extends Personagem {
 			if (velx > 0) {
 				animacao = 2;
 			} else {
-				animacao = 1;
+				animacao = 3;
 			}
 
 		} else {
 			if (vely > 0) {
 				animacao = 0;
 			} else {
-				animacao = 3;
+				animacao = 1;
 			}
 		}
 		//System.out.println("FRAME "+ frame);

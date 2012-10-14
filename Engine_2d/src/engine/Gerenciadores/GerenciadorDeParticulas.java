@@ -173,7 +173,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 		}
 		if (LISTA_DE_ALIMENTOS.size() == 0) {
 			dbg.setFont(font);
-			dbg.drawString("VocÃª Venceu", (GamePanel.GAME_WIDTH / 2) - 20,
+			dbg.drawString("Você Venceu", (GamePanel.GAME_WIDTH / 2) - 20,
 					GamePanel.GAME_HEIGHT / 2);
 			if (GamePanel.fase < 3){
 				GamePanel.trocaFase(GamePanel.GAME_VENCEDOR);
