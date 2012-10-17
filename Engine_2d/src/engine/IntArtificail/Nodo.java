@@ -1,9 +1,7 @@
 package engine.IntArtificail;
 
 
-
-
-class Nodo{
+public class Nodo{
 	Nodo pai;
 	short x;
 	short y;

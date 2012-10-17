@@ -60,7 +60,9 @@ public class GameFinish extends GameCanvas {
 		dbg.setFont(font);
 		dbg.setColor(Color.black);
 		dbg.drawString("Parabéns", 520, 100);
-		dbg.drawString("Você Concluiu o jogo", 520, 150);
+		dbg.drawString("Você Concluiu o jogo", 520, 160);
+		dbg.drawString("Total de Pontos = " + GamePanel.total_pontos, 520, 300);
+		
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			mListaDeBotoes.get(i).draw(dbg);
 		}

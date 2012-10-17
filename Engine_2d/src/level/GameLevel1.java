@@ -1,15 +1,20 @@
 package level;
 
+//import Nodo;
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.Random;
 
 import engine.GameCanvas;
 import engine.Gerenciadores.GerenciadorDeParticulas;
 import engine.Gerenciadores.GerenciadorDeSom;
+import engine.IntArtificail.AEstrela;
+import engine.IntArtificail.Nodo;
 import engine.mapa.Fase1;
 import engine.util.Constantes;
 
@@ -19,14 +24,17 @@ public class GameLevel1 extends GameCanvas {
 	GerenciadorDeParticulas meuGerenciador = new GerenciadorDeParticulas(false);
 	GerenciadorDeSom meuSom;
 
-
+	public ArrayList<AEstrela> LISTA_IA = new ArrayList<AEstrela>();
+	public ArrayList<Nodo> caminho = new ArrayList<Nodo>();
+	
+	
 	private boolean UP = false;
 	private boolean DOWN = false;
 	private boolean LEFT = false;
 	private boolean RIGHT = false;
 	private static int animacao = 0;
 	private int x = 0;
-	
+
 	@Override
 	public void gameUpdate(long diffTime) {
 
@@ -54,22 +62,27 @@ public class GameLevel1 extends GameCanvas {
 			meuGerenciador.LISTA_DE_PARTICULAS.get(i).oldy = (int) meuGerenciador.LISTA_DE_PARTICULAS
 					.get(i).y;
 
-			if (animacao == 0) {
-				x = rnd.nextInt(4);
-			}
-
-			if (x == 0) {
-				meuGerenciador.LISTA_DE_PARTICULAS.get(i).UP = true;
-			}
-			if (x == 1) {
-				meuGerenciador.LISTA_DE_PARTICULAS.get(i).DOWN = true;
-			}
-			if (x == 2) {
-				meuGerenciador.LISTA_DE_PARTICULAS.get(i).LEFT = true;
-			}
-			if (x == 3) {
-				meuGerenciador.LISTA_DE_PARTICULAS.get(i).RIGHT = true;
-			}
+			//AEstrela ia = LISTA_IA.get(i);
+			/*caminho = ia.calculaPath((int)meuGerenciador.LISTA_DE_PARTICULAS.get(i).x,
+					(int)meuGerenciador.LISTA_DE_PARTICULAS.get(i).y,
+					(int)meuGerenciador.persoangem.x, (int)meuGerenciador.persoangem.y);*/
+			//System.out.println("Tamanho "+ caminho.size());
+			//for (int j = 0; j < caminho.size(); j++) {
+				//Nodo n = caminho.get(j);
+				//System.out.println("NODO "+ );
+			//}
+			
+			
+			/*
+			 * if (animacao == 0) { x = rnd.nextInt(4); }
+			 * 
+			 * if (x == 0) { meuGerenciador.LISTA_DE_PARTICULAS.get(i).UP =
+			 * true; } if (x == 1) {
+			 * meuGerenciador.LISTA_DE_PARTICULAS.get(i).DOWN = true; } if (x ==
+			 * 2) { meuGerenciador.LISTA_DE_PARTICULAS.get(i).LEFT = true; } if
+			 * (x == 3) { meuGerenciador.LISTA_DE_PARTICULAS.get(i).RIGHT =
+			 * true; }
+			 */
 		}
 		animacao += 1;
 
@@ -120,6 +133,11 @@ public class GameLevel1 extends GameCanvas {
 		for (int i = 0; i < nivel * 2; i++) {
 			BufferedImage image2 = Constantes.LoadImage("p2.png");
 			meuGerenciador.criaPersonagemDoenca(image2);
+			
+			//AESTRELA
+			AEstrela ia = new AEstrela(meuMapa.matrizDoMapa, meuGerenciador.LISTA_DE_PARTICULAS.get(i).sizeX, meuGerenciador.LISTA_DE_PARTICULAS.get(i).sizeY);
+			LISTA_IA.add(ia);
+			
 		}
 
 	}

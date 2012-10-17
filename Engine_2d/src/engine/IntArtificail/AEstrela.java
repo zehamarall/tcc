@@ -1,10 +1,8 @@
 package engine.IntArtificail;
 
-
 import java.util.ArrayList;
 
 public class AEstrela {
-
 	int[][] mapa;
 	ArrayList<Nodo> nodosAbertos = new ArrayList<Nodo>();
 	ArrayList<Nodo> nodosFechados = new ArrayList<Nodo>();
@@ -103,9 +101,16 @@ public class AEstrela {
 				if (!(ntest.x < 0 || ntest.y < 0 || ntest.x > largura || ntest.y > altura)) {
 					// A linha abaixo é um criterio de eliminação de nodo, a
 					// conta correta vai depender de como
-					// a matrix vai vir, como está provavelmente não funcionará,
-					// só precisas definir isto.
-					if (!(mapa[ntest.x][ntest.y] == 1)) {
+					// a matrix vai vir, como está provavelmente não funcionará.
+					/*
+					 * int coeficienteX = (int) (ntest.x + (altura / 2)) / 16;
+					 * int coeficientey = (int) (ntest.y + (largura / 2)) / 16;
+					 * if (coeficienteX >= 0 && coeficientey >= 0) { int valor =
+					 * coeficienteX + (((coeficientey * 60) / 60) * 60); if
+					 * (!(mapa[1][valor] == 0)) {
+					 */
+
+					if (!(mapa[1][ntest.y] == 0)) {
 						boolean igual = false;
 						Nodo nodo2;
 						for (int z = 0; z < nodosFechados.size(); z++) {

@@ -150,31 +150,21 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 			for (i = 0; i < LISTA_DE_ALIMENTOS.size(); i++) {
 				LISTA_DE_ALIMENTOS.get(i).draw(dbg);
 			}
+			font = new Font("Book Antiqua", Font.BOLD, 18);
+			dbg.setFont(font);
 			dbg.setColor(Color.black);
-			dbg.drawString("VIDAS: " + vidas, GamePanel.GAME_WIDTH - 100, 15);
-			dbg.drawString("PONTOS: " + pontos, GamePanel.GAME_WIDTH - 100, 30);
-		} // else {
-			// dbg.drawString("Game Over", 100 ,
-			// 100);
-			// dbg.drawString("Game Over", GamePanel.GAME_HEIGHT / 2 ,
-			// GamePanel.GAME_WIDTH / 2);
-		// }
+			dbg.drawString("VIDAS: " + vidas, GamePanel.GAME_WIDTH - 150, 15);
+			dbg.drawString("PONTOS: " + pontos, GamePanel.GAME_WIDTH - 150, 40);
+		}
+		
 		if (gameOver == true) {
 			GamePanel.trocaFase(GamePanel.GAME_OVER);
 			gameOver = false;
 			vidas = 3;
-			/*dbg.setFont(font);
-			dbg.drawString("Game Over", (GamePanel.GAME_WIDTH / 2) - 20,
-					GamePanel.GAME_HEIGHT / 2);
-			dbg.drawString("Jogar Novamente ?",
-					(GamePanel.GAME_WIDTH / 2) - 20,
-					(GamePanel.GAME_HEIGHT / 2) + 70);
-			 */
 		}
+		
 		if (LISTA_DE_ALIMENTOS.size() == 0) {
-			dbg.setFont(font);
-			dbg.drawString("Você Venceu", (GamePanel.GAME_WIDTH / 2) - 20,
-					GamePanel.GAME_HEIGHT / 2);
+			GamePanel.total_pontos += pontos;
 			if (GamePanel.fase < 3){
 				GamePanel.trocaFase(GamePanel.GAME_VENCEDOR);
 			} else {

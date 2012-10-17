@@ -105,8 +105,6 @@ public class PersonagemPrincipal extends Personagem {
 		int coeficienteX = (int) (this.x + (this.sizeX / 2)) / 16;
 		int coeficientey = (int) (this.y + (this.sizeY / 2)) / 16;
 
-		//System.out.println("TILE X " + coeficienteX + "TILE Y " + coeficientey);
-
 		if (coeficienteX >= 0 && coeficientey >= 0) {
 			int valor = coeficienteX + (((coeficientey * 60) / 60) * 60);
 			int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;

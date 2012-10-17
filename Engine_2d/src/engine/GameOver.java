@@ -1,5 +1,7 @@
 package engine;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -13,14 +15,15 @@ public class GameOver extends GameCanvas {
 	BufferedImage tileset;
 	BufferedImage mBackground;
 	ArrayList<Botao> mListaDeBotoes = new ArrayList<Botao>();
+	Font font;
 
 	public GameOver() {
 
 		BufferedImage over = Constantes.LoadImage("jogar2.png");
 		BufferedImage notOver = Constantes.LoadImage("jogar.png");
-		mBackground = Constantes.LoadImage("game_over.png");
+		mBackground = Constantes.LoadImage("frutas.png");
 
-		Botao mPlayButton = new Botao(700, 500, over, notOver) {
+		Botao mPlayButton = new Botao(400, 570, over, notOver) {
 
 			@Override
 			public void buttonAction() {
@@ -41,6 +44,11 @@ public class GameOver extends GameCanvas {
 	public void draw(Graphics2D dbg) {
 
 		dbg.drawImage(mBackground, 0, 0, null, null);
+		font = new Font("Book Antiqua", Font.BOLD, 32);
+		dbg.setFont(font);
+		dbg.setColor(Color.black);
+		dbg.drawString("Game Over", 450, 100);
+		
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			mListaDeBotoes.get(i).draw(dbg);
 		}

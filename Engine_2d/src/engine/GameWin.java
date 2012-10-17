@@ -51,12 +51,12 @@ public class GameWin extends GameCanvas {
 	public void draw(Graphics2D dbg) {
 
 		dbg.drawImage(mBackground, 0, 0, null, null);
-		//font = new Font("Book Antiqua", Font.BOLD, 32);
-		font = new Font("Jokerman", Font.BOLD, 32);
+		font = new Font("Book Antiqua", Font.BOLD, 32);
 		dbg.setFont(font);
-		dbg.setColor(Color.black);
-		dbg.drawString("Parabéns", 470, 100);
-		dbg.drawString("Você venceu", 450, 150);
+		dbg.setColor(Color.black);		
+		dbg.drawString("Parabéns", 460, 80);
+		dbg.drawString("Você passou de fase", 380, 120);
+		dbg.drawString("Total de Pontos = " + GamePanel.total_pontos, 380, 180);
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			mListaDeBotoes.get(i).draw(dbg);
 		}

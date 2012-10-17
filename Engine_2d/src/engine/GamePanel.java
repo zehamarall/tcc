@@ -32,6 +32,7 @@ public class GamePanel extends Canvas implements Runnable {
 	public static GamePanel isntance = null;
 	public static Random rnd = new Random();
 	public static int fase = 0;
+	public static int total_pontos = 0;
 
 	public static final short GAME_MENU		= 0;
 	public static final short GAME_OPCOES	= 1;
