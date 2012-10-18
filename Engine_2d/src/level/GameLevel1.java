@@ -33,7 +33,6 @@ public class GameLevel1 extends GameCanvas {
 	private boolean LEFT = false;
 	private boolean RIGHT = false;
 	private static int animacao = 0;
-	private int x = 0;
 
 	@Override
 	public void gameUpdate(long diffTime) {
@@ -126,7 +125,12 @@ public class GameLevel1 extends GameCanvas {
 		// criando os alimentos saudaveis
 		for (int i = 0; i < 3; i++) {
 			BufferedImage image2 = Constantes.LoadImage("cenoura.png");
-			meuGerenciador.criaObjeto(image2);
+			meuGerenciador.criaAlimentoBom(image2);
+		}
+		//alimentos nao saudaveis 
+		for (int i = 0; i < 3; i++) {
+			BufferedImage image3 = Constantes.LoadImage("fantasma.png");
+			meuGerenciador.criaAlimentoRuim(image3);
 		}
 
 		// criando os personagens fantasma
