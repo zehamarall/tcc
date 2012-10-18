@@ -25,7 +25,7 @@ public class GamePanel extends Canvas implements Runnable {
 	long Fps, Sfps;
 
 	// Variaveis de Sistema
-	public static final int GAME_WIDTH =  1024;
+	public static final int GAME_WIDTH = 1024;
 	public static final int GAME_HEIGHT = 665;
 	private Thread animator;
 	private boolean running = false;
@@ -33,16 +33,17 @@ public class GamePanel extends Canvas implements Runnable {
 	public static Random rnd = new Random();
 	public static int fase = 0;
 	public static int total_pontos = 0;
+	public static int nivelDificuldade = 1;
 
-	public static final short GAME_MENU		= 0;
-	public static final short GAME_OPCOES	= 1;
-	public static final short GAME_VENCEDOR	= 2;
-	public static final short GAME_OVER		= 3;
-	public static final short GAME_LEVEL_1	= 4;
-	public static final short GAME_LEVEL_2	= 5;
-	public static final short GAME_LEVEL_3	= 6;
-	public static final short GAME_FINISH	= 7;
-	
+	public static final short GAME_MENU = 0;
+	public static final short GAME_OPCOES = 1;
+	public static final short GAME_VENCEDOR = 2;
+	public static final short GAME_OVER = 3;
+	public static final short GAME_LEVEL_1 = 4;
+	public static final short GAME_LEVEL_2 = 5;
+	public static final short GAME_LEVEL_3 = 6;
+	public static final short GAME_FINISH = 7;
+
 	public static long diffTime;
 
 	// Variaveis da Engine
@@ -52,19 +53,17 @@ public class GamePanel extends Canvas implements Runnable {
 
 	public GamePanel(GameCanvas primeiroGameCanvas) {
 
-		
 		isntance = this;
 		listaDeGameCanvas = new ArrayList<GameCanvas>();
 		listaDeGameCanvas.add(primeiroGameCanvas);
-		listaDeGameCanvas.add(new GameOpcoes());		
+		listaDeGameCanvas.add(new GameOpcoes());
 		listaDeGameCanvas.add(new GameWin());
 		listaDeGameCanvas.add(new GameOver());
 		listaDeGameCanvas.add(new GameLevel1(1));
 		listaDeGameCanvas.add(new GameLevel2(1));
 		listaDeGameCanvas.add(new GameLevel3(1));
 		listaDeGameCanvas.add(new GameFinish());
-		
-		
+
 		gameCanvasAtual = primeiroGameCanvas;
 		indiceGameCanvas = 0;
 
@@ -127,7 +126,7 @@ public class GamePanel extends Canvas implements Runnable {
 			}
 
 			@Override
-			public void mouseDragged(MouseEvent e) {				
+			public void mouseDragged(MouseEvent e) {
 				gameCanvasAtual.mouseDragged(e);
 			}
 		});
@@ -161,11 +160,11 @@ public class GamePanel extends Canvas implements Runnable {
 	public void draw(Graphics2D dbg) {
 		dbg.setColor(Color.white);
 		dbg.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
-		
+
 		gameCanvasAtual.draw(dbg);
 
-		//dbg.setColor(Color.black);
-		//dbg.drawString("FPS: " + Fps, 20, 20);
+		// dbg.setColor(Color.black);
+		// dbg.drawString("FPS: " + Fps, 20, 20);
 	}
 
 	@Override
@@ -215,33 +214,69 @@ public class GamePanel extends Canvas implements Runnable {
 		System.exit(0);
 
 	}
-	
-	public static void trocaFase(int INDEX){
-		
-		System.out.println("INDEX "+ INDEX + "LISTA LEN " + GamePanel.isntance.listaDeGameCanvas.size());		
-		GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas.get(INDEX);
-		
-	}
-	
-	public static void trocaFase(int INDEX, int fase){
 
-		if(fase == 1){
+	public static void trocaFase(int INDEX) {
+
+		if (INDEX == GAME_LEVEL_1) {
 			GamePanel.isntance.listaDeGameCanvas.remove(GamePanel.GAME_LEVEL_1);
-			GameLevel1 tmp = new GameLevel1(1);
-			GamePanel.isntance.listaDeGameCanvas.add(GamePanel.GAME_LEVEL_1, tmp);
-			GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas.get(GamePanel.GAME_LEVEL_1);
-		}else if(fase == 2){
-			GamePanel.isntance.listaDeGameCanvas.remove(GamePanel.GAME_LEVEL_2);
-			GameLevel2 tmp = new GameLevel2(1);
-			GamePanel.isntance.listaDeGameCanvas.add(GamePanel.GAME_LEVEL_2, tmp);
-			GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas.get(GamePanel.GAME_LEVEL_2);
-		}else if(fase == 3){
-			GamePanel.isntance.listaDeGameCanvas.remove(GamePanel.GAME_LEVEL_3);
-			GameLevel3 tmp = new GameLevel3(1);
-			GamePanel.isntance.listaDeGameCanvas.add(GamePanel.GAME_LEVEL_3, tmp);
-			GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas.get(GamePanel.GAME_LEVEL_3);
-		}
+			GameLevel1 tmp = new GameLevel1(GamePanel.nivelDificuldade);
+			GamePanel.isntance.listaDeGameCanvas.add(GamePanel.GAME_LEVEL_1,
+					tmp);
+			GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas
+					.get(GamePanel.GAME_LEVEL_1);
+			return;
 		
+		} else if (INDEX == GAME_LEVEL_2) {
+			GamePanel.isntance.listaDeGameCanvas.remove(GamePanel.GAME_LEVEL_2);
+			GameLevel2 tmp = new GameLevel2(GamePanel.nivelDificuldade);
+			GamePanel.isntance.listaDeGameCanvas.add(GamePanel.GAME_LEVEL_2,
+					tmp);
+			GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas
+					.get(GamePanel.GAME_LEVEL_2);
+			return;
+			
+		} else if (INDEX == GAME_LEVEL_3) {
+			GamePanel.isntance.listaDeGameCanvas.remove(GamePanel.GAME_LEVEL_3);
+			GameLevel3 tmp = new GameLevel3(GamePanel.nivelDificuldade);
+			GamePanel.isntance.listaDeGameCanvas.add(GamePanel.GAME_LEVEL_3,
+					tmp);
+			GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas
+					.get(GamePanel.GAME_LEVEL_3);
+			return;
+			
+		}
+
+		GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas
+				.get(INDEX);
+	}
+
+	public static void trocaFase(int INDEX, int fase) {
+
+		if (fase == 1) {
+			GamePanel.isntance.listaDeGameCanvas.remove(GamePanel.GAME_LEVEL_1);
+			GameLevel1 tmp = new GameLevel1(GamePanel.nivelDificuldade);
+			GamePanel.isntance.listaDeGameCanvas.add(GamePanel.GAME_LEVEL_1,
+					tmp);
+			GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas
+					.get(GamePanel.GAME_LEVEL_1);
+		
+		} else if (fase == 2) {
+			GamePanel.isntance.listaDeGameCanvas.remove(GamePanel.GAME_LEVEL_2);
+			GameLevel2 tmp = new GameLevel2(GamePanel.nivelDificuldade);
+			GamePanel.isntance.listaDeGameCanvas.add(GamePanel.GAME_LEVEL_2,
+					tmp);
+			GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas
+					.get(GamePanel.GAME_LEVEL_2);
+		
+		} else if (fase == 3) {
+			GamePanel.isntance.listaDeGameCanvas.remove(GamePanel.GAME_LEVEL_3);
+			GameLevel3 tmp = new GameLevel3(GamePanel.nivelDificuldade);
+			GamePanel.isntance.listaDeGameCanvas.add(GamePanel.GAME_LEVEL_3,
+					tmp);
+			GamePanel.isntance.gameCanvasAtual = GamePanel.isntance.listaDeGameCanvas
+					.get(GamePanel.GAME_LEVEL_3);
+		}
+
 	}
 
 }

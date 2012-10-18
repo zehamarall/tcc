@@ -1,5 +1,7 @@
 package engine;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -12,26 +14,55 @@ public class GameOpcoes extends GameCanvas {
 	
 	BufferedImage tileset;
 	BufferedImage mBackground;
+	Font font;
 
 	ArrayList<Botao> mListaDeBotoes = new ArrayList<Botao>();
 
 	public GameOpcoes() {
 		
-		BufferedImage over = Constantes.LoadImage("play2.png");
-		BufferedImage notOver = Constantes.LoadImage("play1.png");
+		BufferedImage easy = Constantes.LoadImage("jogar2.png");
+		BufferedImage notEasy = Constantes.LoadImage("jogar.png");
+		BufferedImage mediun = Constantes.LoadImage("jogar2.png");
+		BufferedImage notMediun = Constantes.LoadImage("jogar.png");
+		BufferedImage hard = Constantes.LoadImage("jogar2.png");
+		BufferedImage notHard = Constantes.LoadImage("jogar.png");
 		mBackground = Constantes.LoadImage("menu.jpg");
 
-		Botao mPlayButton = new Botao(430, 230, over, notOver) {
+		Botao mPlayButtonEasy = new Botao(420, 200, easy, notEasy) {
 
 			@Override
 			public void buttonAction() {
+				GamePanel.nivelDificuldade = 1;
+				GamePanel.fase = 1;
+				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, GamePanel.fase);
+
+			}
+		};
+		Botao mPlayButtonMediun = new Botao(420, 300, mediun, notMediun) {
+
+			@Override
+			public void buttonAction() {
+				GamePanel.nivelDificuldade = 2;
 				GamePanel.fase = 1;
 				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, GamePanel.fase);
 
 			}
 		};
 
-		mListaDeBotoes.add(mPlayButton);
+		Botao mPlayButtonHard = new Botao(420, 400, hard, notHard) {
+
+			@Override
+			public void buttonAction() {
+				GamePanel.nivelDificuldade = 3;
+				GamePanel.fase = 1;
+				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, GamePanel.fase);
+
+			}
+		};
+
+		mListaDeBotoes.add(mPlayButtonEasy);
+		mListaDeBotoes.add(mPlayButtonMediun);
+		mListaDeBotoes.add(mPlayButtonHard);
 		
 	}	
 
@@ -43,6 +74,12 @@ public class GameOpcoes extends GameCanvas {
 	@Override
 	public void draw(Graphics2D dbg) {
 		dbg.drawImage(mBackground, 150, 0, null, null);
+		
+		font = new Font("Book Antiqua", Font.BOLD, 36);
+		dbg.setFont(font);
+		dbg.setColor(Color.black);		
+		dbg.drawString("Selecione o nivel do jogo", 350, 150);
+		
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			mListaDeBotoes.get(i).draw(dbg);
 		}
