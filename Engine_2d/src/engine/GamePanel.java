@@ -163,8 +163,8 @@ public class GamePanel extends Canvas implements Runnable {
 
 		gameCanvasAtual.draw(dbg);
 
-		// dbg.setColor(Color.black);
-		// dbg.drawString("FPS: " + Fps, 20, 20);
+		 //dbg.setColor(Color.black);
+		 //dbg.drawString("FPS: " + Fps, 20, 20);
 	}
 
 	@Override
