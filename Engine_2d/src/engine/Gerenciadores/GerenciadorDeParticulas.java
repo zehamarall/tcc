@@ -17,7 +17,8 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 
 	public ArrayList<PersonagemDoenca> LISTA_DE_PARTICULAS = new ArrayList<PersonagemDoenca>();
 	public PersonagemPrincipal persoangem;
-	public ArrayList<Sprite> LISTA_DE_ALIMENTOS = new ArrayList<Sprite>();
+	public ArrayList<Sprite> LISTA_DE_ALIMENTOS_BOM = new ArrayList<Sprite>();
+	public ArrayList<Sprite> LISTA_DE_ALIMENTOS_RUIM = new ArrayList<Sprite>();
 	public boolean gameOver = false;
 	int contador;
 	int pontos = 0;
@@ -29,7 +30,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 		super(_processoParalelo);
 	}
 
-	public void criaObjeto(BufferedImage image) {
+	public void criaAlimentoBom(BufferedImage image) {
 
 		while (true) {
 			int x = rnd.nextInt(GamePanel.GAME_WIDTH - 40);
@@ -46,7 +47,32 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 						+ matrizDoMapa[1][valor]);
 				if (matrizDoMapa[1][valor] == 0) {
 
-					LISTA_DE_ALIMENTOS
+					LISTA_DE_ALIMENTOS_BOM
+							.add(new Sprite(image, x, y, Color.black) {
+							});
+					return;
+				}
+			}
+		}
+	}
+	public void criaAlimentoRuim(BufferedImage image) {
+
+		while (true) {
+			int x = rnd.nextInt(GamePanel.GAME_WIDTH - 40);
+			int y = rnd.nextInt(GamePanel.GAME_HEIGHT - 40);
+			int tmpx = ((x + 12) / 16);
+			int tmpy = ((y + 12) / 16);
+
+			if (tmpx >= 0 && tmpy >= 0) {
+				int valor = tmpx + (((tmpy * 60) / 60) * 60);
+				System.out.println(" Coeficiente X " + tmpx + " MOD "
+						+ ((tmpy * 60) / 60));
+				int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+				System.out.println("Valor " + valor + "MAPA "
+						+ matrizDoMapa[1][valor]);
+				if (matrizDoMapa[1][valor] == 0) {
+
+					LISTA_DE_ALIMENTOS_RUIM
 							.add(new Sprite(image, x, y, Color.black) {
 							});
 					return;
@@ -82,6 +108,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 							Color.black));
 					return;
 				}
+				
 			}
 		}
 	}
@@ -89,10 +116,10 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 	@Override
 	public void simula(long diffTime) {
 		// persoangem.simula(diffTime);
-		if (vidas > 0 && LISTA_DE_ALIMENTOS.size() > 0) {
+		if (vidas > 0 && LISTA_DE_ALIMENTOS_BOM.size() > 0) {
 
-			for (int i = 0; i < LISTA_DE_ALIMENTOS.size(); i++) {
-				Sprite tmp = LISTA_DE_ALIMENTOS.get(i);
+			for (int i = 0; i < LISTA_DE_ALIMENTOS_BOM.size(); i++) {
+				Sprite tmp = LISTA_DE_ALIMENTOS_BOM.get(i);
 
 				tmp.simula(diffTime);
 
@@ -103,12 +130,24 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 				tmp.simula(diffTime);
 			}
 			// lista de alimentos saudaveis
-			for (int i = 0; i < LISTA_DE_ALIMENTOS.size(); i++) {
+			for (int i = 0; i < LISTA_DE_ALIMENTOS_BOM.size(); i++) {
 				if (Constantes.colideRetangulo(persoangem,
-						LISTA_DE_ALIMENTOS.get(i))) {
+						LISTA_DE_ALIMENTOS_BOM.get(i))) {
 					persoangem.colidiu();
-					LISTA_DE_ALIMENTOS.remove(i);
-					pontos += 10;
+					LISTA_DE_ALIMENTOS_BOM.remove(i);
+					pontos += 20;
+					System.out.println("Colidiu Alimento Saudavel Pontos "
+							+ pontos);
+				}
+			}
+			
+			// lista de alimentos saudaveis
+			for (int i = 0; i < LISTA_DE_ALIMENTOS_RUIM.size(); i++) {
+				if (Constantes.colideRetangulo(persoangem,
+						LISTA_DE_ALIMENTOS_RUIM.get(i))) {
+					persoangem.colidiu();
+					LISTA_DE_ALIMENTOS_RUIM.remove(i);
+					pontos -= 10;
 					System.out.println("Colidiu Alimento Saudavel Pontos "
 							+ pontos);
 				}
@@ -130,7 +169,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 		} else {
 			if (vidas < 0)
 				System.out.println("GAME OVER");
-			if (LISTA_DE_ALIMENTOS.size() == 0)
+			if (LISTA_DE_ALIMENTOS_BOM.size() == 0)
 				System.out.println("Você Venceu");
 
 		}
@@ -147,9 +186,14 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 				LISTA_DE_PARTICULAS.get(i).draw(dbg);
 			}
 
-			for (i = 0; i < LISTA_DE_ALIMENTOS.size(); i++) {
-				LISTA_DE_ALIMENTOS.get(i).draw(dbg);
+			for (i = 0; i < LISTA_DE_ALIMENTOS_BOM.size(); i++) {
+				LISTA_DE_ALIMENTOS_BOM.get(i).draw(dbg);
 			}
+			
+			for (i = 0; i < LISTA_DE_ALIMENTOS_RUIM.size(); i++) {
+				LISTA_DE_ALIMENTOS_RUIM.get(i).draw(dbg);
+			}
+			
 			font = new Font("Book Antiqua", Font.BOLD, 18);
 			dbg.setFont(font);
 			dbg.setColor(Color.black);
@@ -163,7 +207,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 			vidas = 3;
 		}
 		
-		if (LISTA_DE_ALIMENTOS.size() == 0) {
+		if (LISTA_DE_ALIMENTOS_BOM.size() == 0) {
 			GamePanel.total_pontos += pontos;
 			if (GamePanel.fase < 3){
 				GamePanel.trocaFase(GamePanel.GAME_VENCEDOR);
