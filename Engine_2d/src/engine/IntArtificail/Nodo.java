@@ -23,4 +23,12 @@ public class Nodo{
 		y = _y;
 		energia = _energia;
 	}
+	public short getx() {
+		
+		return this.x;
+	}
+public short gety() {
+		
+		return this.y;
+	}
 }
