@@ -26,8 +26,7 @@ public class GameLevel1 extends GameCanvas {
 
 	public ArrayList<AEstrela> LISTA_IA = new ArrayList<AEstrela>();
 	public ArrayList<Nodo> caminho = new ArrayList<Nodo>();
-	
-	
+
 	private boolean UP = false;
 	private boolean DOWN = false;
 	private boolean LEFT = false;
@@ -53,25 +52,41 @@ public class GameLevel1 extends GameCanvas {
 			meuGerenciador.persoangem.RIGHT = true;
 
 		}
-		Random rnd = new Random();
+		// Random rnd = new Random();
 
 		for (int i = 0; i < meuGerenciador.LISTA_DE_PARTICULAS.size(); i++) {
 			meuGerenciador.LISTA_DE_PARTICULAS.get(i).oldx = (int) meuGerenciador.LISTA_DE_PARTICULAS
 					.get(i).x;
 			meuGerenciador.LISTA_DE_PARTICULAS.get(i).oldy = (int) meuGerenciador.LISTA_DE_PARTICULAS
 					.get(i).y;
+			int x = (int) meuGerenciador.LISTA_DE_PARTICULAS.get(i).x;
+			int y = (int) meuGerenciador.LISTA_DE_PARTICULAS.get(i).y;
+			int tmpx = ((x) / 16);
+			int tmpy = ((y) / 16);
 
-			//AEstrela ia = LISTA_IA.get(i);
-			/*caminho = ia.calculaPath((int)meuGerenciador.LISTA_DE_PARTICULAS.get(i).x,
-					(int)meuGerenciador.LISTA_DE_PARTICULAS.get(i).y,
-					(int)meuGerenciador.persoangem.x, (int)meuGerenciador.persoangem.y);*/
-			//System.out.println("Tamanho "+ caminho.size());
-			//for (int j = 0; j < caminho.size(); j++) {
-				//Nodo n = caminho.get(j);
-				//System.out.println("NODO "+ );
-			//}
-			
-			
+			// if (tmpx >= 0 && tmpy >= 0) {
+
+			System.out.println("ANTES X" + x);
+			System.out.println("ANTES Y" + y);
+			AEstrela ia = LISTA_IA.get(i);
+			// caminho = ia.calculaPath(tmpx, tmpy, 30, 30);
+			caminho = ia.calculaPath(tmpy, tmpx, 4, 4);
+			System.out.println("DEPOIS Tamanho " + caminho.size());
+
+			meuGerenciador.LISTA_DE_PARTICULAS.get(i).x = caminho.get(1).getx() * 16;
+			meuGerenciador.LISTA_DE_PARTICULAS.get(i).y = caminho.get(1).gety() * 16;
+			for (int h = 0; h < caminho.size(); h++) {
+				System.out.println("INDICE "+ h);
+				System.out.println("POSICAO x " + caminho.get(h).getx() * 16);
+				System.out.println("POSICAO y " + caminho.get(h).gety() * 16);
+			}
+			ia.resetaEstrela();
+			// }
+			// for (int j = 0; j < caminho.size(); j++) {
+			// Nodo n = caminho.get(j);
+			// System.out.println("NODO "+ );
+			// }
+
 			/*
 			 * if (animacao == 0) { x = rnd.nextInt(4); }
 			 * 
@@ -127,7 +142,7 @@ public class GameLevel1 extends GameCanvas {
 			BufferedImage image2 = Constantes.LoadImage("cenoura.png");
 			meuGerenciador.criaAlimentoBom(image2);
 		}
-		//alimentos nao saudaveis 
+		// alimentos nao saudaveis
 		for (int i = 0; i < 3; i++) {
 			BufferedImage image3 = Constantes.LoadImage("fantasma.png");
 			meuGerenciador.criaAlimentoRuim(image3);
@@ -137,11 +152,11 @@ public class GameLevel1 extends GameCanvas {
 		for (int i = 0; i < nivel * 2; i++) {
 			BufferedImage image2 = Constantes.LoadImage("p2.png");
 			meuGerenciador.criaPersonagemDoenca(image2);
-			
-			//AESTRELA
-			AEstrela ia = new AEstrela(meuMapa.matrizDoMapa, meuGerenciador.LISTA_DE_PARTICULAS.get(i).sizeX, meuGerenciador.LISTA_DE_PARTICULAS.get(i).sizeY);
+
+			// AESTRELA
+			AEstrela ia = new AEstrela(meuMapa.matrizDoMapa, 42, 60);
 			LISTA_IA.add(ia);
-			
+
 		}
 
 	}
