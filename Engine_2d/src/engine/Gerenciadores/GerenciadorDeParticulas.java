@@ -105,7 +105,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 				if (matrizDoMapa[1][valor] == 0) {
 
 					LISTA_DE_PARTICULAS.add(new PersonagemDoenca(image, x, y,
-							Color.black));
+							Color.black, matrizDoMapa));
 					return;
 				}
 				
