@@ -42,17 +42,17 @@ public class PersonagemDoenca extends Personagem {
 		simulaAestrela();
 
 		if (UP) {
-			vely = -15;
+			vely = -40;
 		} else if (DOWN) {
-			vely = +15;
+			vely = +40;
 		} else {
 			vely = 0;
 		}
 
 		if (LEFT) {
-			velx = -15;
+			velx = -40;
 		} else if (RIGHT) {
-			velx = +15;
+			velx = +40;
 		} else {
 			velx = 0;
 		}
@@ -160,31 +160,27 @@ public class PersonagemDoenca extends Personagem {
 		
 		if (caminho.size() > 0) {
 
-			int z = caminho.get(count).getx() * 16;
-			int c = caminho.get(count).gety() * 16;
+			int z = caminho.get(count).getx();
+			int c = caminho.get(count).gety();
+			
+			System.out.println("tmpx "+tmpx + " tmpy "+ tmpy + " Z "+ z+ " C "+c);
 
-			if (z == (int) this.x || c == (int) this.y){
-				
-			}else if (z < (int) this.x) {
+			if (z == (int) tmpx || c == (int) tmpy){
+				System.out.println("IGUAIS");
+			}else if (z < (int) tmpy) {
 				this.UP = true;
-			} else if (z > (int) this.x) {
-				System.out.println("DESCENDO");
+			} else if (z > (int) tmpy) {
+				//System.out.println("DESCENDO");
 				this.DOWN = true;
-			} else if (c < (int) this.y) {
+			} else if (c < (int) tmpx) {
 				this.LEFT = true;
-			} else if (c > (int) this.y) {
+			} else if (c > (int) tmpx) {
 				this.RIGHT = true;
 			}
 
-			for (int h = 0; h < caminho.size(); h++) {
-				System.out.println("INDICE " + h + "POSICAO x " + caminho.get(h).getx()
-						* 16 + "POSICAO x " + caminho.get(h).gety()
+				System.out.println("INDICE " + count+ "POSICAO x " + caminho.get(count).getx()
+						* 16 + "POSICAO x " + caminho.get(count).gety()
 						* 16);
-				//System.out.println("POSICAO x " + caminho.get(h).getx()
-				//		* 16);
-				//System.out.println("POSICAO y " + caminho.get(h).gety()
-				//* 16);
-			}
 
 			if (count == 0) {
 				aestrela.resetaEstrela();
