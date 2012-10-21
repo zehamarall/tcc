@@ -23,14 +23,10 @@ public class GameLevel3 extends GameCanvas {
 	private boolean DOWN = false;
 	private boolean LEFT = false;
 	private boolean RIGHT = false;
-	private static int animacao = 0;
-	private int x = 0;
+
 
 	@Override
 	public void gameUpdate(long diffTime) {
-
-		meuGerenciador.persoangem.oldx = (int) meuGerenciador.persoangem.x;
-		meuGerenciador.persoangem.oldy = (int) meuGerenciador.persoangem.y;
 
 		if (UP) {
 			meuGerenciador.persoangem.UP = true;
@@ -45,50 +41,12 @@ public class GameLevel3 extends GameCanvas {
 			meuGerenciador.persoangem.RIGHT = true;
 
 		}
-		Random rnd = new Random();
-
-		for (int i = 0; i < meuGerenciador.LISTA_DE_PARTICULAS.size(); i++) {
-			meuGerenciador.LISTA_DE_PARTICULAS.get(i).oldx = (int) meuGerenciador.LISTA_DE_PARTICULAS
-					.get(i).x;
-			meuGerenciador.LISTA_DE_PARTICULAS.get(i).oldy = (int) meuGerenciador.LISTA_DE_PARTICULAS
-					.get(i).y;
-
-			if (animacao == 0) {
-				x = rnd.nextInt(4);
-			}
-
-			if (x == 0) {
-				meuGerenciador.LISTA_DE_PARTICULAS.get(i).UP = true;
-			}
-			if (x == 1) {
-				meuGerenciador.LISTA_DE_PARTICULAS.get(i).DOWN = true;
-			}
-			if (x == 2) {
-				meuGerenciador.LISTA_DE_PARTICULAS.get(i).LEFT = true;
-			}
-			if (x == 3) {
-				meuGerenciador.LISTA_DE_PARTICULAS.get(i).RIGHT = true;
-			}
-		}
-		animacao += 1;
 
 		meuGerenciador.persoangem.simula(diffTime);
 		meuGerenciador.simula(diffTime);
-		meuGerenciador.persoangem.UP = false;
-		meuGerenciador.persoangem.DOWN = false;
-		meuGerenciador.persoangem.LEFT = false;
-		meuGerenciador.persoangem.RIGHT = false;
 
-		// tempo que o personagem segue uma direcao
-		if (animacao == 35) {
-			for (int i = 0; i < meuGerenciador.LISTA_DE_PARTICULAS.size(); i++) {
-				meuGerenciador.LISTA_DE_PARTICULAS.get(i).UP = false;
-				meuGerenciador.LISTA_DE_PARTICULAS.get(i).DOWN = false;
-				meuGerenciador.LISTA_DE_PARTICULAS.get(i).LEFT = false;
-				meuGerenciador.LISTA_DE_PARTICULAS.get(i).RIGHT = false;
-
-			}
-			animacao = 0;
+		for (int i = 0; i < meuGerenciador.LISTA_DE_PARTICULAS.size(); i++) {
+			meuGerenciador.LISTA_DE_PARTICULAS.get(i).simula(diffTime);
 		}
 
 	}
