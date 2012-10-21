@@ -52,6 +52,9 @@ public class GameLevel1 extends GameCanvas {
 		meuGerenciador.simula(diffTime);
 
 		for (int i = 0; i < meuGerenciador.LISTA_DE_PARTICULAS.size(); i++) {
+			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = meuGerenciador.persoangem.oldy/16;
+			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = meuGerenciador.persoangem.oldx/16;
+					
 			meuGerenciador.LISTA_DE_PARTICULAS.get(i).simula(diffTime);
 		}
 

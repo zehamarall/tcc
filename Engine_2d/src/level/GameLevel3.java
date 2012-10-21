@@ -5,7 +5,6 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.util.Random;
 
 import engine.GameCanvas;
 import engine.Gerenciadores.GerenciadorDeParticulas;
@@ -46,6 +45,8 @@ public class GameLevel3 extends GameCanvas {
 		meuGerenciador.simula(diffTime);
 
 		for (int i = 0; i < meuGerenciador.LISTA_DE_PARTICULAS.size(); i++) {
+			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = meuGerenciador.persoangem.oldy/16;
+			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = meuGerenciador.persoangem.oldx/16;
 			meuGerenciador.LISTA_DE_PARTICULAS.get(i).simula(diffTime);
 		}
 
