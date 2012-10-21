@@ -9,12 +9,12 @@ import java.awt.image.BufferedImage;
 import engine.GameCanvas;
 import engine.Gerenciadores.GerenciadorDeParticulas;
 import engine.Gerenciadores.GerenciadorDeSom;
-import engine.mapa.Fase1;
+import engine.mapa.Fase2;
 import engine.util.Constantes;
 
 public class GameLevel2 extends GameCanvas {
 
-	Fase1 meuMapa;
+	Fase2 meuMapa;
 	GerenciadorDeParticulas meuGerenciador = new GerenciadorDeParticulas(false);
 	GerenciadorDeSom meuSom;
 
@@ -60,7 +60,7 @@ public class GameLevel2 extends GameCanvas {
 		// Imagem do mapa
 		BufferedImage tileset = Constantes.LoadImage("tileset.png");
 		// meuMapa = new Mapa(tileset, 0, 0, 0, 0, Color.black, 16, 16);
-		meuMapa = new Fase1(tileset, 0, 0, 0, 0, Color.black, 16, 16);
+		meuMapa = new Fase2(tileset, 0, 0, 0, 0, Color.black, 16, 16);
 
 		Constantes.LoadScript("scripts/scriptNomes.csv");
 

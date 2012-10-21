@@ -7,13 +7,10 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 import engine.GameCanvas;
 import engine.Gerenciadores.GerenciadorDeParticulas;
 import engine.Gerenciadores.GerenciadorDeSom;
-import engine.IntArtificail.AEstrela;
-import engine.IntArtificail.Nodo;
 import engine.mapa.Fase1;
 import engine.util.Constantes;
 
@@ -23,8 +20,8 @@ public class GameLevel1 extends GameCanvas {
 	GerenciadorDeParticulas meuGerenciador = new GerenciadorDeParticulas(false);
 	GerenciadorDeSom meuSom;
 
-	public ArrayList<AEstrela> LISTA_IA = new ArrayList<AEstrela>();
-	public ArrayList<Nodo> caminho = new ArrayList<Nodo>();
+	// public ArrayList<AEstrela> LISTA_IA = new ArrayList<AEstrela>();
+	// public ArrayList<Nodo> caminho = new ArrayList<Nodo>();
 
 	private boolean UP = false;
 	private boolean DOWN = false;
@@ -52,9 +49,13 @@ public class GameLevel1 extends GameCanvas {
 		meuGerenciador.simula(diffTime);
 
 		for (int i = 0; i < meuGerenciador.LISTA_DE_PARTICULAS.size(); i++) {
-			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = meuGerenciador.persoangem.oldy/16;
-			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = meuGerenciador.persoangem.oldx/16;
-					
+			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = (int) meuGerenciador.persoangem.y / 16;
+			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = (int) meuGerenciador.persoangem.x / 16;
+			System.out.println("*********************************** OBJ X "
+					+ meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx
+					+ " OBJ Y "
+					+ meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy);
+
 			meuGerenciador.LISTA_DE_PARTICULAS.get(i).simula(diffTime);
 		}
 
@@ -94,8 +95,8 @@ public class GameLevel1 extends GameCanvas {
 			meuGerenciador.criaPersonagemDoenca(image2);
 
 			// AESTRELA
-			//AEstrela ia = new AEstrela(meuMapa.matrizDoMapa, 42, 60);
-			//LISTA_IA.add(ia);
+			// AEstrela ia = new AEstrela(meuMapa.matrizDoMapa, 42, 60);
+			// LISTA_IA.add(ia);
 
 		}
 
