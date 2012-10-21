@@ -19,6 +19,8 @@ public class PersonagemDoenca extends Personagem {
 	Random rnd = new Random();
 	public ArrayList<Nodo> caminho = new ArrayList<Nodo>();
 	int count = 0;
+	public int objx  = 0;
+	public int objy  = 0;
 
 	public PersonagemDoenca(BufferedImage _imagem, int _x, int _y, Color _Cor) {
 
@@ -45,17 +47,17 @@ public class PersonagemDoenca extends Personagem {
 		simulaAestrela();
 
 		if (UP) {
-			vely = -25;
+			vely = -15;
 		} else if (DOWN) {
-			vely = +25;
+			vely = +15;
 		} else {
 			vely = 0;
 		}
 
 		if (LEFT) {
-			velx = -25;
+			velx = -15;
 		} else if (RIGHT) {
-			velx = +25;
+			velx = +15;
 		} else {
 			velx = 0;
 		}
@@ -153,7 +155,7 @@ public class PersonagemDoenca extends Personagem {
 		int tmpx = (int) (this.x + (this.sizeX / 2)) / 16;
 		int tmpy = (int) (this.y + (this.sizeY / 2)) / 16;
 
-		caminho = aestrela.calculaPath(tmpy, tmpx, 0, 0);
+		caminho = aestrela.calculaPath(tmpy, tmpx, objx, objy);
 
 		count = caminho.size() - 2;
 		System.out.println("DEPOIS Tamanho " + count + " POSICAO X " + tmpx
