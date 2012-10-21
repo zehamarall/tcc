@@ -57,6 +57,7 @@ public class AEstrela {
 		while (abreNodo(selecionado) == false) {
 
 			double menor = 99999999;
+			//int menoridx = -1;
 			int menoridx = -1;
 			
 			for (int z = 0; z < nodosAbertos.size(); z++) {

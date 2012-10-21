@@ -21,6 +21,9 @@ public class PersonagemPrincipal extends Personagem {
 
 	@Override
 	public void simula(long diffTime) {
+		
+		oldx = (int) x;
+		oldy = (int) y;
 
 		if (UP) {
 			vely = -100;
@@ -67,7 +70,10 @@ public class PersonagemPrincipal extends Personagem {
 				animacao = 1;
 			}
 		}
-		//System.out.println("FRAME "+ frame);
+		UP = false;
+		DOWN = false;
+		RIGHT = false;
+		LEFT = false;
 	}
 
 	@Override

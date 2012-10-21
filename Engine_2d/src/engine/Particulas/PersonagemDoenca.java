@@ -38,21 +38,24 @@ public class PersonagemDoenca extends Personagem {
 
 	@Override
 	public void simula(long diffTime) {
+
+		oldx = (int) x;
+		oldy = (int) y;
 		
 		simulaAestrela();
 
 		if (UP) {
-			vely = -40;
+			vely = -25;
 		} else if (DOWN) {
-			vely = +40;
+			vely = +25;
 		} else {
 			vely = 0;
 		}
 
 		if (LEFT) {
-			velx = -40;
+			velx = -25;
 		} else if (RIGHT) {
-			velx = +40;
+			velx = +25;
 		} else {
 			velx = 0;
 		}
@@ -85,11 +88,11 @@ public class PersonagemDoenca extends Personagem {
 				animacao = 1;
 			}
 		}
-		
-		UP 		= false;
-		DOWN 	= false;
-		RIGHT 	= false;
-		LEFT  	= false;
+
+		UP = false;
+		DOWN = false;
+		RIGHT = false;
+		LEFT = false;
 	}
 
 	@Override
@@ -146,50 +149,47 @@ public class PersonagemDoenca extends Personagem {
 	}
 
 	public void simulaAestrela() {
-		
-		int tmpx = (int) (this.x / 16);
-		int tmpy = (int) (this.y / 16);
-		
-		//primeira vez calcula caminho
-		if (caminho.size() == 0) {
-			caminho = aestrela.calculaPath(tmpy, tmpx, 0, 0);
-			System.out.println("DEPOIS Tamanho " + caminho.size());
-			count = caminho.size()-1;
-		}
-		
-		
-		if (caminho.size() > 0) {
+
+		int tmpx = (int) (this.x + (this.sizeX / 2)) / 16;
+		int tmpy = (int) (this.y + (this.sizeY / 2)) / 16;
+
+		caminho = aestrela.calculaPath(tmpy, tmpx, 0, 0);
+
+		count = caminho.size() - 2;
+		System.out.println("DEPOIS Tamanho " + count + " POSICAO X " + tmpx
+				+ " POSICAO Y " + tmpy);
+
+		if (count > 0) {
 
 			int z = caminho.get(count).getx();
 			int c = caminho.get(count).gety();
-			
-			System.out.println("tmpx "+tmpx + " tmpy "+ tmpy + " Z "+ z+ " C "+c);
 
-			if (z == (int) tmpx || c == (int) tmpy){
+			System.out.println("tmpx " + tmpx + " tmpy " + tmpy + " Z " + z
+					+ " C " + c);
+
+			if (z == (int) tmpy && c == (int) tmpx) {
 				System.out.println("IGUAIS");
-			}else if (z < (int) tmpy) {
+			} else if (z < (int) tmpy) {
 				this.UP = true;
+				System.out.println("SUBINDO");
 			} else if (z > (int) tmpy) {
-				//System.out.println("DESCENDO");
+				System.out.println("DESCENDO");
 				this.DOWN = true;
 			} else if (c < (int) tmpx) {
 				this.LEFT = true;
+				System.out.println("ESQUERDA");
 			} else if (c > (int) tmpx) {
 				this.RIGHT = true;
+				System.out.println("DIREITA");
 			}
 
-				System.out.println("INDICE " + count+ "POSICAO x " + caminho.get(count).getx()
-						* 16 + "POSICAO x " + caminho.get(count).gety()
-						* 16);
+			System.out.println("INDICE " + count + "POSICAO x "
+					+ caminho.get(count).getx() * 16 + "POSICAO x "
+					+ caminho.get(count).gety() * 16);
 
-			if (count == 0) {
-				aestrela.resetaEstrela();
-				count = 0;
+			aestrela.resetaEstrela();
 
-			}
-			count--;
 		}
-		
 
 	}
 }
