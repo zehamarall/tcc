@@ -26,7 +26,7 @@ public class GamePanel extends Canvas implements Runnable {
 
 	// Variaveis de Sistema
 	public static final int GAME_WIDTH = 1024;
-	public static final int GAME_HEIGHT = 665;
+	public static final int GAME_HEIGHT = 640;
 	private Thread animator;
 	private boolean running = false;
 	public static GamePanel isntance = null;

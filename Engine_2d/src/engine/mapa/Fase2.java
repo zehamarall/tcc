@@ -5,9 +5,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-public class Fase1 extends Mapa {
+public class Fase2 extends Mapa {
 
-	public Fase1(BufferedImage _image, int _x, int _y, int _velx, int _vely,
+	public Fase2(BufferedImage _image, int _x, int _y, int _velx, int _vely,
 			Color _Cor, int _larguraDoTile, int _alturaDoTile) {
 		super(_image, _x, _y, _velx, _vely, _Cor, 0, 0);
 

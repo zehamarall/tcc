@@ -39,42 +39,65 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 			int tmpy = ((y + 12) / 16);
 
 			if (tmpx >= 0 && tmpy >= 0) {
-				int valor = tmpx + (((tmpy * 60) / 60) * 60);
+				int valor = tmpx + (((tmpy * 64) / 64) * 64);
 				System.out.println(" Coeficiente X " + tmpx + " MOD "
-						+ ((tmpy * 60) / 60));
-				int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+						+ ((tmpy * 64) / 64));
+
+				int[][] matrizDoMapa;
+
+				if (GamePanel.fase == 1) {
+					matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+				} else if (GamePanel.fase == 2) {
+					matrizDoMapa = engine.mapa.Fase2.matrizDoMapa;
+				} else {
+					matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+				}
 				System.out.println("Valor " + valor + "MAPA "
 						+ matrizDoMapa[1][valor]);
 				if (matrizDoMapa[1][valor] == 0) {
 
-					LISTA_DE_ALIMENTOS_BOM
-							.add(new Sprite(image, x, y, Color.black) {
-							});
+					LISTA_DE_ALIMENTOS_BOM.add(new Sprite(image, x, y,
+							Color.black) {
+					});
 					return;
 				}
 			}
 		}
 	}
+
 	public void criaAlimentoRuim(BufferedImage image) {
 
 		while (true) {
-			int x = rnd.nextInt(GamePanel.GAME_WIDTH - 40);
-			int y = rnd.nextInt(GamePanel.GAME_HEIGHT - 40);
-			int tmpx = ((x + 12) / 16);
-			int tmpy = ((y + 12) / 16);
+			int x = rnd.nextInt(GamePanel.GAME_WIDTH - 50);
+			int y = rnd.nextInt(GamePanel.GAME_HEIGHT - 50);
+			int tmpx = ((x) / 16);
+			int tmpy = ((y) / 16);
+			int tmpx2 = ((x + 16) / 16);
+			int tmpy2 = ((y + 16) / 16);
 
-			if (tmpx >= 0 && tmpy >= 0) {
-				int valor = tmpx + (((tmpy * 60) / 60) * 60);
+			if (tmpx >= 0 && tmpy >= 0 && tmpx2 >= 0 && tmpy2 >= 0) {
+				int valor = tmpx + (((tmpy * 64) / 64) * 64);
+				int valor2 = tmpx2 + (((tmpy2 * 64) / 64) * 64);
 				System.out.println(" Coeficiente X " + tmpx + " MOD "
-						+ ((tmpy * 60) / 60));
-				int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+						+ ((tmpy * 64) / 64));
+
+				int[][] matrizDoMapa;
+
+				if (GamePanel.fase == 1) {
+					matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+				} else if (GamePanel.fase == 2) {
+					matrizDoMapa = engine.mapa.Fase2.matrizDoMapa;
+				} else {
+					matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+				}
+
 				System.out.println("Valor " + valor + "MAPA "
 						+ matrizDoMapa[1][valor]);
-				if (matrizDoMapa[1][valor] == 0) {
+				if (matrizDoMapa[1][valor] == 0 && matrizDoMapa[1][valor2] == 0) {
 
-					LISTA_DE_ALIMENTOS_RUIM
-							.add(new Sprite(image, x, y, Color.black) {
-							});
+					LISTA_DE_ALIMENTOS_RUIM.add(new Sprite(image, x, y,
+							Color.black) {
+					});
 					return;
 				}
 			}
@@ -83,8 +106,9 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 
 	public void criaPersonagem(BufferedImage image) {
 		System.out.println("Criando o personagem");
-		persoangem = new PersonagemPrincipal(image, GamePanel.GAME_WIDTH / 2,
-				GamePanel.GAME_HEIGHT / 2, Color.black);
+		// persoangem = new PersonagemPrincipal(image, GamePanel.GAME_WIDTH / 2,
+		// GamePanel.GAME_HEIGHT / 2, Color.black);
+		persoangem = new PersonagemPrincipal(image,30,30, Color.black);
 	}
 
 	public void criaPersonagemDoenca(BufferedImage image) {
@@ -92,23 +116,41 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 		while (true) {
 			int x = rnd.nextInt(GamePanel.GAME_WIDTH - 40);
 			int y = rnd.nextInt(GamePanel.GAME_HEIGHT - 40);
-			int tmpx = ((x + 18) / 16);
-			int tmpy = ((y + 18) / 16);
+			int tmpx = ((x) / 16);
+			int tmpy = ((y) / 16);
+			int tmpx2 = ((x + 16) / 16);
+			int tmpy2 = ((y + 16) / 16);
+			int tmpx3 = ((x - 16) / 16);
+			int tmpy3 = ((y - 16) / 16);
 
 			if (tmpx >= 0 && tmpy >= 0) {
-				int valor = tmpx + (((tmpy * 60) / 60) * 60);
+				int valor = tmpx + (((tmpy * 64) / 64) * 64);
+				int valor2 = tmpx2 + (((tmpy2 * 64) / 64) * 64);
+				int valor3 = tmpx3 + (((tmpy3 * 64) / 64) * 64);
 				System.out.println(" Coeficiente X " + tmpx + " MOD "
-						+ ((tmpy * 60) / 60));
+						+ ((tmpy * 64) / 64));
+
+				//int[][] matrizDoMapa;
+
+				//if (GamePanel.fase == 1) {
 				int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+					//matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+				//}// else if (GamePanel.fase == 2) {
+					//matrizDoMapa = engine.mapa.Fase2.matrizDoMapa;
+				//} else {
+					//matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+				//}
+
 				System.out.println("Valor " + valor + "MAPA "
 						+ matrizDoMapa[1][valor]);
-				if (matrizDoMapa[1][valor] == 0) {
+				if (matrizDoMapa[1][valor] == 0 && matrizDoMapa[1][valor2] == 0
+						&& matrizDoMapa[1][valor3] == 0) {
 
 					LISTA_DE_PARTICULAS.add(new PersonagemDoenca(image, x, y,
 							Color.black, matrizDoMapa));
 					return;
 				}
-				
+
 			}
 		}
 	}
@@ -140,7 +182,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 							+ pontos);
 				}
 			}
-			
+
 			// lista de alimentos saudaveis
 			for (int i = 0; i < LISTA_DE_ALIMENTOS_RUIM.size(); i++) {
 				if (Constantes.colideRetangulo(persoangem,
@@ -160,7 +202,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 					vidas -= 1;
 					System.out.println("Colidiu Com a doença Vidas " + vidas);
 					if (vidas <= 0) {
-						
+
 						System.out.println("GAME OVER");
 						gameOver = true;
 					}
@@ -189,27 +231,27 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 			for (i = 0; i < LISTA_DE_ALIMENTOS_BOM.size(); i++) {
 				LISTA_DE_ALIMENTOS_BOM.get(i).draw(dbg);
 			}
-			
+
 			for (i = 0; i < LISTA_DE_ALIMENTOS_RUIM.size(); i++) {
 				LISTA_DE_ALIMENTOS_RUIM.get(i).draw(dbg);
 			}
-			
+
 			font = new Font("Book Antiqua", Font.BOLD, 18);
 			dbg.setFont(font);
 			dbg.setColor(Color.black);
 			dbg.drawString("VIDAS: " + vidas, GamePanel.GAME_WIDTH - 150, 15);
 			dbg.drawString("PONTOS: " + pontos, GamePanel.GAME_WIDTH - 150, 40);
 		}
-		
+
 		if (gameOver == true) {
 			GamePanel.trocaFase(GamePanel.GAME_OVER);
 			gameOver = false;
 			vidas = 3;
 		}
-		
+
 		if (LISTA_DE_ALIMENTOS_BOM.size() == 0) {
 			GamePanel.total_pontos += pontos;
-			if (GamePanel.fase < 3){
+			if (GamePanel.fase < 3) {
 				GamePanel.trocaFase(GamePanel.GAME_VENCEDOR);
 			} else {
 				GamePanel.trocaFase(GamePanel.GAME_FINISH);

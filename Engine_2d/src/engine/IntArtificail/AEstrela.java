@@ -3,7 +3,7 @@ package engine.IntArtificail;
 import java.util.ArrayList;
 
 public class AEstrela {
-	int [][] mapa;
+	int[][] mapa;
 	ArrayList<Nodo> nodosAbertos = new ArrayList<Nodo>();
 	ArrayList<Nodo> nodosFechados = new ArrayList<Nodo>();
 	ArrayList<Nodo> caminho = new ArrayList<Nodo>();
@@ -23,22 +23,22 @@ public class AEstrela {
 		int k = 0;
 		mapa = new int[_largura][_altura];
 
-		for (int i = 0; i < 42; i++) {
-			for (int j = 0; j < 60; j++) {
+		for (int i = 0; i < 40; i++) {
+			for (int j = 0; j < 64; j++) {
 				mapa[i][j] = _mapa[1][k];
-				//System.out.print(" " + _mapa[1][k]);
+				// System.out.print(" " + _mapa[1][k]);
 				k++;
 			}
-			//System.out.println();
+			// System.out.println();
 		}
-		
-		for (int i = 0; i < 42; i++) {
-			for (int j = 0; j < 60; j++) {
+
+		for (int i = 0; i < 40; i++) {
+			for (int j = 0; j < 64; j++) {
 				System.out.print(" " + mapa[i][j]);
 			}
 			System.out.println();
 		}
-		
+
 		largura = _largura;
 		altura = _altura;
 		candidatos = new Nodo[4];
@@ -57,9 +57,9 @@ public class AEstrela {
 		while (abreNodo(selecionado) == false) {
 
 			double menor = 99999999;
-			//int menoridx = -1;
 			int menoridx = -1;
 			
+
 			for (int z = 0; z < nodosAbertos.size(); z++) {
 				Nodo nodo2 = nodosAbertos.get(z);
 				double soma = nodo2.euristica;
@@ -70,6 +70,7 @@ public class AEstrela {
 
 				}
 			}
+
 			selecionado = nodosAbertos.get(menoridx);
 			nodosAbertos.remove(menoridx);
 
@@ -115,14 +116,13 @@ public class AEstrela {
 
 				return true;
 			} else {
-				
-				
-				if (!(ntest.x < 0 || ntest.y < 0 || ntest.x+1 > largura || ntest.y+1 > altura)) {
+
+				if (!(ntest.x < 0 || ntest.y < 0 || ntest.x + 1 > largura || ntest.y + 1 > altura)) {
 					// A linha abaixo é um criterio de eliminação de nodo, a
 					// conta correta vai depender de como
 					// a matrix vai vir, como está provavelmente não funcionará,
 					// só precisas definir isto.
-					
+
 					if (!(mapa[ntest.x][ntest.y] != 0)) {
 						boolean igual = false;
 						Nodo nodo2;

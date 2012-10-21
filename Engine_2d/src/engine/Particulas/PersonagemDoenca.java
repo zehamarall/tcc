@@ -35,7 +35,9 @@ public class PersonagemDoenca extends Personagem {
 		super(_imagem, _x, _y, _Cor);
 		sizeX = 51;
 		sizeY = 80;
-		aestrela = new AEstrela(_mapa, 42, 60);
+		aestrela = new AEstrela(_mapa, 40, 64);
+
+		
 	}
 
 	@Override
@@ -132,12 +134,22 @@ public class PersonagemDoenca extends Personagem {
 		int coeficienteX = (int) (this.x + (this.sizeX / 2)) / 16;
 		int coeficientey = (int) (this.y + (this.sizeY / 2)) / 16;
 
-		// System.out.println("TILE X " + coeficienteX + "TILE Y " +
-		// coeficientey);
+		 System.out.println("TILE X " + coeficienteX + "TILE Y " +
+		 coeficientey);
 
 		if (coeficienteX >= 0 && coeficientey >= 0) {
-			int valor = coeficienteX + (((coeficientey * 60) / 60) * 60);
-			int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+			int valor = coeficienteX + (((coeficientey * 64) / 64) * 64);
+			
+			int[][] matrizDoMapa;
+			
+			//if(GamePanel.fase == 1){
+				matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+			//}else if(GamePanel.fase == 2){
+				//matrizDoMapa = engine.mapa.Fase2.matrizDoMapa;
+			//}else {
+			//	matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+			//}
+			
 			if (matrizDoMapa[1][valor] != 0) {
 				this.colidiu();
 				return;
@@ -154,7 +166,12 @@ public class PersonagemDoenca extends Personagem {
 
 		int tmpx = (int) (this.x + (this.sizeX / 2)) / 16;
 		int tmpy = (int) (this.y + (this.sizeY / 2)) / 16;
-
+		
+		//int tmpx = (int) (this.x) / 16;
+		//int tmpy = (int) (this.y) / 16;
+		
+		System.out.println("  ###################################  X "+ tmpx + " Y "+tmpy + "OBJ X " + objx + "OBJ Y "+ objy);
+		
 		caminho = aestrela.calculaPath(tmpy, tmpx, objx, objy);
 
 		count = caminho.size() - 2;

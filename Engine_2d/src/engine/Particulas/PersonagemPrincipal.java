@@ -112,8 +112,18 @@ public class PersonagemPrincipal extends Personagem {
 		int coeficientey = (int) (this.y + (this.sizeY / 2)) / 16;
 
 		if (coeficienteX >= 0 && coeficientey >= 0) {
-			int valor = coeficienteX + (((coeficientey * 60) / 60) * 60);
-			int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+			int valor = coeficienteX + (((coeficientey * 64) / 64) * 64);
+			
+			int[][] matrizDoMapa;
+			
+			//if(GamePanel.fase == 1){
+				matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+			//}else if(GamePanel.fase == 2){
+				//matrizDoMapa = engine.mapa.Fase2.matrizDoMapa;
+			//}else {
+				//matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+			//}
+			
 			if (matrizDoMapa[1][valor] != 0) {
 				this.colidiu();
 				return;
