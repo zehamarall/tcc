@@ -51,8 +51,12 @@ public class GameLevel1 extends GameCanvas {
 		for (int i = 0; i < meuGerenciador.LISTA_DE_PARTICULAS.size(); i++) {
 			//meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = 20;
 			//meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = 20;
-			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = (int) meuGerenciador.persoangem.y / 16;
-			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = (int) meuGerenciador.persoangem.x / 16;
+			//meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = (int) (meuGerenciador.persoangem.y + (meuGerenciador.persoangem.sizeY/2))  / 16;
+			//meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = (int) (meuGerenciador.persoangem.x + (meuGerenciador.persoangem.sizeX/2)) / 16;
+			
+			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = (int) (meuGerenciador.persoangem.y + (meuGerenciador.persoangem.sizeY/2)) / 16;
+			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = (int) (meuGerenciador.persoangem.x + (meuGerenciador.persoangem.sizeX/2)) / 16;
+			
 			System.out.println("*********************************** OBJ X "
 					+ meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx
 					+ " OBJ Y "
