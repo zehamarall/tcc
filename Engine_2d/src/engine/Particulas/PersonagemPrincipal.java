@@ -91,7 +91,7 @@ public class PersonagemPrincipal extends Personagem {
 			return;
 		}
 
-		if (this.y + this.sizeX > GamePanel.GAME_HEIGHT) {
+		if (this.y + (this.sizeX ) > GamePanel.GAME_HEIGHT) {
 			colidiu();
 			return;
 		}
@@ -101,7 +101,7 @@ public class PersonagemPrincipal extends Personagem {
 			return;
 		}
 
-		if (this.x + this.sizeY > GamePanel.GAME_WIDTH) {
+		if (this.x + (this.sizeY/2) > GamePanel.GAME_WIDTH) {
 			colidiu();
 			return;
 		}
@@ -123,6 +123,7 @@ public class PersonagemPrincipal extends Personagem {
 			//}else {
 				//matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
 			//}
+				System.out.println("EXTREMO " + valor);
 			
 			if (matrizDoMapa[1][valor] != 0) {
 				this.colidiu();

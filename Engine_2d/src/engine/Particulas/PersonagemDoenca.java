@@ -48,6 +48,8 @@ public class PersonagemDoenca extends Personagem {
 		oldx = (int) x;
 		oldy = (int) y;
 		
+		//check_colidiu_mapa();
+		
 		simulaAestrela();
 
 		if (UP) {
@@ -73,8 +75,8 @@ public class PersonagemDoenca extends Personagem {
 		y += vely * diffTime / 1000.0f;
 
 		// tratar as colisões
-		check_colidiu_extremos();
-		check_colidiu_mapa();
+		//check_colidiu_extremos();
+		//heck_colidiu_mapa();
 
 		// System.out.println("X: " + x + " Y: " + y);
 
@@ -116,7 +118,7 @@ public class PersonagemDoenca extends Personagem {
 			return;
 		}
 
-		if (this.y + this.sizeX > GamePanel.GAME_HEIGHT) {
+		if (this.y + this.sizeX/2 > GamePanel.GAME_HEIGHT) {
 			colidiu();
 			return;
 		}
@@ -126,7 +128,7 @@ public class PersonagemDoenca extends Personagem {
 			return;
 		}
 
-		if (this.x + this.sizeY > GamePanel.GAME_WIDTH) {
+		if (this.x + this.sizeY/2 > GamePanel.GAME_WIDTH) {
 			colidiu();
 			return;
 		}
@@ -135,6 +137,9 @@ public class PersonagemDoenca extends Personagem {
 	public void check_colidiu_mapa() {
 		int coeficienteX = (int) (this.x + (this.sizeX / 2)) / 16;
 		int coeficientey = (int) (this.y + (this.sizeY / 2)) / 16;
+		
+		//int coeficienteX = (int) (this.x / 16);
+		//int coeficientey = (int) (this.y / 16);
 
 		 System.out.println("TILE X " + coeficienteX + "TILE Y " +
 		 coeficientey);
@@ -168,9 +173,6 @@ public class PersonagemDoenca extends Personagem {
 
 		int tmpx = (int) (this.x + (this.sizeX / 2)) / 16;
 		int tmpy = (int) (this.y + (this.sizeY / 2)) / 16;
-		
-		//int tmpx = (int) (this.x) / 16;
-		//int tmpy = (int) (this.y) / 16;
 		
 		System.out.println("  ###################################  X "+ tmpx + " Y "+tmpy + "OBJ X " + objx + "OBJ Y "+ objy);
 		
