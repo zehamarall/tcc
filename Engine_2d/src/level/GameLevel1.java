@@ -49,6 +49,8 @@ public class GameLevel1 extends GameCanvas {
 		meuGerenciador.simula(diffTime);
 
 		for (int i = 0; i < meuGerenciador.LISTA_DE_PARTICULAS.size(); i++) {
+			//meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = 20;
+			//meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = 20;
 			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = (int) meuGerenciador.persoangem.y / 16;
 			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = (int) meuGerenciador.persoangem.x / 16;
 			System.out.println("*********************************** OBJ X "
