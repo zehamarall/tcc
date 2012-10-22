@@ -15,6 +15,7 @@ import engine.Particulas.PersonagemDoenca;
 import engine.Particulas.PersonagemPrincipal;
 
 public class Constantes {
+	static int count = 0;
 
 	public static BufferedImage LoadImage(String nomedoaarquivo) {
 		Link meulink = new Link();
@@ -69,6 +70,7 @@ public class Constantes {
 
 	public static boolean colideRetangulo(PersPrincipal entidadeum,
 			Sprite entidadedois) {
+
 		if (entidadeum.x + entidadeum.image.getWidth() > entidadedois.x
 				&& entidadeum.x < entidadedois.x
 						+ entidadedois.image.getWidth()
@@ -90,25 +92,33 @@ public class Constantes {
 						+ entidadedois.image.getHeight()) {
 			return true;
 		}
-		
-		
+
 		return false;
 	}
-	
+
 	public static boolean colideRetangulo(PersonagemPrincipal entidadeum,
 			PersonagemDoenca entidadedois) {
-		if ((entidadeum.x + (entidadeum.sizeX/2)) > entidadedois.x
-				&& entidadeum.x < (entidadedois.x
-						+ (entidadedois.sizeX/2))
-				&& (entidadeum.y + (entidadeum.sizeY/2)) > entidadedois.y
-				&& entidadeum.y < (entidadedois.y + (entidadedois.sizeY/2))) {
-			return true;
+
+		if (count >= 0) {
+			if ((entidadeum.x + (entidadeum.sizeX / 2)) > entidadedois.x
+					&& entidadeum.x < (entidadedois.x + (entidadedois.sizeX / 2))
+					&& (entidadeum.y + (entidadeum.sizeY / 2)) > entidadedois.y
+					&& entidadeum.y < (entidadedois.y + (entidadedois.sizeY / 2))) {
+				count++;
+				if(count > 20){
+					count = 0;
+					return true;
+					
+				}else{
+					return false;
+				}
+			}
+
 		}
-		
-		
 		return false;
+
 	}
-	
+
 	public static boolean colideRetangulo(PersonagemPrincipal entidadeum,
 			PersDoenca entidadedois) {
 		if (entidadeum.x + entidadeum.sizeX > entidadedois.x
@@ -119,10 +129,10 @@ public class Constantes {
 						+ entidadedois.image.getHeight()) {
 			return true;
 		}
-		
-		
+
 		return false;
 	}
+
 	public static boolean colideRetangulo(MoveAbleGameObject entidadeum,
 			MoveAbleGameObject entidadedois) {
 		if (entidadeum.x + entidadeum.largura > entidadedois.x
