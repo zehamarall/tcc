@@ -31,12 +31,6 @@ public class Constantes {
 		return imagem;
 	}
 
-	// public static AudioClip loadAudio(String filename){
-
-	// return
-	// Main.instance.getAudioClip(Link.singleton.getClass().getResource(filename));
-	// }
-
 	/**
 	 * metodos de colis�o raio e reytangulo
 	 */
@@ -100,10 +94,10 @@ public class Constantes {
 			PersonagemDoenca entidadedois) {
 
 		if (count >= 0) {
-			if ((entidadeum.x + (entidadeum.sizeX / 2)) > entidadedois.x
-					&& entidadeum.x < (entidadedois.x + (entidadedois.sizeX / 2))
-					&& (entidadeum.y + (entidadeum.sizeY / 2)) > entidadedois.y
-					&& entidadeum.y < (entidadedois.y + (entidadedois.sizeY / 2))) {
+			if ((entidadeum.x + (entidadeum.sizeX -15)) > entidadedois.x
+					&& entidadeum.x < (entidadedois.x + (entidadedois.sizeX -15))
+					&& (entidadeum.y + (entidadeum.sizeY -15)) > entidadedois.y
+					&& entidadeum.y < (entidadedois.y + (entidadedois.sizeY -15))) {
 				count++;
 				if(count > 20){
 					count = 0;

@@ -44,15 +44,12 @@ public class PersonagemPrincipal extends Personagem {
 		timeranimacao += diffTime;
 		frame = (timeranimacao / tempoentreframes) % 6;
 
-		//System.out.println("FRAME "+ frame);
 		x += velx * diffTime / 1000.0f;
 		y += vely * diffTime / 1000.0f;
 
 		// tratar as colisões
 		check_colidiu_extremos();
 		check_colidiu_mapa();
-
-		//System.out.println("X: " + x + " Y: " + y);
 
 		if (velx == 0 && vely == 0) {
 			frame = 0;

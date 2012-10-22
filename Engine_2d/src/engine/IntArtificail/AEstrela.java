@@ -26,17 +26,9 @@ public class AEstrela {
 		for (int i = 0; i < 40; i++) {
 			for (int j = 0; j < 64; j++) {
 				mapa[i][j] = _mapa[1][k];
-				// System.out.print(" " + _mapa[1][k]);
 				k++;
 			}
-			// System.out.println();
-		}
 
-		for (int i = 0; i < 40; i++) {
-			for (int j = 0; j < 64; j++) {
-				System.out.print(" " + mapa[i][j]);
-			}
-			System.out.println();
 		}
 
 		largura = _largura;
@@ -58,7 +50,6 @@ public class AEstrela {
 
 			double menor = 99999999;
 			int menoridx = -1;
-			
 
 			for (int z = 0; z < nodosAbertos.size(); z++) {
 				Nodo nodo2 = nodosAbertos.get(z);
@@ -118,10 +109,6 @@ public class AEstrela {
 			} else {
 
 				if (!(ntest.x < 0 || ntest.y < 0 || ntest.x + 1 > largura || ntest.y + 1 > altura)) {
-					// A linha abaixo é um criterio de eliminação de nodo, a
-					// conta correta vai depender de como
-					// a matrix vai vir, como está provavelmente não funcionará,
-					// só precisas definir isto.
 
 					if (!(mapa[ntest.x][ntest.y] != 0)) {
 						boolean igual = false;

@@ -299,7 +299,7 @@ public class Fase1 extends Mapa {
 						1892, 1891, 1892, 1891, 1892, 1891, 1892, 1891, 1892,
 						1891, 1892, 1891, 1892, 1891, 1892, 1891, 1892, 1891,
 						1892, 1891, 1892 },
-				{ 0, 0, 0, 0, 743, 744, 743, 744, 743, 744, 743, 744,
+				{ 749, 750, 743, 744, 743, 744, 743, 744, 743, 744, 743, 744,
 						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 743, 744,
@@ -449,14 +449,7 @@ public class Fase1 extends Mapa {
 						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 						0, 0, 779, 780 } };
-		// matrizDoMapa = new int [1000];
-
-		// for (int i = 0; i < 1000; i++) {
-		// for (int j = 0; j < 1000; j++) {
-		// matrizDoMapa[i][j] = 1 + GamePanel.rnd.nextInt(450);
-		// matrizDoMapa[i] = 114 ;
-		// }
-		// }
+	
 		preparaMapa();
 
 	}
@@ -477,12 +470,7 @@ public class Fase1 extends Mapa {
 				// numero de tiled do mapa em largura
 				int fx = j / 64;
 				int fy = j % 64;
-				// dbg.drawImage(image, valorTile*larguraDoTile,
-				// valorTile*alturaDoTile, larguraDoTile, alturaDoTile,
-				// i*larguraDoTile, j*alturaDoTile,larguraDoTile, alturaDoTile,
-				// null);
-				// System.out.println("pos x " + fx + " pos y " + fy + " TILE "
-				// + valorTile);
+				
 				int sx = valorTile % (image.getWidth() / larguraDoTile);
 				int sy = valorTile / (image.getWidth() / larguraDoTile);
 
@@ -499,7 +487,6 @@ public class Fase1 extends Mapa {
 
 	@Override
 	public void simula(long diffTime) {
-		// TODO Auto-generated method stub
 
 	}
 
