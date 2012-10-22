@@ -33,6 +33,8 @@ public class PersonagemDoenca extends Personagem {
 			int[][] _mapa) {
 
 		super(_imagem, _x, _y, _Cor);
+		objx = 10;
+		objy = 10;
 		sizeX = 51;
 		sizeY = 80;
 		aestrela = new AEstrela(_mapa, 40, 64);

@@ -106,9 +106,9 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 
 	public void criaPersonagem(BufferedImage image) {
 		System.out.println("Criando o personagem");
-		// persoangem = new PersonagemPrincipal(image, GamePanel.GAME_WIDTH / 2,
-		// GamePanel.GAME_HEIGHT / 2, Color.black);
-		persoangem = new PersonagemPrincipal(image,30,30, Color.black);
+		 persoangem = new PersonagemPrincipal(image, (GamePanel.GAME_WIDTH / 2) +32,
+		 (GamePanel.GAME_HEIGHT / 2)+32, Color.black);
+		//persoangem = new PersonagemPrincipal(image,30,30, Color.black);
 	}
 
 	public void criaPersonagemDoenca(BufferedImage image) {
