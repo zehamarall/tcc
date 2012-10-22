@@ -97,12 +97,11 @@ public class Constantes {
 	
 	public static boolean colideRetangulo(PersonagemPrincipal entidadeum,
 			PersonagemDoenca entidadedois) {
-		if (entidadeum.x + entidadeum.sizeX > entidadedois.x
-				&& entidadeum.x < entidadedois.x
-						+ entidadedois.sizeX
-				&& entidadeum.y + entidadeum.sizeY > entidadedois.y
-				&& entidadeum.y < entidadedois.y
-						+ entidadedois.sizeY) {
+		if ((entidadeum.x + (entidadeum.sizeX/2)) > entidadedois.x
+				&& entidadeum.x < (entidadedois.x
+						+ (entidadedois.sizeX/2))
+				&& (entidadeum.y + (entidadeum.sizeY/2)) > entidadedois.y
+				&& entidadeum.y < (entidadedois.y + (entidadedois.sizeY/2))) {
 			return true;
 		}
 		
