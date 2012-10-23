@@ -442,12 +442,16 @@ public class Fase3 extends Mapa {
 		Graphics tmpGraphic = tmpImagem.getGraphics();
 		int i, j;
 
+		System.out.println("LEN " + matrizDoMapa.length);
+		//System.out.println("LEN " + matrizDoMapa.);
+		
 		for (i = 0; i < matrizDoMapa.length; i++) {
 			for (j = 0; j < matrizDoMapa[i].length; j++) {
-
+				System.out.println("MATRIZ "+ matrizDoMapa[i][j]);
 				int valorTile = matrizDoMapa[i][j] - 1;
 				if (valorTile == -1) {
-					valorTile = 1860;
+					System.out.println("VALOR " + valorTile);
+					valorTile = 1004;
 				}
 				// numero de tiled do mapa em largura
 				int fx = j / 64;
@@ -474,7 +478,6 @@ public class Fase3 extends Mapa {
 
 	@Override
 	public void simula(long diffTime) {
-		// TODO Auto-generated method stub
 
 	}
 
