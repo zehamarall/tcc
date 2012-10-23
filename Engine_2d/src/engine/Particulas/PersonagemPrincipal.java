@@ -113,13 +113,16 @@ public class PersonagemPrincipal extends Personagem {
 			
 			int[][] matrizDoMapa;
 			
-			//if(GamePanel.fase == 1){
+			if(GamePanel.fase == 1){
+				System.out.println("FASE 1");
 				matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
-			//}else if(GamePanel.fase == 2){
-				//matrizDoMapa = engine.mapa.Fase2.matrizDoMapa;
-			//}else {
-				//matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
-			//}
+			}else if(GamePanel.fase == 2){
+				System.out.println("FASE 2");
+				matrizDoMapa = engine.mapa.Fase2.matrizDoMapa;
+			}else {
+				System.out.println("FASE 3");
+				matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+			}
 				System.out.println("EXTREMO " + valor);
 			
 			if (matrizDoMapa[1][valor] != 0) {
