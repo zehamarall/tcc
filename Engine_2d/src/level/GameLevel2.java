@@ -1,10 +1,12 @@
 package level;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import engine.GameCanvas;
 import engine.Gerenciadores.GerenciadorDeParticulas;
@@ -23,6 +25,7 @@ public class GameLevel2 extends GameCanvas {
 	private boolean LEFT = false;
 	private boolean RIGHT = false;
 
+	Random rnd = new Random();
 
 	@Override
 	public void gameUpdate(long diffTime) {
@@ -68,22 +71,36 @@ public class GameLevel2 extends GameCanvas {
 		BufferedImage image = Constantes.LoadImage("p1.png");
 		meuGerenciador.criaPersonagem(image);
 
+		BufferedImage image2 = Constantes.LoadImage("bons.png");
+		//BufferedImage xx = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
+		
 		// criando os alimentos saudaveis
 		for (int i = 0; i < 3; i++) {
-			BufferedImage image2 = Constantes.LoadImage("cenoura.png");
-			meuGerenciador.criaAlimentoBom(image2);
+			int x = rnd.nextInt(19);
+			BufferedImage tmpImagem = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
+			Graphics tmpGraphic = tmpImagem.getGraphics();
+			System.out.println("CRIANDO X "+ x);
+			tmpGraphic.drawImage(image2, 0, 0, 32, 32, (x * 32), 0, ((x * 32) + 32), 32, null);
+			//tmpGraphic.drawImage(image2,(x * 32), 0, ((x * 32) + 32), 0, 0, 0, 32,32, null);
+			meuGerenciador.criaAlimentoBom(tmpImagem);
 		}
-
+		
+		BufferedImage image4 = Constantes.LoadImage("ruins.png");
 		// alimentos nao saudaveis
 		for (int i = 0; i < 3; i++) {
-			BufferedImage image3 = Constantes.LoadImage("fantasma.png");
-			meuGerenciador.criaAlimentoRuim(image3);
+			int x = rnd.nextInt(13);
+			BufferedImage tmpImagem = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
+			Graphics tmpGraphic = tmpImagem.getGraphics();
+			System.out.println("CRIANDO X "+ x);
+			tmpGraphic.drawImage(image4, 0, 0, 32, 32, (x * 32), 0, ((x * 32) + 32), 32, null);
+			//tmpGraphic.drawImage(image2,(x * 32), 0, ((x * 32) + 32), 0, 0, 0, 32,32, null);
+			meuGerenciador.criaAlimentoRuim(tmpImagem);
 		}
 
 		// criando os personagens fantasma
 		for (int i = 0; i < nivel * 2; i++) {
-			BufferedImage image2 = Constantes.LoadImage("p2.png");
-			meuGerenciador.criaPersonagemDoenca(image2);
+			BufferedImage image1 = Constantes.LoadImage("p2.png");
+			meuGerenciador.criaPersonagemDoenca(image1);
 		}
 
 	}

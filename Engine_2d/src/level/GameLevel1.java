@@ -3,10 +3,12 @@ package level;
 //import Nodo;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import engine.GameCanvas;
 import engine.Gerenciadores.GerenciadorDeParticulas;
@@ -19,6 +21,7 @@ public class GameLevel1 extends GameCanvas {
 	Fase1 meuMapa;
 	GerenciadorDeParticulas meuGerenciador = new GerenciadorDeParticulas(false);
 	GerenciadorDeSom meuSom;
+	Random rnd = new Random();
 
 	// public ArrayList<AEstrela> LISTA_IA = new ArrayList<AEstrela>();
 	// public ArrayList<Nodo> caminho = new ArrayList<Nodo>();
@@ -83,22 +86,38 @@ public class GameLevel1 extends GameCanvas {
 		BufferedImage image = Constantes.LoadImage("p1.png");
 		meuGerenciador.criaPersonagem(image);
 
+		BufferedImage image2 = Constantes.LoadImage("bons.png");
+		//BufferedImage xx = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
+		
 		// criando os alimentos saudaveis
 		for (int i = 0; i < 3; i++) {
-			BufferedImage image2 = Constantes.LoadImage("cenoura.png");
-			meuGerenciador.criaAlimentoBom(image2);
+			int x = rnd.nextInt(19);
+			BufferedImage tmpImagem = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
+			Graphics tmpGraphic = tmpImagem.getGraphics();
+			System.out.println("CRIANDO X "+ x);
+			tmpGraphic.drawImage(image2, 0, 0, 32, 32, (x * 32), 0, ((x * 32) + 32), 32, null);
+			//tmpGraphic.drawImage(image2,(x * 32), 0, ((x * 32) + 32), 0, 0, 0, 32,32, null);
+			meuGerenciador.criaAlimentoBom(tmpImagem);
 		}
+		
+		BufferedImage image4 = Constantes.LoadImage("ruins.png");
 		// alimentos nao saudaveis
 		for (int i = 0; i < 3; i++) {
-			BufferedImage image3 = Constantes.LoadImage("fantasma.png");
-			meuGerenciador.criaAlimentoRuim(image3);
+			int x = rnd.nextInt(13);
+			BufferedImage tmpImagem = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
+			Graphics tmpGraphic = tmpImagem.getGraphics();
+			System.out.println("CRIANDO X "+ x);
+			tmpGraphic.drawImage(image4, 0, 0, 32, 32, (x * 32), 0, ((x * 32) + 32), 32, null);
+			//tmpGraphic.drawImage(image2,(x * 32), 0, ((x * 32) + 32), 0, 0, 0, 32,32, null);
+			meuGerenciador.criaAlimentoRuim(tmpImagem);
+			
 		}
 
 		// criando os personagens fantasma
 
 		for (int i = 0; i < nivel * 2; i++) {
-			BufferedImage image2 = Constantes.LoadImage("p2.png");
-			meuGerenciador.criaPersonagemDoenca(image2);
+			BufferedImage image3= Constantes.LoadImage("p2.png");
+			meuGerenciador.criaPersonagemDoenca(image3);
 
 			// AESTRELA
 			// AEstrela ia = new AEstrela(meuMapa.matrizDoMapa, 42, 60);
