@@ -3,7 +3,7 @@ package engine.IntArtificail;
 import java.util.ArrayList;
 
 public class AEstrela {
-	int[][] mapa;
+	public int[][] mapa;
 	ArrayList<Nodo> nodosAbertos = new ArrayList<Nodo>();
 	ArrayList<Nodo> nodosFechados = new ArrayList<Nodo>();
 	ArrayList<Nodo> caminho = new ArrayList<Nodo>();

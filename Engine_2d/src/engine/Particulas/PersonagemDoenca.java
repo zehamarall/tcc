@@ -21,7 +21,10 @@ public class PersonagemDoenca extends Personagem {
 	int count = 0;
 	public int objx  = 0;
 	public int objy  = 0;
+	int antobjx 	 = 0;
+	int antobjy 	 = 0;
 
+	
 	public PersonagemDoenca(BufferedImage _imagem, int _x, int _y, Color _Cor) {
 
 		super(_imagem, _x, _y, _Cor);
@@ -176,8 +179,23 @@ public class PersonagemDoenca extends Personagem {
 		
 		System.out.println("  ###################################  X "+ tmpx + " Y "+tmpy + "OBJ X " + objx + "OBJ Y "+ objy);
 		
+		if (aestrela.mapa[objx][objy] != 0){
+			/*
+			 * havia situacoes em que o persoangem
+			 * ficava em sima de um obstaculo no mapa
+			 * foi implementado para somente pegar 
+			 * posicoes que nao tinha nenhum personagem 
+			 */
+			
+			objx = antobjx;
+			objy = antobjy;
+		}
+		
 		caminho = aestrela.calculaPath(tmpy, tmpx, objx, objy);
 
+		 antobjx = objx;
+		 antobjy = objy;
+		
 		count = caminho.size() - 2;
 		System.out.println("DEPOIS Tamanho " + count + " POSICAO X " + tmpx
 				+ " POSICAO Y " + tmpy);
