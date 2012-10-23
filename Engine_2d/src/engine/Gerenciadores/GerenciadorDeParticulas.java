@@ -50,7 +50,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 				} else if (GamePanel.fase == 2) {
 					matrizDoMapa = engine.mapa.Fase2.matrizDoMapa;
 				} else {
-					matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+					matrizDoMapa = engine.mapa.Fase3.matrizDoMapa;
 				}
 				System.out.println("Valor " + valor + "MAPA "
 						+ matrizDoMapa[1][valor]);
@@ -88,7 +88,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 				} else if (GamePanel.fase == 2) {
 					matrizDoMapa = engine.mapa.Fase2.matrizDoMapa;
 				} else {
-					matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+					matrizDoMapa = engine.mapa.Fase3.matrizDoMapa;
 				}
 
 				System.out.println("Valor " + valor + "MAPA "
@@ -130,16 +130,16 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 				System.out.println(" Coeficiente X " + tmpx + " MOD "
 						+ ((tmpy * 64) / 64));
 
-				//int[][] matrizDoMapa;
+				int[][] matrizDoMapa;
 
-				//if (GamePanel.fase == 1) {
-				int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
-					//matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
-				//}// else if (GamePanel.fase == 2) {
-					//matrizDoMapa = engine.mapa.Fase2.matrizDoMapa;
-				//} else {
-					//matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
-				//}
+				if (GamePanel.fase == 1) {
+				//int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+					matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+				} else if (GamePanel.fase == 2) {
+					matrizDoMapa = engine.mapa.Fase2.matrizDoMapa;
+				} else {
+					matrizDoMapa = engine.mapa.Fase3.matrizDoMapa;
+				}
 
 				System.out.println("Valor " + valor + "MAPA "
 						+ matrizDoMapa[1][valor]);
