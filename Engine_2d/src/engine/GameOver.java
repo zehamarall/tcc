@@ -19,19 +19,30 @@ public class GameOver extends GameCanvas {
 
 	public GameOver() {
 
-		BufferedImage over = Constantes.LoadImage("jogar2.png");
-		BufferedImage notOver = Constantes.LoadImage("jogar.png");
-		mBackground = Constantes.LoadImage("frutas.png");
+		BufferedImage over = Constantes.LoadImage("jogar4.png");
+		BufferedImage notOver = Constantes.LoadImage("jogar3.png");
+		BufferedImage sair = Constantes.LoadImage("sair4.png");
+		BufferedImage notSair = Constantes.LoadImage("sair3.png");
+		mBackground = Constantes.LoadImage("game_over_t.png");
 
-		Botao mPlayButton = new Botao(400, 570, over, notOver) {
+		Botao mPlayButton = new Botao(680, 550, over, notOver) {
 
 			@Override
 			public void buttonAction() {
 				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, GamePanel.fase);
 			}
 		};
+		
+		Botao mPlayButton2 = new Botao(100, 550, sair, notSair) {
+
+			@Override
+			public void buttonAction() {
+				GamePanel.isntance.stopGame();
+			}
+		};
 
 		mListaDeBotoes.add(mPlayButton);
+		mListaDeBotoes.add(mPlayButton2);
 
 	}
 
@@ -43,11 +54,11 @@ public class GameOver extends GameCanvas {
 	@Override
 	public void draw(Graphics2D dbg) {
 
-		dbg.drawImage(mBackground, 0, 0, null, null);
-		font = new Font("Book Antiqua", Font.BOLD, 32);
+		dbg.drawImage(mBackground, 60, 0, null, null);
+		font = new Font("Book Antiqua", Font.BOLD, 90);
 		dbg.setFont(font);
 		dbg.setColor(Color.black);
-		dbg.drawString("Game Over", 450, 100);
+		dbg.drawString("Game Over", 300, 225);
 		
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			mListaDeBotoes.get(i).draw(dbg);

@@ -20,12 +20,12 @@ public class GameOpcoes extends GameCanvas {
 
 	public GameOpcoes() {
 		
-		BufferedImage easy = Constantes.LoadImage("jogar2.png");
-		BufferedImage notEasy = Constantes.LoadImage("jogar.png");
-		BufferedImage mediun = Constantes.LoadImage("jogar2.png");
-		BufferedImage notMediun = Constantes.LoadImage("jogar.png");
-		BufferedImage hard = Constantes.LoadImage("jogar2.png");
-		BufferedImage notHard = Constantes.LoadImage("jogar.png");
+		BufferedImage easy = Constantes.LoadImage("facil2.png");
+		BufferedImage notEasy = Constantes.LoadImage("facil1.png");
+		BufferedImage mediun = Constantes.LoadImage("medio2.png");
+		BufferedImage notMediun = Constantes.LoadImage("medio1.png");
+		BufferedImage hard = Constantes.LoadImage("dificil2.png");
+		BufferedImage notHard = Constantes.LoadImage("dificil1.png");
 		mBackground = Constantes.LoadImage("menu.jpg");
 
 		Botao mPlayButtonEasy = new Botao(420, 200, easy, notEasy) {

@@ -19,10 +19,10 @@ public class GameFinish extends GameCanvas {
 
 	public GameFinish() {
 
-		BufferedImage over = Constantes.LoadImage("sair2.png");
-		BufferedImage notOver = Constantes.LoadImage("sair1.png");
-		BufferedImage jogar = Constantes.LoadImage("jogar2.png");
-		BufferedImage notJogar = Constantes.LoadImage("jogar.png");
+		BufferedImage over = Constantes.LoadImage("sair4.png");
+		BufferedImage notOver = Constantes.LoadImage("sair3.png");
+		BufferedImage jogar = Constantes.LoadImage("jogar4.png");
+		BufferedImage notJogar = Constantes.LoadImage("jogar3.png");
 		mBackground = Constantes.LoadImage("finish.png");
 
 		Botao mSairButton = new Botao(600, 500, over, notOver) {
@@ -38,6 +38,7 @@ public class GameFinish extends GameCanvas {
 			@Override
 			public void buttonAction() {
 				GamePanel.fase = 1;
+				GamePanel.total_pontos = 0;
 				GamePanel.trocaFase(GamePanel.GAME_MENU);
 			}
 		};
@@ -56,12 +57,14 @@ public class GameFinish extends GameCanvas {
 	public void draw(Graphics2D dbg) {
 
 		dbg.drawImage(mBackground, 0, 0, null, null);
-		font = new Font("Book Antiqua", Font.BOLD, 32);
+		font = new Font("Book Antiqua", Font.BOLD, 50);
 		dbg.setFont(font);
 		dbg.setColor(Color.black);
-		dbg.drawString("Parabéns", 520, 100);
-		dbg.drawString("Você Concluiu o jogo", 520, 160);
-		dbg.drawString("Total de Pontos = " + GamePanel.total_pontos, 520, 300);
+		dbg.drawString("Parabéns", 650, 100);
+		font = new Font("Book Antiqua", Font.BOLD, 40);
+		dbg.setFont(font);
+		dbg.drawString("Você Concluiu o Jogo", 560, 200);
+		dbg.drawString("Total de Pontos = " + GamePanel.total_pontos, 560, 300);
 		
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			mListaDeBotoes.get(i).draw(dbg);

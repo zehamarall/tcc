@@ -20,15 +20,15 @@ public class GameMenu extends GameCanvas {
 		// Imagem do mapa
 		main = test;
 		tileset = Constantes.LoadImage("tileset.png");
-		BufferedImage over = Constantes.LoadImage("jogar2.png");
-		BufferedImage notOver = Constantes.LoadImage("jogar.png");
-		BufferedImage opcoes = Constantes.LoadImage("opcoes2.png");
-		BufferedImage notOpcoes = Constantes.LoadImage("opcoes.png");
-		BufferedImage sair = Constantes.LoadImage("sair2.png");
-		BufferedImage notSair = Constantes.LoadImage("sair1.png");
+		BufferedImage over = Constantes.LoadImage("jogar4.png");
+		BufferedImage notOver = Constantes.LoadImage("jogar3.png");
+		BufferedImage opcoes = Constantes.LoadImage("opcoes4.png");
+		BufferedImage notOpcoes = Constantes.LoadImage("opcoes3.png");
+		BufferedImage sair = Constantes.LoadImage("sair4.png");
+		BufferedImage notSair = Constantes.LoadImage("sair3.png");
 		mBackground = Constantes.LoadImage("menu.jpg");
 
-		Botao mPlayButton = new Botao(430, 130, over, notOver) {
+		Botao mPlayButton = new Botao(400, 200, over, notOver) {
 
 			@Override
 			public void buttonAction() {
@@ -38,7 +38,7 @@ public class GameMenu extends GameCanvas {
 			}
 		};
 		
-		Botao mOpcoes = new Botao(430, 230, opcoes, notOpcoes) {
+		Botao mOpcoes = new Botao(400, 300, opcoes, notOpcoes) {
 
 			@Override
 			public void buttonAction() {
@@ -47,7 +47,7 @@ public class GameMenu extends GameCanvas {
 			}
 		};
 		
-		Botao mExitButton = new Botao(430, 530, sair, notSair) {
+		Botao mExitButton = new Botao(400, 400, sair, notSair) {
 
 			@Override
 			public void buttonAction() {

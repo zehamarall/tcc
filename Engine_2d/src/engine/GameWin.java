@@ -19,11 +19,13 @@ public class GameWin extends GameCanvas {
 
 	public GameWin() {
 
-		BufferedImage over = Constantes.LoadImage("play2.png");
-		BufferedImage notOver = Constantes.LoadImage("play1.png");
-		mBackground = Constantes.LoadImage("frutas.png");
+		BufferedImage over = Constantes.LoadImage("proximo2.png");
+		BufferedImage notOver = Constantes.LoadImage("proximo1.png");
+		BufferedImage sair = Constantes.LoadImage("sair4.png");
+		BufferedImage notSair = Constantes.LoadImage("sair3.png");
+		mBackground = Constantes.LoadImage("game_over.png");
 
-		Botao mPlayButton = new Botao(700, 500, over, notOver) {
+		Botao mPlayButton = new Botao(680, 550, over, notOver) {
 
 			@Override
 			public void buttonAction() {
@@ -33,12 +35,22 @@ public class GameWin extends GameCanvas {
 					GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, GamePanel.fase);
 				} else {
 					System.out.println("Acabou o Jogo");
-					//GamePanel.trocaFase(GamePanel.GAME_FINISH);
+					
 				}
+			}
+		};
+		
+		Botao mPlayButton2 = new Botao(100, 550, sair, notSair) {
+
+			@Override
+			public void buttonAction() {
+				GamePanel.isntance.stopGame();			
 			}
 		};
 
 		mListaDeBotoes.add(mPlayButton);
+		mListaDeBotoes.add(mPlayButton2);
+
 
 	}
 
@@ -50,13 +62,13 @@ public class GameWin extends GameCanvas {
 	@Override
 	public void draw(Graphics2D dbg) {
 
-		dbg.drawImage(mBackground, 0, 0, null, null);
-		font = new Font("Book Antiqua", Font.BOLD, 32);
+		dbg.drawImage(mBackground, 60, 0, null, null);
+		font = new Font("Book Antiqua", Font.BOLD, 50);
 		dbg.setFont(font);
 		dbg.setColor(Color.black);		
-		dbg.drawString("Parabéns", 460, 80);
-		dbg.drawString("Você passou de fase", 380, 120);
-		dbg.drawString("Total de Pontos = " + GamePanel.total_pontos, 380, 180);
+		dbg.drawString("Parabéns", 395, 80);
+		dbg.drawString("Você passou de fase", 300, 150);
+		dbg.drawString("Total de Pontos = " + GamePanel.total_pontos, 300, 230);
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			mListaDeBotoes.get(i).draw(dbg);
 		}
