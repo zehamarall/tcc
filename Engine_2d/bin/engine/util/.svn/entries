@@ -2,13 +2,13 @@
 
 dir
 24
-https://leandroamaral-jogo-digital-educacional-nutricional.googlecode.com/svn/trunk/Engine_2d/bin/engine/util
+https://leandroamaral-jogo-digital-educacional-nutricional.googlecode.com/svn/trunk/Engine_2d/src/engine/util
 https://leandroamaral-jogo-digital-educacional-nutricional.googlecode.com/svn
 
 
 
-2012-07-24T01:02:48.662611Z
-2
+2012-09-20T00:30:38.574553Z
+23
 zehamarall@gmail.com
 
 
@@ -26,18 +26,17 @@ zehamarall@gmail.com
 
 e7955286-3e16-1fca-b7a3-75d9ee1c0285
 
-Constantes.class
+Constantes.java
 file
 
 
 
 
-2012-09-21T15:15:12.134830Z
-ac5eebaf8221cd83e971514ed4612dfc
-2012-07-24T01:02:48.662611Z
-2
+2012-09-21T15:15:11.958833Z
+b36ef5a5405ffbe1a0692189b5ea29a7
+2012-09-20T00:30:38.574553Z
+23
 zehamarall@gmail.com
-has-props
 
 
 
@@ -58,5 +57,6 @@ has-props
 
 
 
-3731
+
+4683
 
