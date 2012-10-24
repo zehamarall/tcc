@@ -15,16 +15,15 @@ public class PersonagemDoenca extends Personagem {
 
 	public boolean LEFT, RIGHT, UP, DOWN;
 	public AEstrela aestrela;
+	public ArrayList<Nodo> caminho = new ArrayList<Nodo>();
+	public int objx = 0;
+	public int objy = 0;
 	double rotacao = 0;
 	Random rnd = new Random();
-	public ArrayList<Nodo> caminho = new ArrayList<Nodo>();
 	int count = 0;
-	public int objx  = 0;
-	public int objy  = 0;
-	int antobjx 	 = 0;
-	int antobjy 	 = 0;
+	int antobjx = 0;
+	int antobjy = 0;
 
-	
 	public PersonagemDoenca(BufferedImage _imagem, int _x, int _y, Color _Cor) {
 
 		super(_imagem, _x, _y, _Cor);
@@ -42,7 +41,6 @@ public class PersonagemDoenca extends Personagem {
 		sizeY = 80;
 		aestrela = new AEstrela(_mapa, 40, 64);
 
-		
 	}
 
 	@Override
@@ -50,9 +48,7 @@ public class PersonagemDoenca extends Personagem {
 
 		oldx = (int) x;
 		oldy = (int) y;
-		
-		//check_colidiu_mapa();
-		
+
 		simulaAestrela();
 
 		if (UP) {
@@ -76,12 +72,6 @@ public class PersonagemDoenca extends Personagem {
 
 		x += velx * diffTime / 1000.0f;
 		y += vely * diffTime / 1000.0f;
-
-		// tratar as colisões
-		//check_colidiu_extremos();
-		//heck_colidiu_mapa();
-
-		// System.out.println("X: " + x + " Y: " + y);
 
 		if (velx == 0 && vely == 0) {
 			frame = 0;
@@ -121,7 +111,7 @@ public class PersonagemDoenca extends Personagem {
 			return;
 		}
 
-		if (this.y + this.sizeX/2 > GamePanel.GAME_HEIGHT) {
+		if (this.y + this.sizeX / 2 > GamePanel.GAME_HEIGHT) {
 			colidiu();
 			return;
 		}
@@ -131,7 +121,7 @@ public class PersonagemDoenca extends Personagem {
 			return;
 		}
 
-		if (this.x + this.sizeY/2 > GamePanel.GAME_WIDTH) {
+		if (this.x + this.sizeY / 2 > GamePanel.GAME_WIDTH) {
 			colidiu();
 			return;
 		}
@@ -140,26 +130,14 @@ public class PersonagemDoenca extends Personagem {
 	public void check_colidiu_mapa() {
 		int coeficienteX = (int) (this.x + (this.sizeX / 2)) / 16;
 		int coeficientey = (int) (this.y + (this.sizeY / 2)) / 16;
-		
-		//int coeficienteX = (int) (this.x / 16);
-		//int coeficientey = (int) (this.y / 16);
-
-		 System.out.println("TILE X " + coeficienteX + "TILE Y " +
-		 coeficientey);
 
 		if (coeficienteX >= 0 && coeficientey >= 0) {
 			int valor = coeficienteX + (((coeficientey * 64) / 64) * 64);
-			
+
 			int[][] matrizDoMapa;
-			
-			//if(GamePanel.fase == 1){
-				matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
-			//}else if(GamePanel.fase == 2){
-				//matrizDoMapa = engine.mapa.Fase2.matrizDoMapa;
-			//}else {
-			//	matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
-			//}
-			
+
+			matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
+
 			if (matrizDoMapa[1][valor] != 0) {
 				this.colidiu();
 				return;
@@ -176,26 +154,23 @@ public class PersonagemDoenca extends Personagem {
 
 		int tmpx = (int) (this.x + (this.sizeX / 2)) / 16;
 		int tmpy = (int) (this.y + (this.sizeY / 2)) / 16;
-		
-		System.out.println("  ###################################  X "+ tmpx + " Y "+tmpy + "OBJ X " + objx + "OBJ Y "+ objy);
-		
-		if (aestrela.mapa[objx][objy] != 0){
+
+		if (aestrela.mapa[objx][objy] != 0) {
 			/*
-			 * havia situacoes em que o persoangem
-			 * ficava em sima de um obstaculo no mapa
-			 * foi implementado para somente pegar 
-			 * posicoes que nao tinha nenhum personagem 
+			 * havia situacoes em que o persoangem ficava em sima de um
+			 * obstaculo no mapa foi implementado para somente pegar posicoes
+			 * que nao tinha nenhum personagem
 			 */
-			
+
 			objx = antobjx;
 			objy = antobjy;
 		}
-		
+
 		caminho = aestrela.calculaPath(tmpy, tmpx, objx, objy);
 
-		 antobjx = objx;
-		 antobjy = objy;
-		
+		antobjx = objx;
+		antobjy = objy;
+
 		count = caminho.size() - 2;
 		System.out.println("DEPOIS Tamanho " + count + " POSICAO X " + tmpx
 				+ " POSICAO Y " + tmpy);
@@ -204,9 +179,6 @@ public class PersonagemDoenca extends Personagem {
 
 			int z = caminho.get(count).getx();
 			int c = caminho.get(count).gety();
-
-			System.out.println("tmpx " + tmpx + " tmpy " + tmpy + " Z " + z
-					+ " C " + c);
 
 			if (z == (int) tmpy && c == (int) tmpx) {
 				System.out.println("IGUAIS");
@@ -223,10 +195,6 @@ public class PersonagemDoenca extends Personagem {
 				this.RIGHT = true;
 				System.out.println("DIREITA");
 			}
-
-			System.out.println("INDICE " + count + "POSICAO x "
-					+ caminho.get(count).getx() * 16 + "POSICAO x "
-					+ caminho.get(count).gety() * 16);
 
 			aestrela.resetaEstrela();
 

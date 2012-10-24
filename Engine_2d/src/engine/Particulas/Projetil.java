@@ -17,7 +17,6 @@ public class Projetil extends Particula {
 
 	@Override
 	public void simula(long diffTime) {
-		// TODO Auto-generated method stub
 		contadorDeVida += diffTime;
 
 		if (contadorDeVida > TEMPO_TOTAL_DE_VIDA) {

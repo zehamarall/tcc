@@ -23,9 +23,6 @@ public class GameLevel1 extends GameCanvas {
 	GerenciadorDeSom meuSom;
 	Random rnd = new Random();
 
-	// public ArrayList<AEstrela> LISTA_IA = new ArrayList<AEstrela>();
-	// public ArrayList<Nodo> caminho = new ArrayList<Nodo>();
-
 	private boolean UP = false;
 	private boolean DOWN = false;
 	private boolean LEFT = false;
@@ -52,18 +49,9 @@ public class GameLevel1 extends GameCanvas {
 		meuGerenciador.simula(diffTime);
 
 		for (int i = 0; i < meuGerenciador.LISTA_DE_PARTICULAS.size(); i++) {
-			//meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = 20;
-			//meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = 20;
-			//meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = (int) (meuGerenciador.persoangem.y + (meuGerenciador.persoangem.sizeY/2))  / 16;
-			//meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = (int) (meuGerenciador.persoangem.x + (meuGerenciador.persoangem.sizeX/2)) / 16;
 			
 			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = (int) (meuGerenciador.persoangem.y + (meuGerenciador.persoangem.sizeY/2)) / 16;
 			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = (int) (meuGerenciador.persoangem.x + (meuGerenciador.persoangem.sizeX/2)) / 16;
-			
-			System.out.println("*********************************** OBJ X "
-					+ meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx
-					+ " OBJ Y "
-					+ meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy);
 
 			meuGerenciador.LISTA_DE_PARTICULAS.get(i).simula(diffTime);
 		}
@@ -77,7 +65,6 @@ public class GameLevel1 extends GameCanvas {
 
 		// Imagem do mapa
 		BufferedImage tileset = Constantes.LoadImage("tileset.png");
-		// meuMapa = new Mapa(tileset, 0, 0, 0, 0, Color.black, 16, 16);
 		meuMapa = new Fase1(tileset, 0, 0, 0, 0, Color.black, 16, 16);
 
 		Constantes.LoadScript("scripts/scriptNomes.csv");
@@ -87,16 +74,13 @@ public class GameLevel1 extends GameCanvas {
 		meuGerenciador.criaPersonagem(image);
 
 		BufferedImage image2 = Constantes.LoadImage("bons.png");
-		//BufferedImage xx = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
 		
 		// criando os alimentos saudaveis
 		for (int i = 0; i < 3; i++) {
 			int x = rnd.nextInt(19);
 			BufferedImage tmpImagem = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
 			Graphics tmpGraphic = tmpImagem.getGraphics();
-			System.out.println("CRIANDO X "+ x);
 			tmpGraphic.drawImage(image2, 0, 0, 32, 32, (x * 32), 0, ((x * 32) + 32), 32, null);
-			//tmpGraphic.drawImage(image2,(x * 32), 0, ((x * 32) + 32), 0, 0, 0, 32,32, null);
 			meuGerenciador.criaAlimentoBom(tmpImagem);
 		}
 		
@@ -108,7 +92,6 @@ public class GameLevel1 extends GameCanvas {
 			Graphics tmpGraphic = tmpImagem.getGraphics();
 			System.out.println("CRIANDO X "+ x);
 			tmpGraphic.drawImage(image4, 0, 0, 32, 32, (x * 32), 0, ((x * 32) + 32), 32, null);
-			//tmpGraphic.drawImage(image2,(x * 32), 0, ((x * 32) + 32), 0, 0, 0, 32,32, null);
 			meuGerenciador.criaAlimentoRuim(tmpImagem);
 			
 		}
@@ -118,11 +101,6 @@ public class GameLevel1 extends GameCanvas {
 		for (int i = 0; i < nivel * 2; i++) {
 			BufferedImage image3= Constantes.LoadImage("p2.png");
 			meuGerenciador.criaPersonagemDoenca(image3);
-
-			// AESTRELA
-			// AEstrela ia = new AEstrela(meuMapa.matrizDoMapa, 42, 60);
-			// LISTA_IA.add(ia);
-
 		}
 
 	}
@@ -191,36 +169,26 @@ public class GameLevel1 extends GameCanvas {
 
 	@Override
 	public void mousePressed(MouseEvent mouse) {
-		/*
-		 * int x = mouse.getX(); int y = mouse.getY();
-		 * 
-		 * meuGerenciador.criaParticula(Math.atan2(y - GamePanel.GAME_HEIGHT/2,
-		 * x - GamePanel.GAME_WIDTH/2)); meuGerenciador.criaPad(10);
-		 * 
-		 * meuSom.playSomInALoop(0);
-		 */
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent mouse) {
-		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent mouse) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent mouse) {
-		// TODO Auto-generated method stub
 
 	}
 

@@ -108,7 +108,6 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 		System.out.println("Criando o personagem");
 		 persoangem = new PersonagemPrincipal(image, (GamePanel.GAME_WIDTH / 2) +32,
 		 (GamePanel.GAME_HEIGHT / 2)+32, Color.black);
-		//persoangem = new PersonagemPrincipal(image,30,30, Color.black);
 	}
 
 	public void criaPersonagemDoenca(BufferedImage image) {
@@ -133,7 +132,6 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 				int[][] matrizDoMapa;
 
 				if (GamePanel.fase == 1) {
-				//int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
 					matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
 				} else if (GamePanel.fase == 2) {
 					matrizDoMapa = engine.mapa.Fase2.matrizDoMapa;
@@ -141,8 +139,6 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 					matrizDoMapa = engine.mapa.Fase3.matrizDoMapa;
 				}
 
-				System.out.println("Valor " + valor + "MAPA "
-						+ matrizDoMapa[1][valor]);
 				if (matrizDoMapa[1][valor] == 0 && matrizDoMapa[1][valor2] == 0
 						&& matrizDoMapa[1][valor3] == 0) {
 
@@ -157,7 +153,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 
 	@Override
 	public void simula(long diffTime) {
-		// persoangem.simula(diffTime);
+	
 		if (vidas > 0 && LISTA_DE_ALIMENTOS_BOM.size() > 0) {
 
 			for (int i = 0; i < LISTA_DE_ALIMENTOS_BOM.size(); i++) {

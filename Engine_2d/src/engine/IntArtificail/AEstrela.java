@@ -3,17 +3,17 @@ package engine.IntArtificail;
 import java.util.ArrayList;
 
 public class AEstrela {
+	
 	public int[][] mapa;
+	public static int NUMERO_MAXIMO_DE_BUSCA = 99999;
+	public int contador = 0;
+	
 	ArrayList<Nodo> nodosAbertos = new ArrayList<Nodo>();
 	ArrayList<Nodo> nodosFechados = new ArrayList<Nodo>();
 	ArrayList<Nodo> caminho = new ArrayList<Nodo>();
 	Nodo candidatos[];
 	int x, y;
 	int largura, altura;
-
-	public static int NUMERO_MAXIMO_DE_BUSCA = 99999;
-	public int contador = 0;
-
 	int objetivox = 0;
 	int objetivoy = 0;
 	Nodo selecionado;

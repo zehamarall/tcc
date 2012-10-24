@@ -39,45 +39,23 @@ public class PersPrincipal extends MoveableSprite {
 
 		int coeficienteX = (int) (this.x + (this.largura / 2)) / 16;
 		int coeficientey = (int) (this.y + (this.altura / 2)) / 16;
-		//int coeficienteX2 = (int) (this.x + this.altura) / 16;
-		//int coeficientey2 = (int) (this.y + this.largura) / 16;
-		// System.out.println("DEBUG X " + coeficienteX + " Y " + coeficientey);
-
-		System.out.println("TILE X " + coeficienteX + "TILE Y " + coeficientey);
-
+		
 		if (coeficienteX >= 0 && coeficientey >= 0) {
 			int valor = coeficienteX + (((coeficientey*60)/60)*60);
-			System.out.println(" Coeficiente X "+ coeficienteX + " MOD " +((coeficientey*60)/60));
 			int[][] matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
-			System.out.println("Valor " + valor + "MAPA "+matrizDoMapa[1][valor]);
 			if (matrizDoMapa[1][valor] != 0){
-				System.out.println("COLIDIU personagem principal ");
-				System.out.println("Valor da matriz " + matrizDoMapa[1][valor]
-						+ "*************************************");
 				this.colidiu();
 				return;
 			}
-		}/*
-		 * if (coeficienteX2 >= 0 && coeficientey2 >= 0) { int valor =
-		 * coeficienteX2 + (coeficientey2 * 50); int[][] matrizDoMapa =
-		 * engine.mapa.Mapa.matrizDoMapa; if (matrizDoMapa [1][valor] != 0) {
-		 * //System.out.println("COLIDIU 2 personagem principal ");
-		 * //System.out.println("Valor da matriz " + matrizDoMapa
-		 * [1][valor]+"*************************************"); this.colidiu();
-		 * return; } }
-		 */
-
+		}
 	}
 
 	@Override
 	public void draw(Graphics2D dbg) {
-		// TODO Auto-generated method stub
 		dbg.drawImage(image, (int) x, (int) y, null);
-
 	}
 
 	public void colidiu() {
-		// velx *=-1;
 		x = oldx;
 		y = oldy;
 	}

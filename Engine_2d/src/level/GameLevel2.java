@@ -62,7 +62,6 @@ public class GameLevel2 extends GameCanvas {
 
 		// Imagem do mapa
 		BufferedImage tileset = Constantes.LoadImage("tileset.png");
-		// meuMapa = new Mapa(tileset, 0, 0, 0, 0, Color.black, 16, 16);
 		meuMapa = new Fase2(tileset, 0, 0, 0, 0, Color.black, 16, 16);
 
 		Constantes.LoadScript("scripts/scriptNomes.csv");
@@ -72,16 +71,13 @@ public class GameLevel2 extends GameCanvas {
 		meuGerenciador.criaPersonagem(image);
 
 		BufferedImage image2 = Constantes.LoadImage("bons.png");
-		//BufferedImage xx = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
 		
 		// criando os alimentos saudaveis
 		for (int i = 0; i < 3; i++) {
 			int x = rnd.nextInt(19);
 			BufferedImage tmpImagem = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
 			Graphics tmpGraphic = tmpImagem.getGraphics();
-			System.out.println("CRIANDO X "+ x);
 			tmpGraphic.drawImage(image2, 0, 0, 32, 32, (x * 32), 0, ((x * 32) + 32), 32, null);
-			//tmpGraphic.drawImage(image2,(x * 32), 0, ((x * 32) + 32), 0, 0, 0, 32,32, null);
 			meuGerenciador.criaAlimentoBom(tmpImagem);
 		}
 		
@@ -91,9 +87,7 @@ public class GameLevel2 extends GameCanvas {
 			int x = rnd.nextInt(13);
 			BufferedImage tmpImagem = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
 			Graphics tmpGraphic = tmpImagem.getGraphics();
-			System.out.println("CRIANDO X "+ x);
 			tmpGraphic.drawImage(image4, 0, 0, 32, 32, (x * 32), 0, ((x * 32) + 32), 32, null);
-			//tmpGraphic.drawImage(image2,(x * 32), 0, ((x * 32) + 32), 0, 0, 0, 32,32, null);
 			meuGerenciador.criaAlimentoRuim(tmpImagem);
 		}
 
@@ -169,36 +163,27 @@ public class GameLevel2 extends GameCanvas {
 
 	@Override
 	public void mousePressed(MouseEvent mouse) {
-		/*
-		 * int x = mouse.getX(); int y = mouse.getY();
-		 * 
-		 * meuGerenciador.criaParticula(Math.atan2(y - GamePanel.GAME_HEIGHT/2,
-		 * x - GamePanel.GAME_WIDTH/2)); meuGerenciador.criaPad(10);
-		 * 
-		 * meuSom.playSomInALoop(0);
-		 */
+		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent mouse) {
-		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent mouse) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent mouse) {
-		// TODO Auto-generated method stub
+
 
 	}
 

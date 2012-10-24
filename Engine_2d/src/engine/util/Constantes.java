@@ -26,7 +26,6 @@ public class Constantes {
 			System.out.println();
 		} catch (Exception e) {
 			System.out.println("ERRO AO ABRIR ARQUIVO");
-			// TODO: handle exception
 		}
 		return imagem;
 	}
