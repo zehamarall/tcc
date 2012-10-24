@@ -17,7 +17,7 @@ public class GameMenu extends GameCanvas {
 	ArrayList<Botao> mListaDeBotoes = new ArrayList<Botao>();
 
 	public GameMenu(Main test) {
-		// Imagem do mapa
+		
 		main = test;
 		tileset = Constantes.LoadImage("tileset.png");
 		BufferedImage over = Constantes.LoadImage("jogar4.png");

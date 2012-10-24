@@ -35,6 +35,7 @@ public class GamePanel extends Canvas implements Runnable {
 	public static int total_pontos = 0;
 	public static int nivelDificuldade = 1;
 
+	//Fases do jogo 
 	public static final short GAME_MENU = 0;
 	public static final short GAME_OPCOES = 1;
 	public static final short GAME_VENCEDOR = 2;
