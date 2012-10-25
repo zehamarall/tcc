@@ -16,9 +16,10 @@ import engine.Particulas.PersonagemPrincipal;
 
 public class Constantes {
 	static int count = 0;
+	static Link meulink;
 
 	public static BufferedImage LoadImage(String nomedoaarquivo) {
-		Link meulink = new Link();
+		meulink = new Link();
 		BufferedImage imagem = null;
 		try {
 			imagem = ImageIO.read(Link.singleton.getClass().getResource(

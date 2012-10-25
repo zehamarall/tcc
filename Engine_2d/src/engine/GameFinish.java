@@ -60,10 +60,10 @@ public class GameFinish extends GameCanvas {
 		font = new Font("Book Antiqua", Font.BOLD, 50);
 		dbg.setFont(font);
 		dbg.setColor(Color.black);
-		dbg.drawString("Parabï¿½ns", 650, 100);
+		dbg.drawString("Parabéns", 650, 100);
 		font = new Font("Book Antiqua", Font.BOLD, 40);
 		dbg.setFont(font);
-		dbg.drawString("Vocï¿½ Concluiu o Jogo", 560, 200);
+		dbg.drawString("Você Concluiu o Jogo", 560, 200);
 		dbg.drawString("Total de Pontos = " + GamePanel.total_pontos, 560, 300);
 		
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
