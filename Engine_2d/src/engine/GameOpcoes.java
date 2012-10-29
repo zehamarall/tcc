@@ -32,7 +32,7 @@ public class GameOpcoes extends GameCanvas {
 
 			@Override
 			public void buttonAction() {
-				GamePanel.nivelDificuldade = 1;
+				GamePanel.nivelDificuldade = 0;
 				GamePanel.fase = 1;
 				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, GamePanel.fase);
 
@@ -42,7 +42,7 @@ public class GameOpcoes extends GameCanvas {
 
 			@Override
 			public void buttonAction() {
-				GamePanel.nivelDificuldade = 2;
+				GamePanel.nivelDificuldade = 1;
 				GamePanel.fase = 1;
 				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, GamePanel.fase);
 
@@ -53,7 +53,7 @@ public class GameOpcoes extends GameCanvas {
 
 			@Override
 			public void buttonAction() {
-				GamePanel.nivelDificuldade = 3;
+				GamePanel.nivelDificuldade = 2;
 				GamePanel.fase = 1;
 				GamePanel.trocaFase(GamePanel.GAME_LEVEL_1, GamePanel.fase);
 

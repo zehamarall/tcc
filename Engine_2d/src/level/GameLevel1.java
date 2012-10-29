@@ -98,7 +98,7 @@ public class GameLevel1 extends GameCanvas {
 
 		// criando os personagens fantasma
 
-		for (int i = 0; i < nivel * 2; i++) {
+		for (int i = 0; i < nivel + 1; i++) {
 			BufferedImage image3= Constantes.LoadImage("p2.png");
 			meuGerenciador.criaPersonagemDoenca(image3);
 		}
