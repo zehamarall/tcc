@@ -110,7 +110,7 @@ public class Constantes {
 					&& entidadeum.y < (entidadedois.y + (entidadedois.sizeY -15))) {
 				
 				count++;
-				if(count > 30){
+				if(count > 50){
 					count = 0;
 					entidadeum.efeito = false;
 					return true;
@@ -121,6 +121,7 @@ public class Constantes {
 					
 				}
 			}
+			count = 35;
 
 		}
 		return false;

@@ -27,8 +27,8 @@ public class PersonagemDoenca extends Personagem {
 	public PersonagemDoenca(BufferedImage _imagem, int _x, int _y, Color _Cor) {
 
 		super(_imagem, _x, _y, _Cor);
-		sizeX = 51;
-		sizeY = 80;
+		sizeX = 78;
+		sizeY = 102;
 	}
 
 	public PersonagemDoenca(BufferedImage _imagem, int _x, int _y, Color _Cor,
@@ -37,8 +37,8 @@ public class PersonagemDoenca extends Personagem {
 		super(_imagem, _x, _y, _Cor);
 		objx = 10;
 		objy = 10;
-		sizeX = 51;
-		sizeY = 80;
+		sizeX = 79;
+		sizeY = 102;
 		aestrela = new AEstrela(_mapa, 40, 64);
 
 	}
@@ -68,7 +68,7 @@ public class PersonagemDoenca extends Personagem {
 		}
 
 		timeranimacao += diffTime;
-		frame = (timeranimacao / tempoentreframes) % 6;
+		frame = (timeranimacao / tempoentreframes) % 8;
 
 		x += velx * diffTime / 1000.0f;
 		y += vely * diffTime / 1000.0f;
@@ -77,9 +77,9 @@ public class PersonagemDoenca extends Personagem {
 			frame = 0;
 		} else if (Math.abs(velx) > Math.abs(vely)) {
 			if (velx > 0) {
-				animacao = 2;
-			} else {
 				animacao = 3;
+			} else {
+				animacao = 2;
 			}
 
 		} else {
@@ -98,7 +98,7 @@ public class PersonagemDoenca extends Personagem {
 
 	@Override
 	public void draw(Graphics2D dbg) {
-
+		System.out.println("DRAW doença");
 		dbg.drawImage(image, (int) x, (int) y, (int) (x + sizeX),
 				(int) (y + sizeY), sizeX * frame, sizeY * animacao,
 				(sizeX * frame) + sizeX, (sizeY * animacao) + sizeY, null);

@@ -28,7 +28,7 @@ public class Personagem extends Sprite {
 		velx = 0;
 		vely = 0;
 
-		tempoentreframes = 200;
+		tempoentreframes = 120;
 	}
 
 	@Override

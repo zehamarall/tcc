@@ -67,7 +67,7 @@ public class GameLevel3 extends GameCanvas {
 		Constantes.LoadScript("scripts/scriptNomes.csv");
 
 		// Imagem do personagem
-		BufferedImage image = Constantes.LoadImage("p1.png");
+		BufferedImage image = Constantes.LoadImage("pnovo.png");
 		meuGerenciador.criaPersonagem(image);
 
 		BufferedImage image2 = Constantes.LoadImage("bons.png");
@@ -93,7 +93,7 @@ public class GameLevel3 extends GameCanvas {
 
 		// criando os personagens fantasma
 		for (int i = 0; i < nivel + 3; i++) {
-			BufferedImage image1 = Constantes.LoadImage("p2.png");
+			BufferedImage image1 = Constantes.LoadImage("bruxa.png");
 			meuGerenciador.criaPersonagemDoenca(image1);
 		}
 
