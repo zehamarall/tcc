@@ -26,7 +26,7 @@ public class GameMenu extends GameCanvas {
 		BufferedImage notOpcoes = Constantes.LoadImage("opcoes3.png");
 		BufferedImage sair = Constantes.LoadImage("sair4.png");
 		BufferedImage notSair = Constantes.LoadImage("sair3.png");
-		mBackground = Constantes.LoadImage("menu.jpg");
+		mBackground = Constantes.LoadImage("menu2.jpg");
 
 		Botao mPlayButton = new Botao(400, 200, over, notOver) {
 
@@ -69,7 +69,7 @@ public class GameMenu extends GameCanvas {
 	@Override
 	public void draw(Graphics2D dbg) {
 
-		dbg.drawImage(mBackground, 150, 0, null, null);
+		dbg.drawImage(mBackground, 0, 0, null, null);
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			mListaDeBotoes.get(i).draw(dbg);
 		}
