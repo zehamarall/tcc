@@ -60,9 +60,11 @@ public class GameLevel1 extends GameCanvas {
 
 	public GameLevel1(int nivel) {
 
-		String[] musica = { "som/som.wav" };
-		meuSom = new GerenciadorDeSom(musica, false);
+		//String[] musica = { "som/som.wav" };
+		//meuSom = new GerenciadorDeSom(musica, false);
 
+		//meuSom.playSomInALoop(0);
+		
 		// Imagem do mapa
 		BufferedImage tileset = Constantes.LoadImage("tileset.png");
 		meuMapa = new Fase1(tileset, 0, 0, 0, 0, Color.black, 16, 16);
@@ -169,6 +171,8 @@ public class GameLevel1 extends GameCanvas {
 
 	@Override
 	public void mousePressed(MouseEvent mouse) {
+		
+		//meuSom.playSomInALoop(0);
 
 	}
 

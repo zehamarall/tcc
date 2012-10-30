@@ -1,10 +1,20 @@
 package engine.util;
 
+import java.applet.AudioClip;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 import res.resource.Link;
 import engine.MoveAbleGameObject;
@@ -98,13 +108,17 @@ public class Constantes {
 					&& entidadeum.x < (entidadedois.x + (entidadedois.sizeX -15))
 					&& (entidadeum.y + (entidadeum.sizeY -15)) > entidadedois.y
 					&& entidadeum.y < (entidadedois.y + (entidadedois.sizeY -15))) {
+				
 				count++;
-				if(count > 20){
+				if(count > 30){
 					count = 0;
+					entidadeum.efeito = false;
 					return true;
 					
 				}else{
+					entidadeum.efeito = true;
 					return false;
+					
 				}
 			}
 
@@ -159,5 +173,11 @@ public class Constantes {
 		}
 
 		return null;
+	}
+
+	public static AudioClip loadAudio(String nomedoaarquivo) {
+		
+		return null;	
+	
 	}
 }

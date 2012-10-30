@@ -2,6 +2,8 @@ package engine.Gerenciadores;
 
 import java.applet.AudioClip;
 
+import engine.util.Constantes;
+
 public class GerenciadorDeSom extends GerenciadorBase {
 
 	static AudioClip[] playlist;
@@ -9,14 +11,14 @@ public class GerenciadorDeSom extends GerenciadorBase {
 
 	public GerenciadorDeSom(String[] musica, boolean _processoParalelo) {
 		super(_processoParalelo);
-		// playlist = new AudioClip[musica.length];
+		 playlist = new AudioClip[musica.length];
 		for (int i = 0; i < musica.length; i++) {
-			// playlist[i] = Constantes.loadAudio(musica[i]);
+			 playlist[i] = Constantes.loadAudio(musica[i]);
 		}
 	}
 
 	public void playSomInALoop(int index) {
-		// playlist[index].loop();
+		 playlist[index].loop();
 	}
 
 	public void playSom(int index) {

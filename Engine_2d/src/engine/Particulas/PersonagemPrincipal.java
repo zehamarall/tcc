@@ -11,6 +11,8 @@ public class PersonagemPrincipal extends Personagem {
 
 	public boolean LEFT, RIGHT, UP, DOWN;
 	double rotacao = 0;
+	public boolean efeito = false;
+	static int count = 0;
 
 	public PersonagemPrincipal(BufferedImage _imagem, int _x, int _y, Color _Cor) {
 		super(_imagem, _x, _y, _Cor);
@@ -20,7 +22,7 @@ public class PersonagemPrincipal extends Personagem {
 
 	@Override
 	public void simula(long diffTime) {
-		
+
 		oldx = (int) x;
 		oldy = (int) y;
 
@@ -75,9 +77,28 @@ public class PersonagemPrincipal extends Personagem {
 	@Override
 	public void draw(Graphics2D dbg) {
 
-		dbg.drawImage(image, (int) x, (int) y, (int) (x + sizeX),
-				(int) (y + sizeY), sizeX * frame, sizeY * animacao,
-				(sizeX * frame) + sizeX, (sizeY * animacao) + sizeY, null);
+		if (!efeito) {
+				dbg.drawImage(image, (int) x, (int) y, (int) (x + sizeX),
+					(int) (y + sizeY), sizeX * frame, sizeY * animacao,
+					(sizeX * frame) + sizeX, (sizeY * animacao) + sizeY, null);
+
+		} else {
+				System.out.println("Efeito else " + count);
+				if (count % 2 == 0){
+					dbg.drawImage(image, (int) x, (int) y, (int) (x + sizeX),
+						(int) (y + sizeY), sizeX * frame, sizeY * animacao,
+						(sizeX * frame) + sizeX, (sizeY * animacao) + sizeY,
+						null);
+						count++;
+				}else{
+					if (count >= 50){
+						count = 1;
+						efeito = false;
+					}
+					count ++;
+				}	
+		}
+		
 	}
 
 	public void check_colidiu_extremos() {
@@ -87,7 +108,7 @@ public class PersonagemPrincipal extends Personagem {
 			return;
 		}
 
-		if (this.y + (this.sizeX ) > GamePanel.GAME_HEIGHT) {
+		if (this.y + (this.sizeX) > GamePanel.GAME_HEIGHT) {
 			colidiu();
 			return;
 		}
@@ -97,7 +118,7 @@ public class PersonagemPrincipal extends Personagem {
 			return;
 		}
 
-		if (this.x + (this.sizeY/2) > GamePanel.GAME_WIDTH) {
+		if (this.x + (this.sizeY / 2) > GamePanel.GAME_WIDTH) {
 			colidiu();
 			return;
 		}
@@ -109,17 +130,17 @@ public class PersonagemPrincipal extends Personagem {
 
 		if (coeficienteX >= 0 && coeficientey >= 0) {
 			int valor = coeficienteX + (((coeficientey * 64) / 64) * 64);
-			
+
 			int[][] matrizDoMapa;
-			
-			if(GamePanel.fase == 1){
+
+			if (GamePanel.fase == 1) {
 				matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
-			}else if(GamePanel.fase == 2){
+			} else if (GamePanel.fase == 2) {
 				matrizDoMapa = engine.mapa.Fase2.matrizDoMapa;
-			}else {
+			} else {
 				matrizDoMapa = engine.mapa.Fase1.matrizDoMapa;
 			}
-			
+
 			if (matrizDoMapa[1][valor] != 0) {
 				this.colidiu();
 				return;
