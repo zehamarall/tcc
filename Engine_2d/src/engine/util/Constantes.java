@@ -103,28 +103,31 @@ public class Constantes {
 	public static boolean colideRetangulo(PersonagemPrincipal entidadeum,
 			PersonagemDoenca entidadedois) {
 
-		if (count >= 0) {
-			if ((entidadeum.x + (entidadeum.sizeX -15)) > entidadedois.x
-					&& entidadeum.x < (entidadedois.x + (entidadedois.sizeX -15))
-					&& (entidadeum.y + (entidadeum.sizeY -15)) > entidadedois.y
-					&& entidadeum.y < (entidadedois.y + (entidadedois.sizeY -15))) {
-				
-				count++;
-				if(count > 50){
-					count = 0;
-					entidadeum.efeito = false;
-					return true;
-					
-				}else{
-					entidadeum.efeito = true;
-					return false;
-					
-				}
-			}
-			count = 35;
+		// if (count >= 0) {
+		if (entidadeum.efeito == false) {
+			if ((entidadeum.x + (entidadeum.sizeX - 15)) > entidadedois.x
+					&& entidadeum.x < (entidadedois.x + (entidadedois.sizeX - 15))
+					&& (entidadeum.y + (entidadeum.sizeY - 15)) > entidadedois.y
+					&& entidadeum.y < (entidadedois.y + (entidadedois.sizeY - 15))) {
 
+				// count++;
+				// if(count > 50){
+				// count = 0;
+				// entidadeum.efeito = false;
+				entidadeum.efeito = true;
+				return true;
+			
+			}else{
+			// entidadeum.efeito = true;
+			 return false;
+
+			}
+			// }
+			// count = 35;
+
+		} else {
+			return false;
 		}
-		return false;
 
 	}
 
@@ -177,8 +180,8 @@ public class Constantes {
 	}
 
 	public static AudioClip loadAudio(String nomedoaarquivo) {
-		
-		return null;	
-	
+
+		return null;
+
 	}
 }

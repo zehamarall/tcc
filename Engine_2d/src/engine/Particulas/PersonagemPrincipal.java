@@ -91,7 +91,7 @@ public class PersonagemPrincipal extends Personagem {
 						null);
 						count++;
 				}else{
-					if (count >= 35){
+					if (count >= 100){
 						count = 1;
 						efeito = false;
 					}

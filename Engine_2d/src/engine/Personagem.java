@@ -28,13 +28,13 @@ public class Personagem extends Sprite {
 		velx = 0;
 		vely = 0;
 
-		tempoentreframes = 120;
+		tempoentreframes = 170;
 	}
 
 	@Override
 	public void simula(long diffTime) {
 		timeranimacao += diffTime;
-		frame = (timeranimacao / tempoentreframes) % 3;
+		frame = (timeranimacao / tempoentreframes) % 8;
 
 		x += velx * diffTime / 1000.0f;
 		y += vely * diffTime / 1000.0f;
