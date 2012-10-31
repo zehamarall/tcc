@@ -26,7 +26,7 @@ public class GameOpcoes extends GameCanvas {
 		BufferedImage notMediun = Constantes.LoadImage("medio1.png");
 		BufferedImage hard = Constantes.LoadImage("dificil2.png");
 		BufferedImage notHard = Constantes.LoadImage("dificil1.png");
-		mBackground = Constantes.LoadImage("menu.jpg");
+		mBackground = Constantes.LoadImage("menu2.jpg");
 
 		Botao mPlayButtonEasy = new Botao(420, 200, easy, notEasy) {
 
@@ -73,7 +73,7 @@ public class GameOpcoes extends GameCanvas {
 
 	@Override
 	public void draw(Graphics2D dbg) {
-		dbg.drawImage(mBackground, 150, 0, null, null);
+		dbg.drawImage(mBackground, 0, 0, null, null);
 		
 		font = new Font("Book Antiqua", Font.BOLD, 36);
 		dbg.setFont(font);
