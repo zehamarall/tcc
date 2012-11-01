@@ -49,9 +49,9 @@ public class GameLevel1 extends GameCanvas {
 		meuGerenciador.simula(diffTime);
 
 		for (int i = 0; i < meuGerenciador.LISTA_DE_PARTICULAS.size(); i++) {
-			
-			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = (int) (meuGerenciador.persoangem.y + (meuGerenciador.persoangem.sizeY/2)) / 16;
-			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = (int) (meuGerenciador.persoangem.x + (meuGerenciador.persoangem.sizeX/2)) / 16;
+
+			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objx = (int) (meuGerenciador.persoangem.y + (meuGerenciador.persoangem.sizeY / 2)) / 16;
+			meuGerenciador.LISTA_DE_PARTICULAS.get(i).objy = (int) (meuGerenciador.persoangem.x + (meuGerenciador.persoangem.sizeX / 2)) / 16;
 
 			meuGerenciador.LISTA_DE_PARTICULAS.get(i).simula(diffTime);
 		}
@@ -60,11 +60,11 @@ public class GameLevel1 extends GameCanvas {
 
 	public GameLevel1(int nivel) {
 
-		//String[] musica = { "som/som.wav" };
-		//meuSom = new GerenciadorDeSom(musica, false);
+		// String[] musica = { "som/som.wav" };
+		// meuSom = new GerenciadorDeSom(musica, false);
 
-		//meuSom.playSomInALoop(0);
-		
+		// meuSom.playSomInALoop(0);
+
 		// Imagem do mapa
 		BufferedImage tileset = Constantes.LoadImage("tileset.png");
 		meuMapa = new Fase1(tileset, 0, 0, 0, 0, Color.black, 16, 16);
@@ -76,32 +76,36 @@ public class GameLevel1 extends GameCanvas {
 		meuGerenciador.criaPersonagem(image);
 
 		BufferedImage image2 = Constantes.LoadImage("bons2.png");
-		
+
 		// criando os alimentos saudaveis
 		for (int i = 0; i < 3; i++) {
 			int x = rnd.nextInt(19);
-			BufferedImage tmpImagem = new BufferedImage(50, 50, BufferedImage.TYPE_INT_ARGB);
+			BufferedImage tmpImagem = new BufferedImage(50, 50,
+					BufferedImage.TYPE_INT_ARGB);
 			Graphics tmpGraphic = tmpImagem.getGraphics();
-			tmpGraphic.drawImage(image2, 0, 0, 50, 50, (x * 50), 0, ((x * 50) + 50), 50, null);
+			tmpGraphic.drawImage(image2, 0, 0, 50, 50, (x * 50), 0,
+					((x * 50) + 50), 50, null);
 			meuGerenciador.criaAlimentoBom(tmpImagem);
 		}
-		
+
 		BufferedImage image4 = Constantes.LoadImage("ruins2.png");
 		// alimentos nao saudaveis
 		for (int i = 0; i < 3; i++) {
 			int x = rnd.nextInt(13);
-			BufferedImage tmpImagem = new BufferedImage(50, 50, BufferedImage.TYPE_INT_ARGB);
+			BufferedImage tmpImagem = new BufferedImage(50, 50,
+					BufferedImage.TYPE_INT_ARGB);
 			Graphics tmpGraphic = tmpImagem.getGraphics();
-			System.out.println("CRIANDO X "+ x);
-			tmpGraphic.drawImage(image4, 0, 0, 50, 50, (x * 50), 0, ((x * 50) + 50), 50, null);
+			System.out.println("CRIANDO X " + x);
+			tmpGraphic.drawImage(image4, 0, 0, 50, 50, (x * 50), 0,
+					((x * 50) + 50), 50, null);
 			meuGerenciador.criaAlimentoRuim(tmpImagem);
-			
+
 		}
 
-		// criando os personagens fantasma
+		/* criando os personagens Maldoso */
 
 		for (int i = 0; i < nivel + 1; i++) {
-			BufferedImage image3= Constantes.LoadImage("bruxa.png");
+			BufferedImage image3 = Constantes.LoadImage("bruxa.png");
 			meuGerenciador.criaPersonagemDoenca(image3);
 		}
 
@@ -171,8 +175,8 @@ public class GameLevel1 extends GameCanvas {
 
 	@Override
 	public void mousePressed(MouseEvent mouse) {
-		
-		//meuSom.playSomInALoop(0);
+
+		// meuSom.playSomInALoop(0);
 
 	}
 
