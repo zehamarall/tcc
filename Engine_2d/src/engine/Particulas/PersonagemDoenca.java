@@ -37,7 +37,7 @@ public class PersonagemDoenca extends Personagem {
 		super(_imagem, _x, _y, _Cor);
 		objx = 10;
 		objy = 10;
-		sizeX = 79;
+		sizeX = 68;
 		sizeY = 102;
 		aestrela = new AEstrela(_mapa, 40, 64);
 
@@ -68,8 +68,8 @@ public class PersonagemDoenca extends Personagem {
 		}
 
 		timeranimacao += diffTime;
-		frame = (timeranimacao / tempoentreframes) % 8;
-
+		frame = (timeranimacao / tempoentreframes) % 9;
+System.out.println("doença Frame "+frame);
 		x += velx * diffTime / 1000.0f;
 		y += vely * diffTime / 1000.0f;
 

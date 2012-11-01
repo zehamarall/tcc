@@ -16,8 +16,8 @@ public class PersonagemPrincipal extends Personagem {
 
 	public PersonagemPrincipal(BufferedImage _imagem, int _x, int _y, Color _Cor) {
 		super(_imagem, _x, _y, _Cor);
-		sizeX = 80;
-		sizeY = 97;
+		sizeX = 55;
+		sizeY = 95;
 	}
 
 	@Override
