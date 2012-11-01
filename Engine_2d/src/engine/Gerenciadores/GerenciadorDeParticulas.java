@@ -40,8 +40,6 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 
 			if (tmpx >= 0 && tmpy >= 0) {
 				int valor = tmpx + (((tmpy * 64) / 64) * 64);
-				System.out.println(" Coeficiente X " + tmpx + " MOD "
-						+ ((tmpy * 64) / 64));
 
 				int[][] matrizDoMapa;
 
@@ -52,8 +50,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 				} else {
 					matrizDoMapa = engine.mapa.Fase3.matrizDoMapa;
 				}
-				System.out.println("Valor " + valor + "MAPA "
-						+ matrizDoMapa[1][valor]);
+
 				if (matrizDoMapa[1][valor] == 0) {
 
 					LISTA_DE_ALIMENTOS_BOM.add(new Sprite(image, x, y,
