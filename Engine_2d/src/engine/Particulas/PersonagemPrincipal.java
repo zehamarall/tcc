@@ -129,7 +129,7 @@ public class PersonagemPrincipal extends Personagem {
 		int coeficientey = (int) (this.y + (this.sizeY / 2)) / 16;
 
 		if (coeficienteX >= 0 && coeficientey >= 0) {
-			int valor = coeficienteX + (((coeficientey * 64) / 64) * 64);
+			int valor = coeficienteX + (coeficientey * 64);
 
 			int[][] matrizDoMapa;
 
