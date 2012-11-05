@@ -11,7 +11,7 @@ import engine.Personagem;
 import engine.IntArtificail.AEstrela;
 import engine.IntArtificail.Nodo;
 
-public class PersonagemDoenca extends Personagem {
+public class PersonagemaMaldoso extends Personagem {
 
 	public boolean LEFT, RIGHT, UP, DOWN;
 	public AEstrela aestrela;
@@ -24,14 +24,14 @@ public class PersonagemDoenca extends Personagem {
 	int antobjx = 0;
 	int antobjy = 0;
 
-	public PersonagemDoenca(BufferedImage _imagem, int _x, int _y, Color _Cor) {
+	public PersonagemaMaldoso(BufferedImage _imagem, int _x, int _y, Color _Cor) {
 
 		super(_imagem, _x, _y, _Cor);
 		sizeX = 78;
 		sizeY = 102;
 	}
 
-	public PersonagemDoenca(BufferedImage _imagem, int _x, int _y, Color _Cor,
+	public PersonagemaMaldoso(BufferedImage _imagem, int _x, int _y, Color _Cor,
 			int[][] _mapa) {
 
 		super(_imagem, _x, _y, _Cor);
