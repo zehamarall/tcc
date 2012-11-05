@@ -3,11 +3,11 @@ package engine.IntArtificail;
 import java.util.ArrayList;
 
 public class AEstrela {
-	
+
 	public int[][] mapa;
 	public static int NUMERO_MAXIMO_DE_BUSCA = 99999;
 	public int contador = 0;
-	
+
 	ArrayList<Nodo> nodosAbertos = new ArrayList<Nodo>();
 	ArrayList<Nodo> nodosFechados = new ArrayList<Nodo>();
 	ArrayList<Nodo> caminho = new ArrayList<Nodo>();
@@ -38,7 +38,6 @@ public class AEstrela {
 	}
 
 	public ArrayList<Nodo> calculaPath(int _x, int _y, int objx, int objy) {
-
 		x = _x;
 		y = _y;
 		objetivox = objx;
@@ -47,7 +46,6 @@ public class AEstrela {
 		selecionado = new Nodo(null, (short) x, (short) y, 0);
 
 		while (abreNodo(selecionado) == false) {
-
 			double menor = 99999999;
 			int menoridx = -1;
 
@@ -58,13 +56,10 @@ public class AEstrela {
 				if (soma < menor) {
 					menor = soma;
 					menoridx = z;
-
 				}
 			}
-
 			selecionado = nodosAbertos.get(menoridx);
 			nodosAbertos.remove(menoridx);
-
 		}
 
 		Nodo onodo = nodosFechados.get(nodosFechados.size() - 1);
@@ -74,9 +69,7 @@ public class AEstrela {
 			onodo = onodo.pai;
 			caminho.add(onodo);
 		}
-
 		return caminho;
-
 	}
 
 	public void resetaEstrela() {
