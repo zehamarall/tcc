@@ -9,13 +9,13 @@ import java.util.Random;
 
 import engine.GamePanel;
 import engine.Sprite;
-import engine.Particulas.PersonagemDoenca;
+import engine.Particulas.PersonagemaMaldoso;
 import engine.Particulas.PersonagemPrincipal;
 import engine.util.Constantes;
 
 public class GerenciadorDeParticulas extends GerenciadorBase {
 
-	public ArrayList<PersonagemDoenca> LISTA_DE_PARTICULAS = new ArrayList<PersonagemDoenca>();
+	public ArrayList<PersonagemaMaldoso> LISTA_DE_PARTICULAS = new ArrayList<PersonagemaMaldoso>();
 	public PersonagemPrincipal persoangem;
 	public ArrayList<Sprite> LISTA_DE_ALIMENTOS_BOM = new ArrayList<Sprite>();
 	public ArrayList<Sprite> LISTA_DE_ALIMENTOS_RUIM = new ArrayList<Sprite>();
@@ -139,7 +139,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 				if (matrizDoMapa[1][valor] == 0 && matrizDoMapa[1][valor2] == 0
 						&& matrizDoMapa[1][valor3] == 0) {
 
-					LISTA_DE_PARTICULAS.add(new PersonagemDoenca(image, x, y,
+					LISTA_DE_PARTICULAS.add(new PersonagemaMaldoso(image, x, y,
 							Color.black, matrizDoMapa));
 					return;
 				}
@@ -161,7 +161,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 			}
 
 			for (int i = 0; i < LISTA_DE_PARTICULAS.size(); i++) {
-				PersonagemDoenca tmp = LISTA_DE_PARTICULAS.get(i);
+				PersonagemaMaldoso tmp = LISTA_DE_PARTICULAS.get(i);
 				tmp.simula(diffTime);
 			}
 			// lista de alimentos saudaveis

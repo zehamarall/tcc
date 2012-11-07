@@ -78,7 +78,7 @@ public class GameOpcoes extends GameCanvas {
 		font = new Font("Book Antiqua", Font.BOLD, 36);
 		dbg.setFont(font);
 		dbg.setColor(Color.black);		
-		dbg.drawString("Selecione o nível de dificuldade do jogo", 350, 150);
+		dbg.drawString("Selecione o nível de dificuldade do jogo", 200, 150);
 		
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			mListaDeBotoes.get(i).draw(dbg);

@@ -12,7 +12,7 @@ import engine.MoveAbleGameObject;
 import engine.Sprite;
 import engine.Particulas.PersDoenca;
 import engine.Particulas.PersPrincipal;
-import engine.Particulas.PersonagemDoenca;
+import engine.Particulas.PersonagemaMaldoso;
 import engine.Particulas.PersonagemPrincipal;
 
 public class Constantes {
@@ -92,7 +92,7 @@ public class Constantes {
 	}
 
 	public static boolean colideRetangulo(PersonagemPrincipal entidadeum,
-			PersonagemDoenca entidadedois) {
+			PersonagemaMaldoso entidadedois) {
 
 		if (entidadeum.efeito == false) {
 			if ((entidadeum.x + (entidadeum.sizeX - 15)) > entidadedois.x
