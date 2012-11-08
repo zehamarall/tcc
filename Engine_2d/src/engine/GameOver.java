@@ -58,7 +58,7 @@ public class GameOver extends GameCanvas {
 		font = new Font("Book Antiqua", Font.BOLD, 90);
 		dbg.setFont(font);
 		dbg.setColor(Color.black);
-		dbg.drawString("Game Over", 300, 225);
+		dbg.drawString("Fim", 420, 225);
 		
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			mListaDeBotoes.get(i).draw(dbg);
