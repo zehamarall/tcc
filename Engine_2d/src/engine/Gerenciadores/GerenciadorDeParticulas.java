@@ -9,6 +9,7 @@ import java.util.Random;
 
 import engine.GamePanel;
 import engine.Sprite;
+import engine.Particulas.EffectPontos;
 import engine.Particulas.PersonagemaMaldoso;
 import engine.Particulas.PersonagemPrincipal;
 import engine.util.Constantes;
@@ -19,6 +20,8 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 	public PersonagemPrincipal persoangem;
 	public ArrayList<Sprite> LISTA_DE_ALIMENTOS_BOM = new ArrayList<Sprite>();
 	public ArrayList<Sprite> LISTA_DE_ALIMENTOS_RUIM = new ArrayList<Sprite>();
+	public ArrayList<EffectPontos> LISTA_DE_EFEITOS = new ArrayList<EffectPontos>();
+	
 	public boolean gameOver = false;
 	int contador;
 	int pontos = 0;
@@ -107,6 +110,12 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 		 (GamePanel.GAME_HEIGHT / 2)+32, Color.black);
 	}
 
+	public void criaEfeitoAlimento(BufferedImage _image,int _x, int _y) {
+		
+		LISTA_DE_EFEITOS.add(new EffectPontos(_image, _x, _y, Color.black));
+		
+	}
+	
 	public void criaPersonagemDoenca(BufferedImage image) {
 
 		while (true) {
@@ -152,10 +161,21 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 	public void simula(long diffTime) {
 	
 		if (vidas > 0 && LISTA_DE_ALIMENTOS_BOM.size() > 0) {
+			
+			//atualiza os efeitos
+			for (int i = 0; i < LISTA_DE_EFEITOS.size(); i++) {
+				EffectPontos tmp = LISTA_DE_EFEITOS.get(i);
+				tmp.contadorDeVida +=1;
+				tmp.simula(diffTime);
+				
+				if(tmp.contadorDeVida == tmp.TEMPO_TOTAL_DE_VIDA){
+					LISTA_DE_EFEITOS.remove(i);
+				}
+
+			}
 
 			for (int i = 0; i < LISTA_DE_ALIMENTOS_BOM.size(); i++) {
 				Sprite tmp = LISTA_DE_ALIMENTOS_BOM.get(i);
-
 				tmp.simula(diffTime);
 
 			}
@@ -169,22 +189,30 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 				if (Constantes.colideRetangulo(persoangem,
 						LISTA_DE_ALIMENTOS_BOM.get(i))) {
 					persoangem.colidiu();
-					LISTA_DE_ALIMENTOS_BOM.remove(i);
+					
 					pontos += 20;
-					System.out.println("Colidiu Alimento Saudavel Pontos "
-							+ pontos);
+					int x = (int) LISTA_DE_ALIMENTOS_BOM.get(i).x;
+					int y = (int) LISTA_DE_ALIMENTOS_BOM.get(i).y;
+					BufferedImage image = Constantes.LoadImage("cenoura.png");
+					criaEfeitoAlimento(image, x, y);
+					LISTA_DE_ALIMENTOS_BOM.remove(i);
 				}
 			}
 
-			// lista de alimentos saudaveis
+			// lista de alimentos nao saudaveis
 			for (int i = 0; i < LISTA_DE_ALIMENTOS_RUIM.size(); i++) {
 				if (Constantes.colideRetangulo(persoangem,
 						LISTA_DE_ALIMENTOS_RUIM.get(i))) {
 					persoangem.colidiu();
-					LISTA_DE_ALIMENTOS_RUIM.remove(i);
+					
 					pontos -= 10;
-					System.out.println("Colidiu Alimento Saudavel Pontos "
-							+ pontos);
+					int x = (int) LISTA_DE_ALIMENTOS_RUIM.get(i).x;
+					int y = (int) LISTA_DE_ALIMENTOS_RUIM.get(i).y;
+					BufferedImage image = Constantes.LoadImage("cenoura.png");
+					criaEfeitoAlimento(image, x, y);
+					LISTA_DE_ALIMENTOS_RUIM.remove(i);
+					
+					
 				}
 			}
 			// lista de personagens doença
@@ -216,6 +244,10 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 		int i;
 		if (gameOver == false) {
 			persoangem.draw(dbg);
+			
+			for (i = 0; i < LISTA_DE_EFEITOS.size(); i++) {
+				LISTA_DE_EFEITOS.get(i).draw(dbg);
+			}
 
 			for (i = 0; i < LISTA_DE_PARTICULAS.size(); i++) {
 				LISTA_DE_PARTICULAS.get(i).draw(dbg);
