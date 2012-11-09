@@ -79,11 +79,11 @@ public class Constantes {
 
 	public static boolean colideRetangulo(PersonagemPrincipal entidadeum,
 			Sprite entidadedois) {
-		if (entidadeum.x + entidadeum.sizeX > entidadedois.x
-				&& entidadeum.x < entidadedois.x
+		if (entidadeum.x + entidadeum.sizeX-20 > entidadedois.x
+				&& entidadeum.x+20 < entidadedois.x
 						+ entidadedois.image.getWidth()
-				&& entidadeum.y + entidadeum.sizeY > entidadedois.y
-				&& entidadeum.y < entidadedois.y
+				&& entidadeum.y + entidadeum.sizeY-15 > entidadedois.y
+				&& entidadeum.y+15 < entidadedois.y
 						+ entidadedois.image.getHeight()) {
 			return true;
 		}
@@ -95,8 +95,8 @@ public class Constantes {
 			PersonagemaMaldoso entidadedois) {
 
 		if (entidadeum.efeito == false) {
-			if ((entidadeum.x + (entidadeum.sizeX - 15)) > entidadedois.x
-					&& entidadeum.x < (entidadedois.x + (entidadedois.sizeX - 15))
+			if ((entidadeum.x + (entidadeum.sizeX - 35)) > entidadedois.x
+					&& entidadeum.x < (entidadedois.x + (entidadedois.sizeX - 35))
 					&& (entidadeum.y + (entidadeum.sizeY - 15)) > entidadedois.y
 					&& entidadeum.y < (entidadedois.y + (entidadedois.sizeY - 15))) {
 
