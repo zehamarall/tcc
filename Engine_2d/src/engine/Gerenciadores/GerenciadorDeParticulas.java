@@ -110,9 +110,9 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 		 (GamePanel.GAME_HEIGHT / 2)+32, Color.black);
 	}
 
-	public void criaEfeitoAlimento(BufferedImage _image,int _x, int _y) {
+	public void criaEfeitoAlimento(int _x, int _y, String str) {
 		
-		LISTA_DE_EFEITOS.add(new EffectPontos(_image, _x, _y, Color.black));
+		LISTA_DE_EFEITOS.add(new EffectPontos(_x, _y, Color.black, str));
 		
 	}
 	
@@ -193,8 +193,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 					pontos += 20;
 					int x = (int) LISTA_DE_ALIMENTOS_BOM.get(i).x;
 					int y = (int) LISTA_DE_ALIMENTOS_BOM.get(i).y;
-					BufferedImage image = Constantes.LoadImage("cenoura.png");
-					criaEfeitoAlimento(image, x, y);
+					criaEfeitoAlimento(x, y, "+20");
 					LISTA_DE_ALIMENTOS_BOM.remove(i);
 				}
 			}
@@ -208,8 +207,8 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 					pontos -= 10;
 					int x = (int) LISTA_DE_ALIMENTOS_RUIM.get(i).x;
 					int y = (int) LISTA_DE_ALIMENTOS_RUIM.get(i).y;
-					BufferedImage image = Constantes.LoadImage("cenoura.png");
-					criaEfeitoAlimento(image, x, y);
+		
+					criaEfeitoAlimento(x, y, "-10");
 					LISTA_DE_ALIMENTOS_RUIM.remove(i);
 					
 					
