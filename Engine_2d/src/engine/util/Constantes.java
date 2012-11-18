@@ -1,5 +1,6 @@
 package engine.util;
 
+import java.applet.Applet;
 import java.applet.AudioClip;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
@@ -163,6 +164,9 @@ public class Constantes {
 
 	public static AudioClip loadAudio(String nomedoaarquivo) {
 
+		//AudioClip sound = Applet.getAudioClip(Link.singleton.getClass().getResourceAsStream(nomedoaarquivo));
+		//AudioClip sound = getAudioClip( getDocumentBase(), "teste.wav");
+		//return sound;
 		return null;
 
 	}
