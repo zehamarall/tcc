@@ -1,6 +1,5 @@
 package engine.util;
 
-import java.applet.Applet;
 import java.applet.AudioClip;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
@@ -13,8 +12,8 @@ import engine.MoveAbleGameObject;
 import engine.Sprite;
 import engine.Particulas.PersDoenca;
 import engine.Particulas.PersPrincipal;
-import engine.Particulas.PersonagemaMaldoso;
 import engine.Particulas.PersonagemPrincipal;
+import engine.Particulas.PersonagemaMaldoso;
 
 public class Constantes {
 	static int count = 0;
@@ -80,11 +79,11 @@ public class Constantes {
 
 	public static boolean colideRetangulo(PersonagemPrincipal entidadeum,
 			Sprite entidadedois) {
-		if (entidadeum.x + entidadeum.sizeX-20 > entidadedois.x
-				&& entidadeum.x+20 < entidadedois.x
+		if (entidadeum.x + entidadeum.sizeX - 20 > entidadedois.x
+				&& entidadeum.x + 20 < entidadedois.x
 						+ entidadedois.image.getWidth()
-				&& entidadeum.y + entidadeum.sizeY-15 > entidadedois.y
-				&& entidadeum.y+15 < entidadedois.y
+				&& entidadeum.y + entidadeum.sizeY - 15 > entidadedois.y
+				&& entidadeum.y + 15 < entidadedois.y
 						+ entidadedois.image.getHeight()) {
 			return true;
 		}
@@ -164,9 +163,10 @@ public class Constantes {
 
 	public static AudioClip loadAudio(String nomedoaarquivo) {
 
-		//AudioClip sound = Applet.getAudioClip(Link.singleton.getClass().getResourceAsStream(nomedoaarquivo));
-		//AudioClip sound = getAudioClip( getDocumentBase(), "teste.wav");
-		//return sound;
+		// AudioClip sound =
+		// Applet.getAudioClip(Link.singleton.getClass().getResourceAsStream(nomedoaarquivo));
+		// AudioClip sound = getAudioClip( getDocumentBase(), "teste.wav");
+		// return sound;
 		return null;
 
 	}
