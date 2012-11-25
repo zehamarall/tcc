@@ -23,7 +23,7 @@ public class GamePanel extends Canvas implements Runnable {
 
 	// Variaveis para calcular FPS
 	long Fps, Sfps;
-
+	public static long tempo;
 	// Variaveis de Sistema
 	public static final int GAME_WIDTH = 1024;
 	public static final int GAME_HEIGHT = 640;
@@ -164,7 +164,7 @@ public class GamePanel extends Canvas implements Runnable {
 
 		gameCanvasAtual.draw(dbg);
 
-		 //dbg.setColor(Color.black);
+		 dbg.setColor(Color.black);
 		 //dbg.drawString("FPS: " + Fps, 20, 20);
 	}
 
@@ -202,6 +202,7 @@ public class GamePanel extends Canvas implements Runnable {
 
 				Fps = Sfps;
 				Sfps = 1;
+				tempo ++;
 				segundo = (int) (tempoAnterior / 1000);
 
 			} else {

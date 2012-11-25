@@ -22,12 +22,14 @@ public class AEstrela {
 
 		int k = 0;
 		mapa = new int[_largura][_altura];
-
+		System.out.println("MATRIZ ");
 		for (int i = 0; i < 40; i++) {
 			for (int j = 0; j < 64; j++) {
 				mapa[i][j] = _mapa[1][k];
+				System.out.print(mapa[i][j] + " ,");
 				k++;
 			}
+			System.out.println();
 
 		}
 

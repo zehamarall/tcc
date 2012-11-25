@@ -265,6 +265,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 			dbg.setColor(Color.black);
 			dbg.drawString("VIDAS: " + vidas, GamePanel.GAME_WIDTH - 150, 15);
 			dbg.drawString("PONTOS: " + pontos, GamePanel.GAME_WIDTH - 150, 40);
+			dbg.drawString("TEMPO: " + GamePanel.tempo,  GamePanel.GAME_WIDTH - 110, GamePanel.GAME_HEIGHT - 10);
 		}
 
 		if (gameOver == true) {
@@ -274,7 +275,7 @@ public class GerenciadorDeParticulas extends GerenciadorBase {
 		}
 
 		if (LISTA_DE_ALIMENTOS_BOM.size() == 0) {
-			GamePanel.total_pontos += pontos;
+			GamePanel.total_pontos += ((pontos*20)/GamePanel.tempo);
 			if (GamePanel.fase < 3) {
 				GamePanel.trocaFase(GamePanel.GAME_VENCEDOR);
 			} else {

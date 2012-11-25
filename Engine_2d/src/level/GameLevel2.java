@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 
 import engine.GameCanvas;
+import engine.GamePanel;
 import engine.Gerenciadores.GerenciadorDeParticulas;
 import engine.Gerenciadores.GerenciadorDeSom;
 import engine.mapa.Fase2;
@@ -96,7 +97,7 @@ public class GameLevel2 extends GameCanvas {
 			BufferedImage image1 = Constantes.LoadImage("bruxa.png");
 			meuGerenciador.criaPersonagemDoenca(image1);
 		}
-
+		GamePanel.tempo = 0;
 	}
 
 	@Override
