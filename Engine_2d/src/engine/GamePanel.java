@@ -44,6 +44,7 @@ public class GamePanel extends Canvas implements Runnable {
 	public static final short GAME_LEVEL_2 = 5;
 	public static final short GAME_LEVEL_3 = 6;
 	public static final short GAME_FINISH = 7;
+	public static final short GAME_INFO = 8;
 
 	public static long diffTime;
 
@@ -64,9 +65,11 @@ public class GamePanel extends Canvas implements Runnable {
 		listaDeGameCanvas.add(new GameLevel2(1));
 		listaDeGameCanvas.add(new GameLevel3(1));
 		listaDeGameCanvas.add(new GameFinish());
-
-		gameCanvasAtual = primeiroGameCanvas;
-		indiceGameCanvas = 0;
+		
+		GameCanvas info= new GameInfo();
+		listaDeGameCanvas.add(info);
+		gameCanvasAtual = info;
+		indiceGameCanvas = 8;
 
 		// tratar evento do teclado
 		addKeyListener(new KeyListener() {
