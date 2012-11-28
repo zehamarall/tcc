@@ -22,6 +22,8 @@ public class GameLevel1 extends GameCanvas {
 	Fase1 meuMapa;
 	GerenciadorDeParticulas meuGerenciador = new GerenciadorDeParticulas(false);
 	GerenciadorDeSom meuSom;
+	public static int[] alimentobom = new int[3];
+	public static int[] alimentoruim = new int[3];
 	Random rnd = new Random();
 
 	private boolean UP = false;
@@ -86,6 +88,7 @@ public class GameLevel1 extends GameCanvas {
 			Graphics tmpGraphic = tmpImagem.getGraphics();
 			tmpGraphic.drawImage(image2, 0, 0, 50, 50, (x * 50), 0,
 					((x * 50) + 50), 50, null);
+			alimentobom[i] = x;
 			meuGerenciador.criaAlimentoBom(tmpImagem);
 		}
 
@@ -99,6 +102,7 @@ public class GameLevel1 extends GameCanvas {
 			System.out.println("CRIANDO X " + x);
 			tmpGraphic.drawImage(image4, 0, 0, 50, 50, (x * 50), 0,
 					((x * 50) + 50), 50, null);
+			alimentoruim[i] = x;
 			meuGerenciador.criaAlimentoRuim(tmpImagem);
 
 		}

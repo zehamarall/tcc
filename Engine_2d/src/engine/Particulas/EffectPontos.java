@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 
 import engine.GameObject;
+import engine.GamePanel;
 
 public class EffectPontos extends GameObject {
 	
@@ -17,6 +18,7 @@ public class EffectPontos extends GameObject {
 		super(_x, _y, _Cor);
 		TEMPO_TOTAL_DE_VIDA = 150;
 		pontos = _pontos;
+		
 		// TODO Auto-generated constructor stub
 	}
 	

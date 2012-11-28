@@ -20,12 +20,14 @@ public class GameLevel2 extends GameCanvas {
 	Fase2 meuMapa;
 	GerenciadorDeParticulas meuGerenciador = new GerenciadorDeParticulas(false);
 	GerenciadorDeSom meuSom;
+	
 
 	private boolean UP = false;
 	private boolean DOWN = false;
 	private boolean LEFT = false;
 	private boolean RIGHT = false;
-
+	public static int[] alimentobom = new int[3];
+	public static int[] alimentoruim = new int[3];
 	Random rnd = new Random();
 
 	@Override
@@ -79,6 +81,7 @@ public class GameLevel2 extends GameCanvas {
 			BufferedImage tmpImagem = new BufferedImage(50, 50, BufferedImage.TYPE_INT_ARGB);
 			Graphics tmpGraphic = tmpImagem.getGraphics();
 			tmpGraphic.drawImage(image2, 0, 0, 50, 50, (x * 50), 0, ((x * 50) + 50), 50, null);
+			alimentobom[i] = x;
 			meuGerenciador.criaAlimentoBom(tmpImagem);
 		}
 		
@@ -89,6 +92,7 @@ public class GameLevel2 extends GameCanvas {
 			BufferedImage tmpImagem = new BufferedImage(50, 50, BufferedImage.TYPE_INT_ARGB);
 			Graphics tmpGraphic = tmpImagem.getGraphics();
 			tmpGraphic.drawImage(image4, 0, 0, 50, 50, (x * 50), 0, ((x * 50) + 50), 50, null);
+			alimentoruim[i] = x;
 			meuGerenciador.criaAlimentoRuim(tmpImagem);
 		}
 

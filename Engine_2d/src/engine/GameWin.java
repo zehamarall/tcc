@@ -2,11 +2,16 @@ package engine;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+
+import level.GameLevel1;
+import level.GameLevel2;
+import level.GameLevel3;
 
 import engine.util.Constantes;
 
@@ -15,6 +20,8 @@ public class GameWin extends GameCanvas {
 	BufferedImage tileset;
 	BufferedImage mBackground;
 	ArrayList<Botao> mListaDeBotoes = new ArrayList<Botao>();
+	BufferedImage alimentobom;
+	BufferedImage alimentoruim;
 	Font font;
 
 	public GameWin() {
@@ -23,7 +30,9 @@ public class GameWin extends GameCanvas {
 		BufferedImage notOver = Constantes.LoadImage("proximo1.png");
 		BufferedImage sair = Constantes.LoadImage("sair4.png");
 		BufferedImage notSair = Constantes.LoadImage("sair3.png");
-		mBackground = Constantes.LoadImage("game_over.png");
+		alimentobom = Constantes.LoadImage("bons2.png");
+		alimentoruim = Constantes.LoadImage("ruins2.png");
+		mBackground = Constantes.LoadImage("game_over2.png");
 
 		Botao mPlayButton = new Botao(680, 550, over, notOver) {
 
@@ -50,7 +59,7 @@ public class GameWin extends GameCanvas {
 
 		mListaDeBotoes.add(mPlayButton);
 		mListaDeBotoes.add(mPlayButton2);
-
+		
 
 	}
 
@@ -72,6 +81,47 @@ public class GameWin extends GameCanvas {
 		for (int i = 0; i < mListaDeBotoes.size(); i++) {
 			mListaDeBotoes.get(i).draw(dbg);
 		}
+		
+		String aux = "";
+		alimentoInfo info = new alimentoInfo();
+		for (int i = 0; i < 3; i++) {
+			int x = 0;
+			if (GamePanel.fase == 1){
+				x = (int)GameLevel1.alimentobom[i];
+			}else if (GamePanel.fase == 2){
+				x = (int)GameLevel2.alimentobom[i];
+			}else if (GamePanel.fase == 3){
+				x = (int)GameLevel3.alimentobom[i];
+			}
+			BufferedImage tmpImagem = new BufferedImage(50, 50, BufferedImage.TYPE_INT_ARGB);
+			Graphics tmpGraphic = tmpImagem.getGraphics();
+			tmpGraphic.drawImage(alimentobom, 0, 0, 50, 50, (x * 50), 0, ((x * 50) + 50), 50, null);
+			dbg.drawImage(tmpImagem, 70+i*50, 330, null, null);
+			aux += info.alimentoCaracteristica(x);
+			if(i != 2){
+				aux += ", ";
+			}
+
+		}
+		dbg.drawString(aux, 250, 370);
+		
+		for (int i = 0; i < 3; i++) {
+			int x = 0;
+			if (GamePanel.fase == 1){
+				x = (int)GameLevel1.alimentoruim[i];
+			}else if (GamePanel.fase == 2){
+				x = (int)GameLevel2.alimentoruim[i];
+			}else if (GamePanel.fase == 3){
+				x = (int)GameLevel3.alimentoruim[i];
+			}
+			BufferedImage tmpImagem = new BufferedImage(50, 50, BufferedImage.TYPE_INT_ARGB);
+			Graphics tmpGraphic = tmpImagem.getGraphics();
+			tmpGraphic.drawImage(alimentoruim, 0, 0, 50, 50, (x * 50), 0, ((x * 50) + 50), 50, null);
+			dbg.drawImage(tmpImagem, 70+i*50, 400, null, null);
+
+		}
+		dbg.drawString("Excesso gordura e açúcar ", 250, 440);
+		
 	}
 
 	@Override

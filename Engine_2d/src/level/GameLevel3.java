@@ -25,6 +25,8 @@ public class GameLevel3 extends GameCanvas {
 	private boolean DOWN = false;
 	private boolean LEFT = false;
 	private boolean RIGHT = false;
+	public static int[] alimentobom = new int[3];
+	public static int[] alimentoruim = new int[3];
 	Random rnd = new Random();
 
 
@@ -80,6 +82,7 @@ public class GameLevel3 extends GameCanvas {
 			Graphics tmpGraphic = tmpImagem.getGraphics();
 			tmpGraphic.drawImage(image2, 0, 0, 50, 50, (x * 50), 0, ((x * 50) + 50), 50, null);
 			meuGerenciador.criaAlimentoBom(tmpImagem);
+			alimentobom[i] = x;
 		}
 		
 		BufferedImage image4 = Constantes.LoadImage("ruins2.png");
@@ -90,6 +93,7 @@ public class GameLevel3 extends GameCanvas {
 			Graphics tmpGraphic = tmpImagem.getGraphics();
 			tmpGraphic.drawImage(image4, 0, 0, 50, 50, (x * 50), 0, ((x * 50) + 50), 50, null);
 			meuGerenciador.criaAlimentoRuim(tmpImagem);
+			alimentoruim[i] = x;
 		}
 
 		// criando os personagens fantasma

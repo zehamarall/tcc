@@ -28,7 +28,7 @@ public class GamePanel extends Canvas implements Runnable {
 	public static final int GAME_WIDTH = 1024;
 	public static final int GAME_HEIGHT = 640;
 	private Thread animator;
-	private boolean running = false;
+	private static boolean running = false;
 	public static GamePanel isntance = null;
 	public static Random rnd = new Random();
 	public static int fase = 0;
@@ -153,9 +153,19 @@ public class GamePanel extends Canvas implements Runnable {
 
 	}
 
-	public void stopGame() {
+	
+	//public void delayGame() throws InterruptedException {
+	//	animator.sleep(3000);
+	//}
+	
+	public static void stopGame() {
 		running = false;
 	}
+	
+	public static void restarGame() {
+		running = true;
+	}
+
 
 	public void gameUpdate(long diffTime) {
 		gameCanvasAtual.gameUpdate(diffTime);
