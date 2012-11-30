@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 
 import engine.GameObject;
-import engine.GamePanel;
 
 public class EffectPontos extends GameObject {
 	
